@@ -5,14 +5,15 @@ body {
 
 .mapContainer {
     width: 320px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border: 2px solid red;
-    height: 320px;
+    margin: auto;
+    height: 280px;
     margin-top: 50px;
+    justify-content: space-evenly;
+    display: flex;
 }
 
 #map {
+    border-radius: 8px;
     height: 100%;
     width: 100%;
 }

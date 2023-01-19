@@ -5,19 +5,21 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Montserrat', sans-serif;
-
+    background-color: #F5F5F5;
 }
 
 .image_1 img {
     width: 380px;
 }
 
-.bottom img {
-    margin-top: -100px;
+.bottom>img {
+    margin-top: 20px;
     width: 250px;
     height: 250px;
     display: flex;
     justify-content: center;
+    animation: identifier 1.5s ease-in-out infinite;
+
 }
 
 .bottom {
@@ -27,9 +29,15 @@ body {
 }
 
 .bottom p {
-    margin-top: 100px;
+    margin-top: 140px;
 }
 
 .bottom h1 {
     margin-top: -2px;
+}
+
+@keyframes identifier {
+    100% {
+        transform: rotate(360deg);
+    }
 }
