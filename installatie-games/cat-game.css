@@ -1,6 +1,23 @@
-.rotate {
-    border-radius: 50%;
-    width:10%;
-    cursor: ns-resize;
-    background-color: rgb(27, 33, 31);
+h1,
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.cat {
+
+    margin-top: 5px;
+}
+
+.logo img {
+    width: 20%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+
+.arrow {
+    margin-left: 5%;
+    margin-right: 4%;
+
 }
