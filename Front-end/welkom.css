@@ -18,8 +18,7 @@ body {
     height: 250px;
     display: flex;
     justify-content: center;
-    animation: identifier 1.5s ease-in-out infinite;
-
+    animation: identifier 1.5s ease infinite;
 }
 
 .bottom {
@@ -34,10 +33,66 @@ body {
 
 .bottom h1 {
     margin-top: -2px;
+    font-size: 20px;
 }
 
 @keyframes identifier {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.filter {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 2px solid #F04E37;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.filter img {
+    width: 80%;
+}
+
+#jef img {
+    width: 100%;
+    justify-content: center;
+
+}
+
+#jef {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 2px solid #F04E37;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+#wc img {
+    width: 100%;
+    justify-content: center;
+}
+
+#wc {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 2px solid #F04E37;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }

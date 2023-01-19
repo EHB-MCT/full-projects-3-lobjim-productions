@@ -30,7 +30,7 @@ html {
     align-items: center;
     margin-top: 10px;
     background-color: #F04E37;
-    margin-left: 20px;
+    margin-left: 30px;
     padding: 10px 10px;
     width: 120px;
     color: white;
@@ -91,7 +91,6 @@ html {
 }
 
 .close-btn {
-    border: .6px solid white;
     padding: 10px;
     position: absolute;
     top: 1rem;
