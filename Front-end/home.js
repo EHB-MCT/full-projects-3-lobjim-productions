@@ -1,4 +1,16 @@
 console.log('OK')
+const main_popup = document.querySelector('.main-popup');
+const close_btn = document.querySelector('.close-btn');
+
+const popup = document.querySelector('.popup');
+close_btn.addEventListener('click', () => {
+    main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 500);
+});
+
+
 let points = []
 var map = L.map('map').setView([51.2194475, 4.4024643], 10);
 
@@ -32,6 +44,8 @@ function successLocation(position) {
         el.addTo(map)
         el.on('click', e => {
             console.log(e.target.options)
+            popup.style.display = 'flex';
+            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
 
