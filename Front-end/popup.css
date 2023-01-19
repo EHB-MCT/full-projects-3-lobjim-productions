@@ -25,13 +25,20 @@ html {
 }
 
 .datum {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
     background-color: #F04E37;
     margin-left: 20px;
     padding: 10px 10px;
-    width: 85px;
+    width: 120px;
     color: white;
     font-size: 12px;
+}
+
+.datum img {
+    height: 20px;
 }
 
 .container {
