@@ -33,26 +33,27 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 })
 
 function successLocation(position) {
-    let marker = Lrker = L.marker([position.coords.latitude, position.coords.longitude], {
-        customId: 155454,
-        type: 'resto'
-    })
-
-
-
+    let marker = L.marker([position.coords.latitude, position.coords.longitude])
+    marker.addTo(map)
 }
 
 function errorLocation() {
     L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
-
 }
 
 
 let toiletMarkers = []
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
+    toiletMarkers.forEach(el => {
+        console.log(el)
+        map.removeLayer(el)
+
+    })
     console.log('click')
+    toiletMarkers = []
     getToiletData().then(data => {
+
         data.features.forEach(el => {
             const id = el.attributes.OBJECTID
             const xPos = el.geometry.x
@@ -64,13 +65,13 @@ toilet.addEventListener('click', e => {
             })
             toiletMarkers.push(marker)
         })
+
         renderToiletMarker()
     })
 
 })
 
 function renderToiletMarker() {
-
     toiletMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
@@ -80,7 +81,6 @@ function renderToiletMarker() {
         })
     })
 }
-
 
 
 async function getToiletData() {
