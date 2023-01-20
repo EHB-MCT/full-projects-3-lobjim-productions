@@ -129,3 +129,8 @@ body {
 #like_img {
     width: 30px;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
