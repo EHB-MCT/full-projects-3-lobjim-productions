@@ -1,23 +1,16 @@
 console.log('OK')
 const main_popup = document.querySelector('.main-popup');
-const close_btn = document.querySelector('.close-btn');
-// const buttons = document.querySelector('.buttons');
-// const mapContainer = document.querySelector('.mapContainer');
-
 const popup = document.querySelector('.popup');
-close_btn.addEventListener('click', () => {
-    main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
-    setTimeout(() => {
-        popup.style.display = 'none';
-    }, 500);
-    // buttons.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
-    // mapContainer.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
-
-});
 
 
+let buttons = document.getElementsByName('btns')
 
-
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active')
+    })
+})
 
 
 let points = []
@@ -75,14 +68,64 @@ function renderToiletMarker() {
     toiletMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
-            console.log(e)
+            console.log(e.target)
+            const id = e.target.options.customId
+
+            getToiletData().then(data => {
+                console.log(data)
+                const findToilet = data.features.find(el => el.attributes.OBJECTID == id)
+                console.log(findToilet)
+                renderToiletData(findToilet)
+            })
+
             popup.style.display = 'flex';
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
 }
 
+function renderToiletData(findToilet) {
+    let uur
+    if (findToilet.attributes.OPENINGSUREN_OPM == null) {
+        uur = ` <p>Uur: /</p>`
+    } else {
+        uur = ` <p>Uur: ${findToilet.attributes.OPENINGSUREN_OPM}</p>`
+    }
 
+    console.log(findToilet)
+    main_popup.innerHTML = ""
+    main_popup.innerHTML = `<div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <div class="naam">
+        <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
+    </div>
+    <div class="info">
+        <div class="info_leeftijd">
+            <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
+        </div>
+        <div class="info_uur">
+            <p>${uur}</p>
+        </div>
+    </div>
+    <div class="installaties">
+        <p>Installatie aanwezig aan in ingang</p>
+    </div>
+    <div class="like-go">
+        <button id="like"><img id="like_img" src="img/like.png"></button>
+        <button id="btn_gaan">Gaan</button>
+    </div>
+</div>`
+
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', () => {
+        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+
+
+    });
+}
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')

@@ -31,7 +31,7 @@ html {
     margin-top: 10px;
     background-color: #F04E37;
     margin-left: 30px;
-    padding: 10px 10px;
+    padding: 5px 10px;
     width: 120px;
     color: white;
     font-size: 12px;
@@ -79,7 +79,7 @@ html {
 .main-popup {
     position: absolute;
     left: 0;
-    height: 40%;
+    height: 45%;
     width: 100%;
     z-index: 0;
     background: whitesmoke;
@@ -103,6 +103,7 @@ html {
 
 #btn_gaan {
     padding: 10px 20px;
+    margin-bottom: 20px;
     background-color: #F04E37;
     border: 0px;
     color: white;
@@ -113,7 +114,7 @@ html {
 }
 
 .popup-content h2 {
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 20px;
     text-align: center;
     
