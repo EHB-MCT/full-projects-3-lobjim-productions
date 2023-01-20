@@ -9,7 +9,7 @@ body {
     margin-right: auto;
     margin-bottom: 30px;
     height: 280px;
-    margin-top: 50px;
+    margin-top: 34px;
     justify-content: space-evenly;
     display: flex;
 }
@@ -38,7 +38,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 38px;
 
 }
 
@@ -134,6 +134,14 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+#popcorn {
+    position: fixed;
+    width: 500px;
+    bottom: 0px;
+    left: -70px;
+    z-index: -10;
 }
 
 
