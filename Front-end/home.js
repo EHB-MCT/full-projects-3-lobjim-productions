@@ -1,6 +1,8 @@
 console.log('OK')
 const main_popup = document.querySelector('.main-popup');
 const close_btn = document.querySelector('.close-btn');
+// const buttons = document.querySelector('.buttons');
+// const mapContainer = document.querySelector('.mapContainer');
 
 const popup = document.querySelector('.popup');
 close_btn.addEventListener('click', () => {
@@ -8,7 +10,14 @@ close_btn.addEventListener('click', () => {
     setTimeout(() => {
         popup.style.display = 'none';
     }, 500);
+    // buttons.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+    // mapContainer.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+
 });
+
+
+
+
 
 
 let points = []
@@ -24,8 +33,12 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 })
 
 function successLocation(position) {
-    let marker = L.marker([position.coords.latitude, position.coords.longitude])
-    marker.addTo(map)
+    let marker = Lrker = L.marker([position.coords.latitude, position.coords.longitude], {
+        customId: 155454,
+        type: 'resto'
+    })
+
+
 
 }
 
