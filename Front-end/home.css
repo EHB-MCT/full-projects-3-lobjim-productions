@@ -5,7 +5,8 @@ body {
 
 .mapContainer {
     width: 320px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     height: 280px;
     margin-top: 50px;
     justify-content: space-evenly;
@@ -16,12 +17,14 @@ body {
     border-radius: 8px;
     height: 100%;
     width: 100%;
+    margin-top: -20px;
 }
 
 .filter {
     width: 40px;
     height: 40px;
     border-radius: 100px;
+    background-color: white;
     border: 2px solid #F04E37;
     padding-top: 10px;
     padding-left: 10px;
@@ -33,17 +36,21 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: -10px;
+    margin-bottom: 15px;
 
 }
 
-.filter img {
-    width: 80%;
+.buttons img {
+    width: 20px;
+    object-fit: cover;
+    background-position: top;
 }
 
 #jef img {
-    width: 100%;
-    justify-content: center;
-
+    padding: auto;
+    padding-top: 4px;
+    width: 40px;
 }
 
 #jef {
@@ -51,26 +58,67 @@ body {
     height: 60px;
     border-radius: 100px;
     border: 2px solid #F04E37;
+    background-color: white;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-}
-
-#wc img {
-    width: 100%;
-    justify-content: center;
 }
 
 #wc {
     width: 40px;
     height: 40px;
     border-radius: 100px;
+    background-color: white;
     border: 2px solid #F04E37;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+}
+
+#wc img {
+    width: 25px;
+    padding-top: 4px;
+}
+
+#park {
+    padding: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+    border: 2px solid #F04E37;
+}
+
+#park img {
+    width: 17px;
+}
+
+#transport {
+    padding: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+    border: 2px solid #F04E37;
+}
+
+#transport img {
+    width: 20px;
+}
+
+#eten {
+    padding: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+    border: 2px solid #F04E37;
+}
+
+#eten img {
+    width: 15px;
 }
 
 #like {
@@ -80,4 +128,9 @@ body {
 
 #like_img {
     width: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
