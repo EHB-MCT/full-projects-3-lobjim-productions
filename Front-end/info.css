@@ -1,0 +1,39 @@
+@import url('https://fonts.cdnfonts.com/css/avenir-next-lt-pro');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.header {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 30px;
+    
+}
+
+.text{
+margin-left: 30px;
+}
+
+.pic{
+    
+}
+
+.pic img{
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    margin: auto auto;
+}
