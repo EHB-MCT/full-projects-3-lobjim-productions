@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.header {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.myprofile {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.myprofile img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.myprofile h1 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.myprofile p {
+    font-size: 12px;
+    color: #707070;
+    margin-top: -10px;
+}
+
+.likelist {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.like_1 {
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    background-color: whitesmoke;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.like_2 {
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin-bottom: 15px;
+}
+
+.like_3 {
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin-bottom: 15px;
+}
+
+.like_4 {
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    margin-bottom: 15px;
+}
+
+
+.likelist img {
+    margin-top: 2px;
+    width: 15px;
+    height: 15px;
+}
+
+.title h1 {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+}
+
+.logout button {
+    margin-top: 80px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #F04E37;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
