@@ -65,6 +65,49 @@
     {
         "naam": "Nives",
         "adres": "Harmoniestraat 25B,2000 Antwerpen"
+    },
+    {
+        "name": "Barchel Centrum",
+        "adress": "Van Breestraat 6"
+    },
+    {
+        "name": "Willy Vanilli",
+        "adress": "Mastplein 100, 2610 Wilrijk"
+    }, {
+        "name": "Den esprit",
+        "adress": "Bist 10, 2610 Antwerpen"
+    }, {
+        "name": "Bistro Jules",
+        "adress": "Jules Moretuslei 265, 2610 Antwerpen"
+    }, {
+        "name": "Buurtbar Barix",
+        "adress": "De Gryspeerstraat 86"
+    }, {
+        "name": "kolonel&reede",
+        "adress": "Ankerrui 15, 2000 Antwerpen"
+    }, {
+        "name": "Vers Eilandje",
+        "adress": "Van Schoonbekeplein 17, 2000 Antwerpen"
+    }, {
+        "name": "No Worries",
+        "adress": "Kribbestraat 20, 2000 Antwerpen"
+    }, {
+        "name": "Gaarkeuken 110",
+        "adress": "Vosseschijnstraat 21, 2030 Antwerpen"
+    }, {
+        "name": "Barchel Centrum",
+        "adress": "Van Breestraat 6"
+    }, {
+        "name": "Matiate",
+        "adress": "Groenendaallaan 414, 2030 Antwerpen"
+    }, {
+        "name": "Esco*bar",
+        "adress": "Quellinstraat 32, 2018 Antwerpen"
+    }, {
+        "name": "Soul",
+        "adress": "Otto Veniusstraat 5, 2000 Antwerpen"
+    }, {
+        "name": "De Wasbar",
+        "adress": "De Keyserlei 43, 2018 Antwerpen"
     }
-
 ]
