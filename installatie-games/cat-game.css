@@ -1,23 +1,35 @@
-h1,
-h2 {
+body {
+    width: 375px;
+    overflow-x: hidden;
+    margin: 0px 0px;
+}
+
+.header_text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    margin-right: 20%;
+    margin-top: 15px;
+
 }
 
 .cat {
+    margin-top: 50px;
+    margin-left: 3%;
 
-    margin-top: 5px;
 }
 
 .logo img {
-    width: 20%;
+    margin-top: 5px;
+    width: 15%;
     margin-left: 2%;
-    margin-top: 2%;
 }
 
-
-.arrow {
+.arrow_left {
     margin-left: 5%;
-    margin-right: 4%;
+    margin-right: 43%;
+}
 
+.footer {
+    margin-top: 40%;
+    margin-left: 0;
 }
