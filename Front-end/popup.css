@@ -79,7 +79,7 @@ html {
 .main-popup {
     position: absolute;
     left: 0;
-    height: 40%;
+    height: 45%;
     width: 100%;
     z-index: 0;
     background: whitesmoke;
@@ -103,6 +103,7 @@ html {
 
 #btn_gaan {
     padding: 10px 20px;
+    margin-bottom: 20px;
     background-color: #F04E37;
     border: 0px;
     color: white;
