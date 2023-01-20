@@ -19,20 +19,22 @@ html {
     justify-content: space-between;
     margin-top: 50px;
     margin-left: 30px;
-    
+
 }
 
-.text{
-margin-left: 30px;
+.text {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-size:12px;
+    margin-right: 30px;
 }
 
-.pic{
-    
-}
 
-.pic img{
-    width: 300px;
-    height: 300px;
+
+.pic {}
+
+.pic img {
+    width: 85%;
     text-align: center;
     display: flex;
     margin: auto auto;
