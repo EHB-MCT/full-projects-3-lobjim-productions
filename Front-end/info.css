@@ -25,7 +25,7 @@ html {
 .text {
     margin-left: 30px;
     margin-bottom: 20px;
-    font-size:12px;
+    font-size: 12px;
     margin-right: 30px;
 }
 
@@ -38,4 +38,39 @@ html {
     text-align: center;
     display: flex;
     margin: auto auto;
+}
+
+.contactgegevens {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.mail {
+    display: flex;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.mail p {
+    margin-top: 5px;
+}
+
+.mail img {
+    width: 7%;
+    margin-right: 10px;
+}
+
+.phone {
+    display: flex;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.phone p {
+    margin-top: 5px;
+}
+
+.phone img {
+    width: 7%;
+    margin-right: 10px;
 }
