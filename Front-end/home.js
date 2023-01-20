@@ -24,35 +24,54 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 })
 
 function successLocation(position) {
-
-    let marker = L.marker([position.coords.latitude, position.coords.longitude], {
-        customId: 155454,
-        type: 'resto'
-    })
-
-    let marker2 = L.marker([51.2194475, 4.4424643], {
-        customId: 1575454,
-        type: 'WC'
-    });
-    let marker3 = L.marker([51.2194475, 4.5024643], {
-        customId: 616564,
-        type: 'Park'
-    });
-    points.push(marker, marker2, marker3)
-    points.forEach(el => {
-        console.log(el)
-        el.addTo(map)
-        el.on('click', e => {
-            console.log(e.target.options)
-            popup.style.display = 'flex';
-            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
-        })
-    })
-
+    let marker = L.marker([position.coords.latitude, position.coords.longitude])
+    marker.addTo(map)
 
 }
 
 function errorLocation() {
     L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
 
+}
+
+
+let toiletMarkers = []
+const toilet = document.getElementById('wc')
+toilet.addEventListener('click', e => {
+    console.log('click')
+    getToiletData().then(data => {
+        data.features.forEach(el => {
+            const id = el.attributes.OBJECTID
+            const xPos = el.geometry.x
+            const yPos = el.geometry.y
+            const type = el.attributes.TYPE
+            let marker = L.marker([yPos, xPos], {
+                customId: id,
+                type: type
+            })
+            toiletMarkers.push(marker)
+        })
+        renderToiletMarker()
+    })
+
+})
+
+function renderToiletMarker() {
+
+    toiletMarkers.forEach(el => {
+        el.addTo(map)
+        el.on('click', e => {
+            console.log(e)
+            popup.style.display = 'flex';
+            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
+        })
+    })
+}
+
+
+
+async function getToiletData() {
+
+    const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')
+    return await res.json()
 }
