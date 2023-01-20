@@ -8,18 +8,15 @@ body {
 
 
 
-
 .header_text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-right: 20%;
     margin-top: 15px;
 }
 
 .cat {
     margin-top: 50px;
-    margin-left: 5%;
-
+    margin-left: 15%;
 }
 
 .logo img {
@@ -30,11 +27,11 @@ body {
 
 .arrow_left {
     margin-left: 5%;
-    margin-right: 43%;
+    margin-right: 45%;
 }
 
 .arrow_right {
-    margin-left: 5%;
+    margin-left: 22%;
 }
 
 .footer {
