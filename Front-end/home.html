@@ -12,7 +12,7 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 
-
+    <script src="hover.js" type="module" defer></script>
     <script src="home.js" type="module" defer></script>
     <link rel="stylesheet" href="home.css">
     <script src="popup.js" type="module" defer></script>
@@ -56,10 +56,10 @@
         <img id="date_img" src="img/kalender.png">
     </div>
     <div class="buttons">
-        <button id="eten" type="button"><img src="./img/eten.png" alt="eten"></button>
-        <button id="park" type="button"><img src="./img/park.png" alt="park"></button>
-        <button id="transport" type="button"><img src="./img/transport.png" alt="vervoermiddelen"></button>
-        <button id="wc" type="button"><img src="./img/wc.png" alt="toiletten"></button>
+        <button name="btn" id="eten" type="button"><img src="./img/eten.png" alt="eten"></button>
+        <button name="btn" id="park" type="button"><img src="./img/park.png" alt="park"></button>
+        <button name="btn" id="transport" type="button"><img src="./img/transport.png" alt="vervoermiddelen"></button>
+        <button name="btn" id="wc" type="button"><img src="./img/wc.png" alt="toiletten"></button>
     </div>
     <div class="mapContainer">
         <div id="map"></div>
@@ -96,6 +96,7 @@
     </div>
 
     <img id="popcorn" src="./img/popcorn background.png">
+    <img id="animation1" src="./img/animation1.gif">.
 
     <script src="app.js"></script>
 </body>
