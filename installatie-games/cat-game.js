@@ -46,7 +46,7 @@ let rotation = 0;
 const angle = 5;
 
 let rotationCounter = 0;
-const animationURL = '/installatie-games/images/orange-cat.gif';
+const animationURL = '/installatie-games/images/vomit-cat.gif';
 
 function rotateImage() {
     // Check if the rotation counter is less than 300
