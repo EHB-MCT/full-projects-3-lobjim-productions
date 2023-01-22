@@ -1,4 +1,3 @@
-console.log('OK')
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
 
@@ -59,12 +58,10 @@ let busIcon = L.icon({
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
     toiletMarkers.forEach(el => {
-        console.log(el)
         map.removeLayer(el)
 
     })
     busMarkers.forEach(el => {
-        console.log(el)
         map.removeLayer(el)
 
     })
@@ -72,7 +69,6 @@ toilet.addEventListener('click', e => {
         map.removeLayer(el)
 
     })
-    console.log('click')
     toiletMarkers = []
     getToiletData().then(data => {
 
@@ -113,7 +109,6 @@ park.addEventListener('click', e => {
     getParkData().then(data => {
         const slice = data.features.slice(5, 35)
         slice.forEach(el => {
-            console.log(el)
             const id = el.attributes.OBJECTID
             const xPos = el.geometry.rings[0][0][0]
             const yPos = el.geometry.rings[0][0][1]
@@ -135,11 +130,9 @@ park.addEventListener('click', e => {
 const bus = document.getElementById('transport')
 bus.addEventListener('click', e => {
     toiletMarkers.forEach(el => {
-        console.log(el)
         map.removeLayer(el)
     })
     busMarkers.forEach(el => {
-        console.log(el)
         map.removeLayer(el)
 
     })
@@ -147,7 +140,6 @@ bus.addEventListener('click', e => {
         map.removeLayer(el)
 
     })
-    console.log('click')
     busMarkers = []
     getTransportData().then(data => {
 
@@ -196,7 +188,6 @@ function renderBusMarker() {
             const id = e.target.options.customId
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getTransportData().then(data => {
-                console.log(data)
                 const findBus = data.features.find(el => el.properties.STOPID == id)
                 renderBusData(findBus)
             })
@@ -216,9 +207,7 @@ function renderToiletMarker() {
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getToiletData().then(data => {
-                console.log(data)
                 const findToilet = data.features.find(el => el.attributes.OBJECTID == id)
-                console.log(findToilet)
                 renderToiletData(findToilet)
             })
 
@@ -255,9 +244,7 @@ function renderParkData(park) {
             })
             routeWay = []
         }
-        console.log('get route')
         const data = JSON.parse(localStorage.getItem('pos'))
-        console.log(data)
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
@@ -271,7 +258,6 @@ function renderParkData(park) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
-            console.log(e)
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -315,7 +301,6 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
-    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -336,7 +321,6 @@ function renderBusData(bus) {
             routeWay = []
         }
         const data = JSON.parse(localStorage.getItem('pos'))
-        console.log(data)
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
@@ -350,7 +334,6 @@ function renderBusData(bus) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
-            console.log(e)
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -399,8 +382,6 @@ function renderToiletData(findToilet) {
     } else {
         uur = ` <p>Uur: ${findToilet.attributes.OPENINGSUREN_OPM}</p>`
     }
-
-    console.log(findToilet)
     main_popup.innerHTML = ""
     main_popup.innerHTML = `<div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -430,7 +411,6 @@ function renderToiletData(findToilet) {
             routeWay = []
         }
         const data = JSON.parse(localStorage.getItem('pos'))
-        console.log(data)
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
@@ -444,7 +424,6 @@ function renderToiletData(findToilet) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
-            console.log(e)
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
