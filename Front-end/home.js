@@ -344,6 +344,8 @@ function renderToiletData(findToilet) {
 
     });
 }
+
+
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')
