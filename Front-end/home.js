@@ -277,6 +277,8 @@ function renderParkData(park) {
             main_popup.innerHTML = ` <div class="popup-content">
             <div class="naam">
                 <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
+                <p>${park.attributes.STRAATNAAMLABEL}, ${park.attributes.POSTCODE} Antwerpen</p>
+
             </div>
              <div class="info_route">
              <p>${mToKm} km</p>
@@ -448,6 +450,8 @@ function renderToiletData(findToilet) {
             main_popup.innerHTML = ` <div class="popup-content">
     <div class="naam">
     <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
+    <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
+
     </div>
      <div class="info_route">
      <p>${mToKm} km</p>
