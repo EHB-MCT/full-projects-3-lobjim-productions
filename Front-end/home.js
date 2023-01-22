@@ -152,7 +152,6 @@ bus.addEventListener('click', e => {
     getTransportData().then(data => {
 
         data.features.forEach(el => {
-            console.log(el)
             const id = el.properties.STOPID
             const xPos = el.geometry.coordinates[0]
             const yPos = el.geometry.coordinates[1]
@@ -174,7 +173,6 @@ function renderParkMarker() {
     parkMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
-            console.log(e)
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
@@ -194,7 +192,7 @@ function renderBusMarker() {
     busMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
-            console.log(e.target)
+            localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getTransportData().then(data => {
@@ -215,6 +213,7 @@ function renderToiletMarker() {
         el.addTo(map)
         el.on('click', e => {
             const id = e.target.options.customId
+            localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getToiletData().then(data => {
                 console.log(data)
@@ -326,7 +325,60 @@ function renderBusData(bus) {
         <button id="btn_gaan">Gaan</button>
     </div>
 </div>`
+    const route = document.getElementById('btn_gaan')
+    route.addEventListener('click', e => {
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
+        const data = JSON.parse(localStorage.getItem('pos'))
+        console.log(data)
+        let routeMaker = L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false
+            },
+            createMarker: function () {
+                return null;
+            },
+            waypoints: [
+                L.latLng(userPosition[0], userPosition[1]),
+                L.latLng(data[1].lat, data[1].lng)
+            ],
+        }).on('routesfound', function (e) {
+            console.log(e)
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+        <div class="naam">
+        <h2>${bus.properties.NAAMHALTE} - ${bus.properties.NAAMGEM}</h2>
+        </div>
+         <div class="info_route">
+         <p>${mToKm} km</p>
+         <p>${sToMin} minuten</p>
+        </div>
+        <div class="stop">
+            <button id="stop">STOP</button>
+        </div>
+    </div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
 
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+            })
+        }).addTo(map);
+        routeMaker.hide()
+        routeWay.push(routeMaker)
+    })
     const close_btn = document.querySelector('.close-btn');
     close_btn.addEventListener('click', () => {
         main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
@@ -366,6 +418,61 @@ function renderToiletData(findToilet) {
         <button id="btn_gaan">Gaan</button>
     </div>
 </div>`
+
+    const route = document.getElementById('btn_gaan')
+    route.addEventListener('click', e => {
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
+        const data = JSON.parse(localStorage.getItem('pos'))
+        console.log(data)
+        let routeMaker = L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false
+            },
+            createMarker: function () {
+                return null;
+            },
+            waypoints: [
+                L.latLng(userPosition[0], userPosition[1]),
+                L.latLng(data[1].lat, data[1].lng)
+            ],
+        }).on('routesfound', function (e) {
+            console.log(e)
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+    <div class="naam">
+    <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
+    </div>
+     <div class="info_route">
+     <p>${mToKm} km</p>
+     <p>${sToMin} minuten</p>
+    </div>
+    <div class="stop">
+        <button id="stop">STOP</button>
+    </div>
+</div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+            })
+        }).addTo(map);
+        routeMaker.hide()
+        routeWay.push(routeMaker)
+    })
 
     const close_btn = document.querySelector('.close-btn');
     close_btn.addEventListener('click', () => {
