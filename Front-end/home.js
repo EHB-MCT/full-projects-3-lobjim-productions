@@ -39,6 +39,7 @@ function errorLocation() {
 let toiletMarkers = []
 let busMarkers = []
 let parkMarkers = []
+let routeWay = []
 
 let toiletIcon = L.icon({
     iconUrl: 'img/3677385-200.png',
@@ -173,6 +174,8 @@ function renderParkMarker() {
     parkMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
+            console.log(e)
+            localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getParkData().then(data => {
@@ -244,20 +247,19 @@ function renderParkData(park) {
     </div>
 </div>`
 
-    const close_btn = document.querySelector('.close-btn');
-    close_btn.addEventListener('click', () => {
-        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
-        setTimeout(() => {
-            popup.style.display = 'none';
-        }, 500);
-
-    });
-
 
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
         console.log('get route')
-        let route = L.Routing.control({
+        const data = JSON.parse(localStorage.getItem('pos'))
+        console.log(data)
+        let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
                 addWaypoints: false
@@ -267,16 +269,52 @@ function renderParkData(park) {
             },
             waypoints: [
                 L.latLng(userPosition[0], userPosition[1]),
-                L.latLng(51.2194475, 4.4024643)
+                L.latLng(data[1].lat, data[1].lng)
             ],
-
         }).on('routesfound', function (e) {
             console.log(e)
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+            <div class="naam">
+                <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
+            </div>
+             <div class="info_route">
+             <p>${mToKm} km</p>
+             <p>${sToMin} minuten</p>
+            </div>
+            <div class="stop">
+                <button id="stop">STOP</button>
+            </div>
+        </div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
 
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+            })
         }).addTo(map);
-
-
+        routeWay.push(routeMaker)
     })
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', () => {
+        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+
+        routeWay.forEach(route => {
+            map.removeControl(route);
+        })
+        routeWay = []
+
+    });
 }
 
 
