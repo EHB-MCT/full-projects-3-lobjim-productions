@@ -247,7 +247,7 @@ function renderParkData(park) {
     </div>
 </div>`
 
-
+    // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
         if (routeWay.length) {
@@ -300,6 +300,7 @@ function renderParkData(park) {
                 routeWay = []
             })
         }).addTo(map);
+        routeMaker.hide()
         routeWay.push(routeMaker)
     })
     const close_btn = document.querySelector('.close-btn');
@@ -308,12 +309,6 @@ function renderParkData(park) {
         setTimeout(() => {
             popup.style.display = 'none';
         }, 500);
-
-        routeWay.forEach(route => {
-            map.removeControl(route);
-        })
-        routeWay = []
-
     });
 }
 
