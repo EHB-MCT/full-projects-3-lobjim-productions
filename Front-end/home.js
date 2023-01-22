@@ -2,7 +2,7 @@ console.log('OK')
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
 
-
+let userPosition
 let buttons = document.getElementsByName('btns')
 
 buttons.forEach(button => {
@@ -27,6 +27,7 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 
 function successLocation(position) {
     let marker = L.marker([position.coords.latitude, position.coords.longitude])
+    userPosition = [position.coords.latitude, position.coords.longitude]
     marker.addTo(map)
 }
 
@@ -173,7 +174,7 @@ function renderParkMarker() {
         el.addTo(map)
         el.on('click', e => {
             const id = e.target.options.customId
-
+            map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getParkData().then(data => {
                 const findPark = data.features.find(el => el.attributes.OBJECTID == id)
                 renderParkData(findPark)
@@ -192,7 +193,7 @@ function renderBusMarker() {
         el.on('click', e => {
             console.log(e.target)
             const id = e.target.options.customId
-
+            map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getTransportData().then(data => {
                 console.log(data)
                 const findBus = data.features.find(el => el.properties.STOPID == id)
@@ -210,9 +211,8 @@ function renderToiletMarker() {
     toiletMarkers.forEach(el => {
         el.addTo(map)
         el.on('click', e => {
-            console.log(e.target)
             const id = e.target.options.customId
-
+            map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getToiletData().then(data => {
                 console.log(data)
                 const findToilet = data.features.find(el => el.attributes.OBJECTID == id)
@@ -251,8 +251,32 @@ function renderParkData(park) {
             popup.style.display = 'none';
         }, 500);
 
-
     });
+
+
+    const route = document.getElementById('btn_gaan')
+    route.addEventListener('click', e => {
+        console.log('get route')
+        let route = L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false
+            },
+            createMarker: function () {
+                return null;
+            },
+            waypoints: [
+                L.latLng(userPosition[0], userPosition[1]),
+                L.latLng(51.2194475, 4.4024643)
+            ],
+
+        }).on('routesfound', function (e) {
+            console.log(e)
+
+        }).addTo(map);
+
+
+    })
 }
 
 
