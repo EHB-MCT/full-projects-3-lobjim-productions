@@ -43,6 +43,15 @@ body {
     text-align: center;
 }
 
+#stop {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #F04E37;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+}
+
 
 .filter {
     width: 40px;
