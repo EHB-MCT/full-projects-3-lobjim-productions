@@ -379,7 +379,11 @@ function renderRestoData(resto) {
                 [userPosition[0], userPosition[1]],
                 [data[1].lat, data[1].lng]
             ]);
-
+            restoMarkers.forEach(data => {
+                if (data.options.customId !== resto.id) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -429,6 +433,7 @@ function renderRestoData(resto) {
 }
 
 function renderParkData(park) {
+    console.log(park)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -473,6 +478,11 @@ function renderParkData(park) {
                 [userPosition[0], userPosition[1]],
                 [data[1].lat, data[1].lng]
             ]);
+            parkMarkers.forEach(data => {
+                if (data.options.customId !== park.attributes.OBJECTID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -570,6 +580,12 @@ function renderBusData(bus) {
                 [userPosition[0], userPosition[1]],
                 [data[1].lat, data[1].lng]
             ]);
+
+            busMarkers.forEach(data => {
+                if (data.options.customId !== bus.properties.STOPID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -619,6 +635,7 @@ function renderBusData(bus) {
 }
 
 function renderToiletData(findToilet) {
+    console.log(findToilet)
     let uur
     if (findToilet.attributes.OPENINGSUREN_OPM == null) {
         uur = ` <p>Uur: /</p>`
@@ -671,7 +688,12 @@ function renderToiletData(findToilet) {
                 [userPosition[0], userPosition[1]],
                 [data[1].lat, data[1].lng]
             ]);
-
+            toiletMarkers.forEach(data => {
+                console.log(data)
+                if (data.options.customId !== findToilet.attributes.OBJECTID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
