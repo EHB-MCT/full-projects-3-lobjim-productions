@@ -242,8 +242,10 @@ bus.addEventListener('click', e => {
 })
 
 function renderRestoMarker() {
+    let markerGroup = new L.FeatureGroup();
     restoMarkers.forEach(el => {
-        el.addTo(map)
+        markerGroup.addLayer(el)
+        markerGroup.addTo(map);
         el.on('click', e => {
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
@@ -257,12 +259,17 @@ function renderRestoMarker() {
             popup.style.display = 'flex';
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
+
     })
+    map.fitBounds(markerGroup.getBounds());
+
 }
 
 function renderParkMarker() {
+    let markerGroup = new L.FeatureGroup();
     parkMarkers.forEach(el => {
-        el.addTo(map)
+        markerGroup.addLayer(el)
+        markerGroup.addTo(map);
         el.on('click', e => {
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
@@ -276,12 +283,16 @@ function renderParkMarker() {
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
+    map.fitBounds(markerGroup.getBounds());
+
 }
 
 
 function renderBusMarker() {
+    let markerGroup = new L.FeatureGroup();
     busMarkers.forEach(el => {
-        el.addTo(map)
+        markerGroup.addLayer(el)
+        markerGroup.addTo(map);
         el.on('click', e => {
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
             const id = e.target.options.customId
@@ -295,12 +306,16 @@ function renderBusMarker() {
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
+    map.fitBounds(markerGroup.getBounds());
+
 }
 
 
 function renderToiletMarker() {
+    let markerGroup = new L.FeatureGroup();
     toiletMarkers.forEach(el => {
-        el.addTo(map)
+        markerGroup.addLayer(el)
+        markerGroup.addTo(map);
         el.on('click', e => {
             const id = e.target.options.customId
             localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
@@ -314,6 +329,8 @@ function renderToiletMarker() {
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
+    map.fitBounds(markerGroup.getBounds());
+
 }
 
 function renderRestoData(resto) {
