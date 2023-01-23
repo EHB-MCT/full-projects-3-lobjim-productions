@@ -21,13 +21,18 @@
     <link rel="stylesheet" href="home.css">
     <script src="popup.js" type="module" defer></script>
     <link rel="stylesheet" href="popup.css">
+
+    <script src="https:///ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 </head>
 
 <body>
     <div class="header">
         <div class="titel">
             <a href="home.html">
-                <p>JEF <br>jeugdfilm festival</p>
+                <img src="./img/logo_JEFF_2023.png" alt="logo">
             </a>
         </div>
         <main>
@@ -54,10 +59,20 @@
 
     </div>
 
-
-    <div class="datum">
-        <p>18/02/2023</p>
-        <img id="date_img" src="img/kalender.png">
+    <div class="calendar">
+        <input type="text" id="DatePicker" placeholder="Select your date!">
+        <img src="./img/kalender.png" class="imagecalendar">
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#DatePicker").datepicker();
+        });
+    </script>
+    <div class="buttons">
+        <button name="btn" id="eten" type="button"><img src="./img/eten.png" alt="eten"></button>
+        <button name="btn" id="park" type="button"><img src="./img/park.png" alt="park"></button>
+        <button name="btn" id="transport" type="button"><img src="./img/transport.png" alt="vervoermiddelen"></button>
+        <button name="btn" id="wc" type="button"><img src="./img/wc.png" alt="toiletten"></button>
     </div>
     <div class="mapContainer">
         <div id="map"></div>
@@ -101,7 +116,7 @@
     </div>
 
     <img id="popcorn" src="./img/popcorn background.png">
-    <img id="animation1" src="./img/animation1.gif">.
+    <!-- <img id="animation1" src="./img/animation1.gif">.   -->
 
     <script src="app.js"></script>
 </body>

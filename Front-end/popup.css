@@ -21,7 +21,7 @@ html {
 }
 
 .header img {
-    height: 100%;
+    height: 44px;
 }
 
 .datum {
@@ -117,7 +117,7 @@ html {
     margin-top: 20px;
     font-size: 20px;
     text-align: center;
-
+    line-height: 20px;
 }
 
 .popup-content p {
