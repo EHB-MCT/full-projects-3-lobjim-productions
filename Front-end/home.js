@@ -25,9 +25,15 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 })
 
 function successLocation(position) {
-    let marker = L.marker([position.coords.latitude, position.coords.longitude])
     userPosition = [position.coords.latitude, position.coords.longitude]
-    marker.addTo(map)
+    let pos = L.control.locate({
+        locateOptions: {
+            enableHighAccuracy: true
+        }
+    }).addTo(map);
+    pos.start();
+
+
 }
 
 function errorLocation() {
