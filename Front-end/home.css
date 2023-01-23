@@ -16,6 +16,10 @@ body {
     display: flex;
 }
 
+.routeData {
+    text-align: center;
+}
+
 #map {
     border-radius: 8px;
     height: 100%;

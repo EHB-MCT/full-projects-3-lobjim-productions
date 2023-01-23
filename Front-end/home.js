@@ -261,8 +261,8 @@ function renderParkData(park) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-            <div class="naam">
-                <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
+            <div class="routeData">
+            <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
                 <p>${park.attributes.STRAATNAAMLABEL}, ${park.attributes.POSTCODE} Antwerpen</p>
 
             </div>
@@ -337,7 +337,7 @@ function renderBusData(bus) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-        <div class="naam">
+    <div class="routeData">
         <h2>${bus.properties.NAAMHALTE} - ${bus.properties.NAAMGEM}</h2>
         </div>
          <div class="info_route">
@@ -385,7 +385,7 @@ function renderToiletData(findToilet) {
     main_popup.innerHTML = ""
     main_popup.innerHTML = `<div class="popup-content">
     <span class="close-btn">&times;</span>
-    <div class="naam">
+    <div class="naa">
         <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
     </div>
     <div class="info">
@@ -427,7 +427,7 @@ function renderToiletData(findToilet) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-    <div class="naam">
+    <div class="routeData">
     <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
     <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
 
