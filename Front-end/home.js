@@ -47,8 +47,8 @@ let parkMarkers = []
 let routeWay = []
 
 let toiletIcon = L.icon({
-    iconUrl: 'img/3677385-200.png',
-    iconSize: [45, 45], // size of the icon
+    iconUrl: 'img/toilet.png',
+    iconSize: [35, 45], // size of the icon
 });
 
 let parkIcon = L.icon({
@@ -58,7 +58,7 @@ let parkIcon = L.icon({
 
 let busIcon = L.icon({
     iconUrl: 'img/bus.png',
-    iconSize: [45, 45], // size of the icon
+    iconSize: [35, 45], // size of the icon
 });
 
 const toilet = document.getElementById('wc')
@@ -291,6 +291,7 @@ function renderParkData(park) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()
@@ -365,6 +366,7 @@ function renderBusData(bus) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()
@@ -457,6 +459,7 @@ function renderToiletData(findToilet) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()
