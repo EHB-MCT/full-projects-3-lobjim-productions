@@ -308,17 +308,26 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
+    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
     <div class="naam">
         <h2>${bus.properties.NAAMHALTE} - ${bus.properties.NAAMGEM}</h2>
     </div>
+    
+    <div id = "invisible" class="info">
+    <div class="info_leeftijd">
+        <p>Antwerpen</p>
+    </div>
+</div>
     <div class="like-go">
         <button id="like"><img id="like_img" src="img/like.png"></button>
         <button id="btn_gaan">Gaan</button>
     </div>
 </div>`
+    const inv = document.getElementById('invisible')
+    inv.style.visibility = 'hidden'
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
         if (routeWay.length) {
