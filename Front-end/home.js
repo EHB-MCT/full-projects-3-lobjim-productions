@@ -359,7 +359,12 @@ function renderRestoData(resto) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -457,7 +462,12 @@ function renderParkData(park) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -558,7 +568,12 @@ function renderBusData(bus) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -665,9 +680,13 @@ function renderToiletData(findToilet) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
-            weight: 8,
             createMarker: function () {
                 return null;
             },
