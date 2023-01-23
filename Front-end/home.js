@@ -249,8 +249,8 @@ function renderRestoMarker() {
             const id = e.target.options.customId
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getRestoData().then(data => {
-                console.log(data)
                 const findResto = data.find(el => el.id == id)
+                console.log(findResto)
                 renderRestoData(findResto)
             })
 
