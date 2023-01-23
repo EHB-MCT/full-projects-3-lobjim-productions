@@ -72,7 +72,6 @@ let busIcon = L.icon({
 });
 const resto = document.getElementById('eten')
 resto.addEventListener('click', e => {
-    console.log('click')
     toiletMarkers.forEach(el => {
         map.removeLayer(el)
 
@@ -93,7 +92,6 @@ resto.addEventListener('click', e => {
     restoMarkers = []
     getRestoData().then(async data => {
         data.forEach(el => {
-            console.log(el)
             const id = el.id
             let adress = el.adres
             const type = 'resto'
@@ -101,7 +99,6 @@ resto.addEventListener('click', e => {
             let lon = null
             adress = adress.replace(/\s/g, '%20')
             getLatLng(adress).then(async data => {
-                console.log(data)
                 lon = await data.features[0].properties.lon
                 lat = await data.features[0].properties.lat
 
@@ -124,7 +121,6 @@ resto.addEventListener('click', e => {
 
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
-    console.log('click')
     toiletMarkers.forEach(el => {
         map.removeLayer(el)
 
@@ -252,7 +248,6 @@ function renderRestoMarker() {
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getRestoData().then(data => {
                 const findResto = data.find(el => el.id == id)
-                console.log(findResto)
                 renderRestoData(findResto)
             })
 
@@ -334,7 +329,6 @@ function renderToiletMarker() {
 }
 
 function renderRestoData(resto) {
-    console.log(resto)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -433,7 +427,6 @@ function renderRestoData(resto) {
 }
 
 function renderParkData(park) {
-    console.log(park)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -534,7 +527,6 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
-    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -635,7 +627,6 @@ function renderBusData(bus) {
 }
 
 function renderToiletData(findToilet) {
-    console.log(findToilet)
     let uur
     if (findToilet.attributes.OPENINGSUREN_OPM == null) {
         uur = ` <p>Uur: /</p>`
@@ -689,7 +680,6 @@ function renderToiletData(findToilet) {
                 [data[1].lat, data[1].lng]
             ]);
             toiletMarkers.forEach(data => {
-                console.log(data)
                 if (data.options.customId !== findToilet.attributes.OBJECTID) {
                     map.removeLayer(data)
                 }
@@ -769,12 +759,6 @@ async function getRestoData() {
     const res = await fetch('./resto.json')
     return await res.json()
 }
-
-
-// fetch("https://api.geoapify.com/v1/geocode/search?text=Rue%20De%20Ribuacourt%2024%201080%20Molenbeek-Saint-Jean&apiKey=12f87eced5374ab7a9ce955d08aa8893")
-//     .then(response => response.json())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
 
 
 async function getLatLng(adress) {
