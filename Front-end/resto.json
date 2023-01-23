@@ -1,113 +1,137 @@
 [{
         "naam": "Vers Zuid",
-        "adres": "Kloosterstraat 187,2000 Antwerpen"
+        "adres": "Kloosterstraat 187 2000 Antwerpen",
+        "id": 1
     },
     {
         "naam": "l'Entrepot du Congo",
-        "adres": "Vlaamsekaai 42,2000 Antwerpen"
+        "adres": "Vlaamsekaai 42 2000 Antwerpen",
+        "id": 2
     }, {
         "naam": "Zurich",
-        "adres": "Verlatstraat 2,2000 Antwerpen"
+        "adres": "Verlatstraat 2 2000 Antwerpen",
+        "id": 3
     }, {
         "naam": "Dansing chocola",
-        "adres": "Kloosterstraat 159,2000 Antwerpen"
+        "adres": "Kloosterstraat 159 2000 Antwerpen",
+        "id": 4
     }, {
         "naam": "Barchel Nieuw Zuid ",
-        "adres": "Jos Smolderenstraat 15,2000 Antwerpen"
+        "adres": "Jos Smolderenstraat 15 2000 Antwerpen",
+        "id": 5
     }, {
         "naam": "Butchers coffee ",
-        "adres": "Kasteelstraat 57,2000 Antwerpen"
+        "adres": "Kasteelstraat 57 2000 Antwerpen",
+        "id": 6
     }, {
         "naam": "De wasbar",
-        "adres": "Graaf van Egmontstraat 5,2000 Antwerpen"
+        "adres": "Graaf van Egmontstraat 5 2000 Antwerpen",
+        "id": 7
     }, {
         "naam": "Bar Just / Circuit ",
-        "adres": "Jef Cassiersstraat 29,2000 Antwerpen"
+        "adres": "Jef Cassiersstraat 29 2000 Antwerpen",
+        "id": 8
     }, {
         "naam": "Zelda & Zorro",
-        "adres": "Grote Steenweg 13,2000 Antwerpen"
+        "adres": "Grote Steenweg 13 2000 Antwerpen",
+        "id": 9
     }, {
         "naam": "Tinsel",
-        "adres": "Sint-Paulusplaats 30,2000 Antwerpen"
+        "adres": "Sint-Paulusplaats 30 2000 Antwerpen",
+        "id": 10
     },
     {
         "naam": "Caffe Mundi",
-        "adres": "Oude Beurs 24, 2000 Antwerpen"
+        "adres": "Oude Beurs 24 2000 Antwerpen",
+        "id": 11
     },
     {
         "naam": "Vegateau - Vegan coffeebar and bakery",
-        "adres": "Kleine Pieter Potstraat 19, 2000 Antwerpen"
+        "adres": "Kleine Pieter Potstraat 19 2000 Antwerpen",
+        "id": 12
     },
     {
         "naam": "Moment by Hotel O",
-        "adres": "Handschoenmarkt 5, 2000 Antwerpen"
+        "adres": "Handschoenmarkt 5 2000 Antwerpen",
+        "id": 13
     },
     {
         "naam": "Bar Chapel",
-        "adres": "Kerkstraat 150,2000 Antwerpen"
+        "adres": "Kerkstraat 150 2000 Antwerpen",
+        "id": 14
     },
     {
         "naam": "Kapitein Zeppos",
-        "adres": ",2000 Antwerpen"
-    },
-    {
-        "naam": "Kapitein Zeppos",
-        "adres": "Vleminckveld 78,2000 Antwerpen"
+        "adres": "Vleminckveld 78 2000 Antwerpen",
+        "id": 15
     },
     {
         "naam": "Patisserie Lints",
-        "adres": "Vleminckveld 68,2000 Antwerpen"
+        "adres": "Vleminckveld 68 2000 Antwerpen",
+        "id": 16
     },
     {
         "naam": "Cafématic",
-        "adres": "Vleminckveld 4,2000 Antwerpen"
+        "adres": "Vleminckveld 4 2000 Antwerpen",
+        "id": 17
     },
     {
         "naam": "Nives",
-        "adres": "Harmoniestraat 25B,2000 Antwerpen"
+        "adres": "Harmoniestraat 25B 2000 Antwerpen",
+        "id": 18
     },
     {
         "name": "Barchel Centrum",
-        "adress": "Van Breestraat 6"
+        "adres": "Van Breestraat 6 2018 Antwerpen",
+        "id": 19
     },
     {
         "name": "Willy Vanilli",
-        "adress": "Mastplein 100, 2610 Wilrijk"
+        "adres": "Mastplein 100 2610 Wilrijk",
+        "id": 20
     }, {
         "name": "Den esprit",
-        "adress": "Bist 10, 2610 Antwerpen"
+        "adres": "Bist 10 2610 Antwerpen",
+        "id": 21
     }, {
         "name": "Bistro Jules",
-        "adress": "Jules Moretuslei 265, 2610 Antwerpen"
+        "adres": "Jules Moretuslei 265 2610 Antwerpen",
+        "id": 22
     }, {
         "name": "Buurtbar Barix",
-        "adress": "De Gryspeerstraat 86"
+        "adres": "De Gryspeerstraat 86 2100 Antwerpen",
+        "id": 22
     }, {
         "name": "kolonel&reede",
-        "adress": "Ankerrui 15, 2000 Antwerpen"
+        "adres": "Ankerrui 15 2000 Antwerpen",
+        "id": 23
     }, {
         "name": "Vers Eilandje",
-        "adress": "Van Schoonbekeplein 17, 2000 Antwerpen"
+        "adres": "Van Schoonbekeplein 17 2000 Antwerpen",
+        "id": 24
     }, {
         "name": "No Worries",
-        "adress": "Kribbestraat 20, 2000 Antwerpen"
+        "adres": "Kribbestraat 20 2000 Antwerpen",
+        "id": 25
     }, {
         "name": "Gaarkeuken 110",
-        "adress": "Vosseschijnstraat 21, 2030 Antwerpen"
-    }, {
-        "name": "Barchel Centrum",
-        "adress": "Van Breestraat 6"
+        "adres": "Vosseschijnstraat 21 2030 Antwerpen",
+        "id": 26
     }, {
         "name": "Matiate",
-        "adress": "Groenendaallaan 414, 2030 Antwerpen"
+        "adres": "Groenendaallaan 414 2030 Antwerpen",
+        "id": 27
     }, {
         "name": "Esco*bar",
-        "adress": "Quellinstraat 32, 2018 Antwerpen"
+        "adres": "Quellinstraat 32 2018 Antwerpen",
+        "id": 28
     }, {
         "name": "Soul",
-        "adress": "Otto Veniusstraat 5, 2000 Antwerpen"
+        "adres": "Otto Veniusstraat 5 2000 Antwerpen",
+        "id": 29
     }, {
         "name": "De Wasbar",
-        "adress": "De Keyserlei 43, 2018 Antwerpen"
+        "adres": "De Keyserlei 43 2018 Antwerpen",
+        "id": 30
     }
 ]
