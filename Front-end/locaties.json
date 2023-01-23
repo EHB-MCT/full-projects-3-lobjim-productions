@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "Datum": "6 02 2023",
+        "Locatienaam": "Zuiderpershuis",
+        "adres": "Waalsekaai 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 2,
+        "Datum": "6 02 2023",
+        "Locatienaam": "Cinema Rix",
+        "adres": "De Gryspeerstraat 86, 2100 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 3,
+        "Datum": "6 02 2023",
+        "Locatienaam": "Lumière Antwerpen",
+        "adres": "Lakenstraat 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 4,
+        "Datum": "7 02 2023",
+        "Locatienaam": "Zuiderpershuis",
+        "adres": "Waalsekaai 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 5,
+        "Datum": "7 02 2023",
+        "Locatienaam": "Lumière Antwerpen",
+        "adres": "Lakenstraat 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 6,
+        "Datum": "9 02 2023",
+        "Locatienaam": "Lumière Antwerpen",
+        "adres": "Lakenstraat 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 7,
+        "Datum": "9 02 2023",
+        "Locatienaam": "Zuiderpershuis",
+        "adres": "Waalsekaai 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 8,
+        "Datum": "10 02 2023",
+        "Locatienaam": "Zuiderpershuis",
+        "adres": "Waalsekaai 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 9,
+        "Datum": "10 02 2023",
+        "Locatienaam": "Cinema Rix",
+        "adres": "De Gryspeerstraat 86, 2100 Antwerpen",
+        "photobooth": true,
+        "wall": false
+      },
+      {
+        "id": 10,
+        "Datum": "10 02 2023",
+        "Locatienaam": "Lumière Antwerpen",
+        "adres": "Lakenstraat 14, 2000 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 11,
+        "Datum": "10 feb. 2023",
+        "Locatienaam": "Kinepolis Antwerpen",
+        "adres": "Groenendaallaan 394, 2030 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 12,
+        "Datum": "11 02 2023",
+        "Locatienaam": "Kinepolis Antwerpen",
+        "adres": "Groenendaallaan 394, 2030 Antwerpen",
+        "photobooth": true,
+        "wall": true
+      },
+      {
+        "id": 13,
+        "Datum": "11 02 2023",
+        "Locatienaam": "De Cinema",
+        "adres": "Maarschalk Gerardstraat 4, 2000 Antwerpen",
+        "photobooth": false,
+        "wall": false
+      },
+
+
+]
