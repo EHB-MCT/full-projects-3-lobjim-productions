@@ -117,13 +117,14 @@ resto.addEventListener('click', e => {
         })
         setTimeout(() => {
             renderRestoMarker()
-        }, "500")
+        }, 750)
     })
 })
 
 
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
+    console.log('click')
     toiletMarkers.forEach(el => {
         map.removeLayer(el)
 
