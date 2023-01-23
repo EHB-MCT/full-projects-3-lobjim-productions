@@ -199,6 +199,8 @@ input#DatePicker.hasDatepicker::placeholder {
 
 div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
     z-index: 500000000 !important;
+    width: 300px !important;
+    height: 240px !important;
 }
 
 
@@ -207,6 +209,7 @@ div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearf
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
     background-color: #F04E37 !important;
+    border: 1px solid #F04E37 !important;
     color: white !important;
 }
 
@@ -225,6 +228,11 @@ div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearf
     margin-left: -30px;
     margin-top: 17px;
 }
+
+.ui-datepicker table {
+    height: 190px !important;
+}
+
 
 
 
