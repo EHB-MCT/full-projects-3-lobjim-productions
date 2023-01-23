@@ -1,6 +1,5 @@
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
-
 let userPosition
 let buttons = document.getElementsByName('btns')
 
@@ -19,19 +18,23 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-
 let location = navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
 })
 
 function successLocation(position) {
-    userPosition = [position.coords.latitude, position.coords.longitude]
-    let pos = L.control.locate({
-        locateOptions: {
-            enableHighAccuracy: true
-        }
-    }).addTo(map);
-    pos.start();
+    if (position) {
+        userPosition = [position.coords.latitude, position.coords.longitude]
+        let pos = L.control.locate({
+            locateOptions: {
+                enableHighAccuracy: true
+            }
+        }).addTo(map);
+        pos.start();
+    } else {
+        errorLocation()
+    }
+
 
 
 }
@@ -44,12 +47,19 @@ function errorLocation() {
 let toiletMarkers = []
 let busMarkers = []
 let parkMarkers = []
+let restoMarkers = []
 let routeWay = []
 
 let toiletIcon = L.icon({
     iconUrl: 'img/toilet.png',
     iconSize: [35, 45], // size of the icon
 });
+
+let restoIcon = L.icon({
+    iconUrl: 'img/resto.png',
+    iconSize: [35, 45], // size of the icon
+});
+
 
 let parkIcon = L.icon({
     iconUrl: 'img/parkpin.png',
@@ -60,6 +70,57 @@ let busIcon = L.icon({
     iconUrl: 'img/bus.png',
     iconSize: [35, 45], // size of the icon
 });
+const resto = document.getElementById('eten')
+resto.addEventListener('click', e => {
+    console.log('click')
+    toiletMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+    busMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+    parkMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+    restoMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+
+    restoMarkers = []
+    getRestoData().then(async data => {
+        data.forEach(el => {
+            console.log(el)
+            const id = el.id
+            let adress = el.adres
+            const type = 'resto'
+            let lat = null
+            let lon = null
+            adress = adress.replace(/\s/g, '%20')
+            getLatLng(adress).then(async data => {
+                console.log(data)
+                lon = await data.features[0].properties.lon
+                lat = await data.features[0].properties.lat
+
+                let marker = await L.marker([lat, lon], {
+                    customId: id,
+                    type: type,
+                    icon: restoIcon
+
+                })
+                await restoMarkers.push(marker)
+            })
+
+        })
+        setTimeout(() => {
+            renderRestoMarker()
+        }, "500")
+    })
+})
+
 
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
@@ -72,6 +133,10 @@ toilet.addEventListener('click', e => {
 
     })
     parkMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+    restoMarkers.forEach(el => {
         map.removeLayer(el)
 
     })
@@ -111,6 +176,10 @@ park.addEventListener('click', e => {
         map.removeLayer(el)
 
     })
+    restoMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
     parkMarkers = []
     getParkData().then(data => {
         const slice = data.features.slice(5, 35)
@@ -146,6 +215,10 @@ bus.addEventListener('click', e => {
         map.removeLayer(el)
 
     })
+    restoMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
     busMarkers = []
     getTransportData().then(data => {
 
@@ -166,6 +239,25 @@ bus.addEventListener('click', e => {
     })
 
 })
+
+function renderRestoMarker() {
+    restoMarkers.forEach(el => {
+        el.addTo(map)
+        el.on('click', e => {
+            localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
+            const id = e.target.options.customId
+            map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
+            getRestoData().then(data => {
+                console.log(data)
+                const findResto = data.find(el => el.id == id)
+                renderRestoData(findResto)
+            })
+
+            popup.style.display = 'flex';
+            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
+        })
+    })
+}
 
 function renderParkMarker() {
     parkMarkers.forEach(el => {
@@ -221,6 +313,90 @@ function renderToiletMarker() {
             main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
         })
     })
+}
+
+function renderRestoData(resto) {
+    console.log(resto)
+    main_popup.innerHTML = ""
+    main_popup.innerHTML = ` <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <div class="naam">
+        <h2> ${resto.name}s</h2>
+    </div>
+    <div class="info">
+                        <div class="info_leeftijd">
+                            <p>${resto.adres}</p>
+                        </div>
+                    </div>
+    <div class="like-go">
+        <button id="like"><img id="like_img" src="img/like.png"></button>
+        <button id="btn_gaan">Gaan</button>
+    </div>
+</div>`
+
+    // ROUTE SYSTEM
+    const route = document.getElementById('btn_gaan')
+    route.addEventListener('click', e => {
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
+        const data = JSON.parse(localStorage.getItem('pos'))
+        let routeMaker = L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false
+            },
+            createMarker: function () {
+                return null;
+            },
+            waypoints: [
+                L.latLng(userPosition[0], userPosition[1]),
+                L.latLng(data[1].lat, data[1].lng)
+            ],
+        }).on('routesfound', function (e) {
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+            <div class="routeData">
+            <h2> ${resto.name}</h2>
+                <p>${resto.adres}</p>
+
+            </div>
+             <div class="info_route">
+             <p>${mToKm} km</p>
+             <p>${sToMin} minuten</p>
+            </div>
+            <div class="stop">
+                <button id="stop">Stop</button>
+            </div>
+        </div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+                main_popup.innerHTML = ""
+            })
+        }).addTo(map);
+        routeMaker.hide()
+        routeWay.push(routeMaker)
+    })
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', () => {
+        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+    });
 }
 
 function renderParkData(park) {
@@ -502,5 +678,23 @@ async function getTransportData() {
 async function getParkData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek6/MapServer/758/query?where=1%3D1&outFields=*&outSR=4326&f=json')
+    return await res.json()
+}
+
+async function getRestoData() {
+
+    const res = await fetch('./resto.json')
+    return await res.json()
+}
+
+
+// fetch("https://api.geoapify.com/v1/geocode/search?text=Rue%20De%20Ribuacourt%2024%201080%20Molenbeek-Saint-Jean&apiKey=12f87eced5374ab7a9ce955d08aa8893")
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+
+
+async function getLatLng(adress) {
+    const res = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${adress}&apiKey=12f87eced5374ab7a9ce955d08aa8893`)
     return await res.json()
 }
