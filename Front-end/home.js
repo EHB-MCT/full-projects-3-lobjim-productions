@@ -25,9 +25,15 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 })
 
 function successLocation(position) {
-    let marker = L.marker([position.coords.latitude, position.coords.longitude])
     userPosition = [position.coords.latitude, position.coords.longitude]
-    marker.addTo(map)
+    let pos = L.control.locate({
+        locateOptions: {
+            enableHighAccuracy: true
+        }
+    }).addTo(map);
+    pos.start();
+
+
 }
 
 function errorLocation() {
@@ -41,8 +47,8 @@ let parkMarkers = []
 let routeWay = []
 
 let toiletIcon = L.icon({
-    iconUrl: 'img/3677385-200.png',
-    iconSize: [45, 45], // size of the icon
+    iconUrl: 'img/toilet.png',
+    iconSize: [35, 45], // size of the icon
 });
 
 let parkIcon = L.icon({
@@ -52,7 +58,7 @@ let parkIcon = L.icon({
 
 let busIcon = L.icon({
     iconUrl: 'img/bus.png',
-    iconSize: [45, 45], // size of the icon
+    iconSize: [35, 45], // size of the icon
 });
 
 const toilet = document.getElementById('wc')
@@ -261,8 +267,8 @@ function renderParkData(park) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-            <div class="naam">
-                <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
+            <div class="routeData">
+            <h2> ${park.attributes.NAAMLABEL} - ${park.attributes.TYPE}</h2>
                 <p>${park.attributes.STRAATNAAMLABEL}, ${park.attributes.POSTCODE} Antwerpen</p>
 
             </div>
@@ -271,7 +277,7 @@ function renderParkData(park) {
              <p>${sToMin} minuten</p>
             </div>
             <div class="stop">
-                <button id="stop">STOP</button>
+                <button id="stop">Stop</button>
             </div>
         </div>`
             const stop = document.getElementById('stop')
@@ -285,6 +291,7 @@ function renderParkData(park) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()
@@ -301,17 +308,26 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
+    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
     <div class="naam">
         <h2>${bus.properties.NAAMHALTE} - ${bus.properties.NAAMGEM}</h2>
     </div>
+    
+    <div id = "invisible" class="info">
+    <div class="info_leeftijd">
+        <p>Antwerpen</p>
+    </div>
+</div>
     <div class="like-go">
         <button id="like"><img id="like_img" src="img/like.png"></button>
         <button id="btn_gaan">Gaan</button>
     </div>
 </div>`
+    const inv = document.getElementById('invisible')
+    inv.style.visibility = 'hidden'
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
         if (routeWay.length) {
@@ -337,7 +353,7 @@ function renderBusData(bus) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-        <div class="naam">
+    <div class="routeData">
         <h2>${bus.properties.NAAMHALTE} - ${bus.properties.NAAMGEM}</h2>
         </div>
          <div class="info_route">
@@ -345,7 +361,7 @@ function renderBusData(bus) {
          <p>${sToMin} minuten</p>
         </div>
         <div class="stop">
-            <button id="stop">STOP</button>
+            <button id="stop">Stop</button>
         </div>
     </div>`
             const stop = document.getElementById('stop')
@@ -359,6 +375,7 @@ function renderBusData(bus) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()
@@ -385,7 +402,7 @@ function renderToiletData(findToilet) {
     main_popup.innerHTML = ""
     main_popup.innerHTML = `<div class="popup-content">
     <span class="close-btn">&times;</span>
-    <div class="naam">
+    <div class="naa">
         <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
     </div>
     <div class="info">
@@ -427,7 +444,7 @@ function renderToiletData(findToilet) {
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
-    <div class="naam">
+    <div class="routeData">
     <h2>${findToilet.attributes.OMSCHRIJVING}</h2>
     <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
 
@@ -437,7 +454,7 @@ function renderToiletData(findToilet) {
      <p>${sToMin} minuten</p>
     </div>
     <div class="stop">
-        <button id="stop">STOP</button>
+        <button id="stop">Stop</button>
     </div>
 </div>`
             const stop = document.getElementById('stop')
@@ -451,6 +468,7 @@ function renderToiletData(findToilet) {
                     map.removeControl(route);
                 })
                 routeWay = []
+                main_popup.innerHTML = ""
             })
         }).addTo(map);
         routeMaker.hide()

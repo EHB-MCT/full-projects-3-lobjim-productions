@@ -11,9 +11,13 @@ body {
     margin-right: auto;
     margin-bottom: 30px;
     height: 280px;
-    margin-top: 34px;
+    margin-top: 52px;
     justify-content: space-evenly;
     display: flex;
+}
+
+.routeData {
+    text-align: center;
 }
 
 #map {
@@ -27,7 +31,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 28px;
 }
 
 .popup-content .info_route p {
@@ -37,6 +41,15 @@ body {
 
 .stop {
     text-align: center;
+}
+
+#stop {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #F04E37;
+    border: 0px;
+    color: white;
+    font-weight: bold;
 }
 
 
@@ -53,13 +66,20 @@ body {
 }
 
 .buttons {
+    position: fixed;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 38px;
+    width: 100%;
+    bottom: 20px;
+    margin: auto;
 
 }
+
+.buttons button {
+    text-align: center;
+}
+
 
 .buttons img {
     width: 20px;
@@ -67,29 +87,11 @@ body {
     background-position: top;
 }
 
-#jef img {
-    padding: auto;
-    padding-top: 4px;
-    width: 40px;
-}
-
-#jef {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    border: 2px solid #F04E37;
-    background-color: white;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-}
-
 #wc {
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    background-color: white;
+    background-color: whitesmoke;
     border: 2px solid #F04E37;
     display: flex;
     justify-content: center;
@@ -107,7 +109,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    background-color: white;
+    background-color: whitesmoke;
     border: 2px solid #F04E37;
 }
 
@@ -120,7 +122,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    background-color: white;
+    background-color: whitesmoke;
     border: 2px solid #F04E37;
 }
 
@@ -133,7 +135,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    background-color: white;
+    background-color: whitesmoke;
     border: 2px solid #F04E37;
 }
 
@@ -162,15 +164,15 @@ a {
 #popcorn {
     position: fixed;
     width: 500px;
-    bottom: 0px;
+    bottom: 40px;
     left: -70px;
     z-index: -10;
 }
 
 #animation1 {
     position: fixed;
-    width: 400px;
-    bottom: -40px;
+    width: 380px;
+    bottom: 0px;
     left: -10px;
     z-index: -10;
 }

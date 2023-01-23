@@ -12,6 +12,10 @@
         integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.min.js"
+        charset="utf-8"></script>
     <script src="hover.js" type="module" defer></script>
     <script src="home.js" type="module" defer></script>
     <link rel="stylesheet" href="home.css">
@@ -28,7 +32,7 @@
     <div class="header">
         <div class="titel">
             <a href="home.html">
-                <p>JEF <br>jeugdfilm festival</p>
+                <img src="./img/logo_JEFF_2023.png" alt="logo">
             </a>
         </div>
         <main>
@@ -78,7 +82,7 @@
         <div class="popup">
             <div class="popup-overlay"></div>
             <div class="main-popup">
-                <div class="popup-content">
+                <!-- <div class="popup-content">
                     <span class="close-btn">&times;</span>
                     <div class="naam">
                         <h2>Zuiderpershuis - Workshop XR</h2>
@@ -98,14 +102,21 @@
                         <button id="like"><img id="like_img" src="img/like.png"></button>
                         <button id="btn_gaan">Gaan</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
     </div>
 
+    <div class="buttons">
+        <button name="btn" id="eten" type="button"><img src="./img/eten.png" alt="eten"></button>
+        <button name="btn" id="park" type="button"><img src="./img/park.png" alt="park"></button>
+        <button name="btn" id="transport" type="button"><img src="./img/transport.png" alt="vervoermiddelen"></button>
+        <button name="btn" id="wc" type="button"><img src="./img/wc.png" alt="toiletten"></button>
+    </div>
+
     <img id="popcorn" src="./img/popcorn background.png">
-    <img id="animation1" src="./img/animation1.gif">.
+    <!-- <img id="animation1" src="./img/animation1.gif">.   -->
 
     <script src="app.js"></script>
 </body>
