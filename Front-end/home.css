@@ -157,7 +157,7 @@ body {
     height: 40px;
     border-radius: 100px;
     background-color: whitesmoke;
-    border: 2px solid #F04E37;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +175,7 @@ body {
     height: 40px;
     border-radius: 100px;
     background-color: whitesmoke;
-    border: 2px solid #F04E37;
+    border: 2px solid black;
 }
 
 #park img {
@@ -188,7 +188,7 @@ body {
     height: 40px;
     border-radius: 100px;
     background-color: whitesmoke;
-    border: 2px solid #F04E37;
+    border: 2px solid black;
 }
 
 #transport img {
@@ -201,7 +201,7 @@ body {
     height: 40px;
     border-radius: 100px;
     background-color: whitesmoke;
-    border: 2px solid #F04E37;
+    border: 2px solid black;
 }
 
 #eten img {
@@ -224,6 +224,8 @@ a {
 
 .active {
     background-color: #F04E37 !important;
+    border: 2px solid #F04E37 !important;
+
 }
 
 #popcorn {

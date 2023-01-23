@@ -11,12 +11,16 @@ body {
 .header_text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 60px;
 }
 
+
 .cat {
-    margin-top: 50px;
-    margin-left: 15%;
+    margin-top: 100px;
+}
+
+.cat img {
+    width: 100%;
 }
 
 .logo img {
@@ -25,16 +29,23 @@ body {
     margin-left: 2%;
 }
 
-.arrow_left {
-    margin-left: 5%;
-    margin-right: 45%;
+#replay {
+    width: 100px;
+    height: 40px;
+    color: #FFFF;
+    background-color: #F04E37;
+    border: none;
+    margin-top: 70px;
+
 }
 
-.arrow_right {
-    margin-left: 22%;
+.button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer {
-    margin-top: 40%;
-    margin-left: 0;
+#rotated {
+    width: 100%;
 }

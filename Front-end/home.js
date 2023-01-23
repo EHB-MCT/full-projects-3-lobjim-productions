@@ -41,7 +41,9 @@ function successLocation(position) {
 }
 
 function errorLocation() {
-    L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
+    userPosition = [51.2194475, 4.4024643]
+    L.marker([51.2194475, 4.4024643]).addTo(map)
+    map.flyTo([51.2194475, 4.4024643], 12)
 }
 
 
@@ -360,7 +362,12 @@ function renderRestoData(resto) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -458,7 +465,12 @@ function renderParkData(park) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -559,7 +571,12 @@ function renderBusData(bus) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -666,7 +683,12 @@ function renderToiletData(findToilet) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;

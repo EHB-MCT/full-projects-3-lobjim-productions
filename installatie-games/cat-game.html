@@ -5,14 +5,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/installatie-games/cat-game.js" defer></script>
-    <link rel="stylesheet" href="/installatie-games/cat-game.css">
+    <script src="cat-game.js" defer></script>
+    <link rel="stylesheet" href="cat-game.css">
+    <link rel="stylesheet" href="./../Front-end/home.css">
+    <link rel="stylesheet" href="./../Front-end/myprofile.css">
+    <link rel="stylesheet" href="./../Front-end/popup.css">
     <title>Duizelige kat</title>
 
 </head>
 
 
 <body>
+    <div class="header">
+        <div class="titel">
+            <a href="./../Front-end/home.html">
+                <img src="./../Front-end/img/logo_JEFF_2023.png" alt="logo">
+            </a>
+        </div>
+        <main>
+            <div class="outer-menu">
+                <input class="checkbox-toggle" type="checkbox" />
+                <div class="hamburger">
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <div>
+                        <div>
+                            <ul>
+                                <li><a href="./../Front-end/home.html">Kaart</a></li>
+                                <li><a href="./../Front-end/info.html">Over JEF</a></li>
+                                <li><a href="./../Front-end/jefbox.html">JEFBOX</a></li>
+                                <li><a href="./../Front-end/myprofile.html">Mijn profiel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
 
     <!-- <div>
 
@@ -21,8 +53,6 @@
     </div> -->
 
     <div class="container">
-        <a class="logo" href="/Front-end/welkom.html"><img src="/installatie-games/images/logo.png" alt="logo JEF"></a>
-
         <div class="header_text">
             <h1>Duizelige kat</h1>
             <h2>Doe mee!</h2>
@@ -31,16 +61,14 @@
         <div class="cat">
             <div id="rotate">
                 <!-- The image element to be rotated -->
-                <img id="rotated" src="/installatie-games/images/orange-cat.png" width="250" />
+                <img id="rotated" src="./images/orange-cat.png" width="300" />
+            </div>
+            <div class="button">
+                <a href="./../Front-end/jefbox.html"><button name="btn-replay" id="replay" type="button">
+                        Terug</button></a>
             </div>
         </div>
 
-        <div class="footer">
-            <a class="arrow_left" href="#"><img src="/installatie-games/images/arrow_left.png"
-                    alt="pijl naar links"></a>
-            <a class="arrow_right" href="#"><img src="/installatie-games/images/arrow_right.png"
-                    alt="pijl naar rechts"></a>
-        </div>
     </div>
 </body>
 
