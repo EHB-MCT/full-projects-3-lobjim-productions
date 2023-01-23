@@ -4,6 +4,8 @@ body {
 }
 
 .mapContainer {
+    position: relative;
+    z-index: 1000;
     width: 320px;
     margin-left: auto;
     margin-right: auto;
@@ -14,12 +16,33 @@ body {
     display: flex;
 }
 
+.routeData {
+    text-align: center;
+}
+
 #map {
     border-radius: 8px;
     height: 100%;
     width: 100%;
     margin-top: -20px;
 }
+
+.info_route {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.popup-content .info_route p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.stop {
+    text-align: center;
+}
+
 
 .filter {
     width: 40px;
