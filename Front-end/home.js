@@ -277,7 +277,7 @@ function renderParkData(park) {
              <p>${sToMin} minuten</p>
             </div>
             <div class="stop">
-                <button id="stop">STOP</button>
+                <button id="stop">Stop</button>
             </div>
         </div>`
             const stop = document.getElementById('stop')
@@ -351,7 +351,7 @@ function renderBusData(bus) {
          <p>${sToMin} minuten</p>
         </div>
         <div class="stop">
-            <button id="stop">STOP</button>
+            <button id="stop">Stop</button>
         </div>
     </div>`
             const stop = document.getElementById('stop')
@@ -443,7 +443,7 @@ function renderToiletData(findToilet) {
      <p>${sToMin} minuten</p>
     </div>
     <div class="stop">
-        <button id="stop">STOP</button>
+        <button id="stop">Stop</button>
     </div>
 </div>`
             const stop = document.getElementById('stop')
