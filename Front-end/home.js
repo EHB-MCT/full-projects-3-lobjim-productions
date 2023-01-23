@@ -667,6 +667,7 @@ function renderToiletData(findToilet) {
             lineOptions: {
                 addWaypoints: false
             },
+            weight: 8,
             createMarker: function () {
                 return null;
             },
