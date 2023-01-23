@@ -72,7 +72,6 @@ let busIcon = L.icon({
 });
 const resto = document.getElementById('eten')
 resto.addEventListener('click', e => {
-    console.log('click')
     toiletMarkers.forEach(el => {
         map.removeLayer(el)
 
@@ -93,7 +92,6 @@ resto.addEventListener('click', e => {
     restoMarkers = []
     getRestoData().then(async data => {
         data.forEach(el => {
-            console.log(el)
             const id = el.id
             let adress = el.adres
             const type = 'resto'
@@ -101,7 +99,6 @@ resto.addEventListener('click', e => {
             let lon = null
             adress = adress.replace(/\s/g, '%20')
             getLatLng(adress).then(async data => {
-                console.log(data)
                 lon = await data.features[0].properties.lon
                 lat = await data.features[0].properties.lat
 
@@ -124,7 +121,6 @@ resto.addEventListener('click', e => {
 
 const toilet = document.getElementById('wc')
 toilet.addEventListener('click', e => {
-    console.log('click')
     toiletMarkers.forEach(el => {
         map.removeLayer(el)
 
@@ -252,7 +248,6 @@ function renderRestoMarker() {
             map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
             getRestoData().then(data => {
                 const findResto = data.find(el => el.id == id)
-                console.log(findResto)
                 renderRestoData(findResto)
             })
 
@@ -334,7 +329,6 @@ function renderToiletMarker() {
 }
 
 function renderRestoData(resto) {
-    console.log(resto)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -365,7 +359,12 @@ function renderRestoData(resto) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -375,6 +374,15 @@ function renderRestoData(resto) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+            restoMarkers.forEach(data => {
+                if (data.options.customId !== resto.id) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -403,6 +411,12 @@ function renderRestoData(resto) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                restoMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
@@ -448,7 +462,12 @@ function renderParkData(park) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -458,6 +477,15 @@ function renderParkData(park) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+            parkMarkers.forEach(data => {
+                if (data.options.customId !== park.attributes.OBJECTID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -486,7 +514,14 @@ function renderParkData(park) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                parkMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
+
         }).addTo(map);
         routeMaker.hide()
         routeWay.push(routeMaker)
@@ -502,7 +537,6 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
-    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -534,7 +568,12 @@ function renderBusData(bus) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -544,6 +583,16 @@ function renderBusData(bus) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+
+            busMarkers.forEach(data => {
+                if (data.options.customId !== bus.properties.STOPID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -570,6 +619,12 @@ function renderBusData(bus) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                busMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
@@ -625,7 +680,12 @@ function renderToiletData(findToilet) {
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
             lineOptions: {
-                addWaypoints: false
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
             },
             createMarker: function () {
                 return null;
@@ -635,6 +695,15 @@ function renderToiletData(findToilet) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+            toiletMarkers.forEach(data => {
+                if (data.options.customId !== findToilet.attributes.OBJECTID) {
+                    map.removeLayer(data)
+                }
+            })
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -663,6 +732,12 @@ function renderToiletData(findToilet) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                toiletMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
@@ -704,12 +779,6 @@ async function getRestoData() {
     const res = await fetch('./resto.json')
     return await res.json()
 }
-
-
-// fetch("https://api.geoapify.com/v1/geocode/search?text=Rue%20De%20Ribuacourt%2024%201080%20Molenbeek-Saint-Jean&apiKey=12f87eced5374ab7a9ce955d08aa8893")
-//     .then(response => response.json())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
 
 
 async function getLatLng(adress) {

@@ -1,82 +1,82 @@
 [{
-        "naam": "Vers Zuid",
+        "name": "Vers Zuid",
         "adres": "Kloosterstraat 187 2000 Antwerpen",
         "id": 1
     },
     {
-        "naam": "l'Entrepot du Congo",
+        "name": "l'Entrepot du Congo",
         "adres": "Vlaamsekaai 42 2000 Antwerpen",
         "id": 2
     }, {
-        "naam": "Zurich",
+        "name": "Zurich",
         "adres": "Verlatstraat 2 2000 Antwerpen",
         "id": 3
     }, {
-        "naam": "Dansing chocola",
+        "name": "Dansing chocola",
         "adres": "Kloosterstraat 159 2000 Antwerpen",
         "id": 4
     }, {
-        "naam": "Barchel Nieuw Zuid ",
+        "name": "Barchel Nieuw Zuid ",
         "adres": "Jos Smolderenstraat 15 2000 Antwerpen",
         "id": 5
     }, {
-        "naam": "Butchers coffee ",
+        "name": "Butchers coffee ",
         "adres": "Kasteelstraat 57 2000 Antwerpen",
         "id": 6
     }, {
-        "naam": "De wasbar",
+        "name": "De wasbar",
         "adres": "Graaf van Egmontstraat 5 2000 Antwerpen",
         "id": 7
     }, {
-        "naam": "Bar Just / Circuit ",
+        "name": "Bar Just / Circuit ",
         "adres": "Jef Cassiersstraat 29 2000 Antwerpen",
         "id": 8
     }, {
-        "naam": "Zelda & Zorro",
+        "name": "Zelda & Zorro",
         "adres": "Grote Steenweg 13 2000 Antwerpen",
         "id": 9
     }, {
-        "naam": "Tinsel",
+        "name": "Tinsel",
         "adres": "Sint-Paulusplaats 30 2000 Antwerpen",
         "id": 10
     },
     {
-        "naam": "Caffe Mundi",
+        "name": "Caffe Mundi",
         "adres": "Oude Beurs 24 2000 Antwerpen",
         "id": 11
     },
     {
-        "naam": "Vegateau - Vegan coffeebar and bakery",
+        "name": "Vegateau - Vegan coffeebar and bakery",
         "adres": "Kleine Pieter Potstraat 19 2000 Antwerpen",
         "id": 12
     },
     {
-        "naam": "Moment by Hotel O",
+        "name": "Moment by Hotel O",
         "adres": "Handschoenmarkt 5 2000 Antwerpen",
         "id": 13
     },
     {
-        "naam": "Bar Chapel",
+        "name": "Bar Chapel",
         "adres": "Kerkstraat 150 2000 Antwerpen",
         "id": 14
     },
     {
-        "naam": "Kapitein Zeppos",
+        "name": "Kapitein Zeppos",
         "adres": "Vleminckveld 78 2000 Antwerpen",
         "id": 15
     },
     {
-        "naam": "Patisserie Lints",
+        "name": "Patisserie Lints",
         "adres": "Vleminckveld 68 2000 Antwerpen",
         "id": 16
     },
     {
-        "naam": "Cafématic",
+        "name": "Cafématic",
         "adres": "Vleminckveld 4 2000 Antwerpen",
         "id": 17
     },
     {
-        "naam": "Nives",
+        "name": "Nives",
         "adres": "Harmoniestraat 25B 2000 Antwerpen",
         "id": 18
     },
