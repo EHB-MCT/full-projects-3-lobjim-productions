@@ -375,6 +375,11 @@ function renderRestoData(resto) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -403,6 +408,12 @@ function renderRestoData(resto) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                restoMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
@@ -458,6 +469,10 @@ function renderParkData(park) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -486,7 +501,14 @@ function renderParkData(park) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                parkMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
+
         }).addTo(map);
         routeMaker.hide()
         routeWay.push(routeMaker)
@@ -544,6 +566,10 @@ function renderBusData(bus) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -570,6 +596,12 @@ function renderBusData(bus) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                busMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
@@ -635,6 +667,11 @@ function renderToiletData(findToilet) {
                 L.latLng(data[1].lat, data[1].lng)
             ],
         }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+
             const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
             const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
             main_popup.innerHTML = ` <div class="popup-content">
@@ -663,6 +700,12 @@ function renderToiletData(findToilet) {
                 })
                 routeWay = []
                 main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                toiletMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
             })
         }).addTo(map);
         routeMaker.hide()
