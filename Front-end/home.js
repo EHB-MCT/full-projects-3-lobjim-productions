@@ -1,3 +1,4 @@
+
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
 let userPosition
