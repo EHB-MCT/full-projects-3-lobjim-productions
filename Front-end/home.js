@@ -40,7 +40,9 @@ function successLocation(position) {
 }
 
 function errorLocation() {
-    L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
+    userPosition = [51.2194475, 4.4024643]
+    L.marker([51.2194475, 4.4024643]).addTo(map)
+    map.flyTo([51.2194475, 4.4024643], 12)
 }
 
 
