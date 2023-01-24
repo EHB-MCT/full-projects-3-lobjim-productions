@@ -168,6 +168,132 @@ app.post('/login', async (req, res) => {
     }
 })
 
+app.post("/like", verifyToken, async (req, res) => {
+    try {
+        await client.connect()
+
+        const colli = client.db('jef').collection('likes')
+
+        const check = await colli.findOne({
+            likeId: req.body.likeId,
+            userId: req.body.userId
+        })
+        if (check) {
+            res.status(400).send({
+
+                message: "Plaats al geliket",
+
+            })
+            return
+        }
+
+
+        const user = await colli.insertOne({
+            likeId: req.body.likeId,
+            userId: req.body.userId,
+            adress: req.body.adress,
+            name: req.body.name,
+            type: req.body.type,
+            lat: req.body.lat,
+            long: req.body.long
+        })
+
+        res.status(201).send({
+            status: "Saved",
+            message: "Your like has been successfully saved",
+        })
+
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({
+            error: 'An error has occured!',
+            value: error
+        })
+    } finally {
+        await client.close()
+    }
+
+})
+
+
+app.delete("/deleteLike", verifyToken, async (req, res) => {
+    try {
+        await client.connect();
+
+        const colli = client.db('jef').collection('likes')
+
+        const likes = await colli.findOneAndDelete({
+            likeId: parseInt(req.query.likeId),
+            userId: req.query.userId
+        })
+
+        if (likes) {
+            res.status(200).send({
+                status: "Success",
+                message: "Your like has been deleted !"
+
+            })
+            return
+
+        } else {
+
+            res.status(401).send({
+                status: "Bad Request",
+                message: "Can't delete your like"
+
+            })
+
+            return
+
+        }
+
+    } catch (error) {
+
+        console.log(error)
+
+        res.status(500).send({
+
+            error: 'Something went wrong!',
+
+            value: error
+
+        });
+
+    } finally {
+
+        await client.close();
+
+    }
+
+})
+app.get("/like/:id", async (req, res) => {
+
+    try {
+        await client.connect()
+        const colli = client.db('jef').collection('likes')
+        const likedPlace = await colli.find({
+            userId: req.params.id
+        }).toArray()
+
+        res.status(201).send({
+            data: likedPlace,
+            status: "Success",
+        })
+
+    } catch (error) {
+        res.status(400).send({
+            error: "An error has occured!",
+            value: error
+        })
+
+    } finally {
+        await client.close()
+    }
+
+})
+
+
 app.get('/checkConnection', verifyToken, async (req, res) => {
     res.send({
         message: "You are connected !",
