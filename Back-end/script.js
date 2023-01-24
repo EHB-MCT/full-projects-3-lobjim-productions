@@ -217,6 +217,58 @@ app.post("/like", verifyToken, async (req, res) => {
 })
 
 
+app.delete("/deleteLike", verifyToken, async (req, res) => {
+    try {
+
+
+        await client.connect();
+
+        const colli = client.db('jef').collection('likes')
+
+        const likes = await colli.findOneAndDelete({
+            likeId: req.query.collectionId,
+            userId: req.query.userId
+        })
+
+        if (likes) {
+            res.status(200).send({
+                status: "Success",
+                message: "Your like has been deleted !"
+
+            })
+            return
+
+        } else {
+
+            res.status(401).send({
+                status: "Bad Request",
+                message: "Can't delete your like"
+
+            })
+
+            return
+
+        }
+
+    } catch (error) {
+
+        console.log(error)
+
+        res.status(500).send({
+
+            error: 'Something went wrong!',
+
+            value: error
+
+        });
+
+    } finally {
+
+        await client.close();
+
+    }
+
+})
 app.get("/like/:id", async (req, res) => {
 
     try {

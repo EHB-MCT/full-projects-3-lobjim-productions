@@ -14,7 +14,10 @@ if (localStorage.getItem('token')) {
             fetch(`https://jef-api.onrender.com/like/${token.id}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    data.data.forEach(el => {
+                        console.log(el)
+                        renderLikedPlaces(el)
+                    })
                 })
         } else {
             alert(data.message)
@@ -38,6 +41,40 @@ async function verifyToken() {
     return await res.json()
 }
 
+function renderLikedPlaces(data) {
+    const container = document.getElementById('liked')
+    let html = ""
+    let img
+
+
+    if (data.type == "Park") {
+        img = `<img src="./img/park.png" alt="">`
+    } else if (data.type == "Halte") {
+        img = `<img src="./img/transport.png" alt="">`
+    } else if (data.type == "Resto") {
+        img = `<img src="./img/eten.png" alt="">`
+
+    } else {
+        img = `<img src="./img/wc.png" alt="">`
+
+    }
+    html = ` <div class="like">
+    <div class="type">
+    ${img}
+    </div>
+    <div class="name">
+        <p>${data.name}</p>
+    </div>
+    <div id = ${data.likeId} class="delete">
+        <img src="./img/cross.png" alt="kruis">
+    </div>
+    <div class="button_gaan">
+        <button id = ${data.likeId} type="button">Gaan</button>
+    </div>
+</div>`
+    container.innerHTML += html
+}
+
 function renderProfile() {
     const container = document.getElementById('wrapper')
     container.innerHTML = ""
@@ -57,21 +94,6 @@ function renderProfile() {
     <h1>Gelikete plaatsen</h1>
 </div>
 <div id = "liked" class="likelist">
-    <div class="like">
-        <div class="type">
-            <img src="./img/eten.png" alt="">
-        </div>
-        <div class="name">
-            <p>Mc Dondald's</p>
-        </div>
-        <div class="delete">
-            <img src="./img/cross.png" alt="kruis">
-        </div>
-        <div class="button_gaan">
-            <button type="button">Gaan</button>
-        </div>
-    </div>
-
 
 </div>
 
