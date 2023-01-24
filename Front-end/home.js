@@ -463,7 +463,7 @@ function renderRestoData(resto) {
                 lat: data[1].lat,
                 long: data[1].lng,
             }
-            fetch("http://localhost:3000/like", {
+            fetch("https://jef-api.onrender.com/like", {
                     method: "POST",
                     headers: {
                         'Content-Type': "application/json",
@@ -615,7 +615,7 @@ function renderParkData(park) {
                 lat: data[1].lat,
                 long: data[1].lng,
             }
-            fetch("http://localhost:3000/like", {
+            fetch("https://jef-api.onrender.com/like", {
                     method: "POST",
                     headers: {
                         'Content-Type': "application/json",
@@ -769,7 +769,7 @@ function renderBusData(bus) {
                 lat: bus.geometry.coordinates[1],
                 long: bus.geometry.coordinates[0],
             }
-            fetch("http://localhost:3000/like", {
+            fetch("https://jef-api.onrender.com/like", {
                     method: "POST",
                     headers: {
                         'Content-Type': "application/json",
@@ -932,7 +932,7 @@ function renderToiletData(findToilet) {
                 lat: findToilet.geometry.y,
                 long: findToilet.geometry.x
             }
-            fetch("http://localhost:3000/like", {
+            fetch("https://jef-api.onrender.com/like", {
                     method: "POST",
                     headers: {
                         'Content-Type': "application/json",
