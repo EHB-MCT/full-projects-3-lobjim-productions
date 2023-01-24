@@ -11,6 +11,11 @@ if (localStorage.getItem('token')) {
         if (data.message == "You are connected !") {
             console.log(token)
             renderProfile()
+            fetch(`https://jef-api.onrender.com/like/${token.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
         } else {
             alert(data.message)
             window.location.href = "login.html"

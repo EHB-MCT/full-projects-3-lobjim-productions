@@ -331,6 +331,7 @@ function renderToiletMarker() {
 }
 
 function renderRestoData(resto) {
+    console.log(resto)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -439,9 +440,51 @@ function renderRestoData(resto) {
             popup.style.display = 'none';
         }, 500);
     });
+
+    const like = document.getElementById('like')
+    like.addEventListener('click', e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+
+        console.log('click')
+        if (localStorage.getItem('token')) {
+            let token
+            let base64Url = localStorage.getItem('token').split('.')[1];
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            token = JSON.parse(jsonPayload);
+            let likedPlace = {
+                likeId: resto.id,
+                userId: token.id,
+                name: resto.name,
+                adress: resto.adres,
+                type: "Resto",
+                lat: data[1].lat,
+                long: data[1].lng,
+            }
+            fetch("https://jef-api.onrender.com/like", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+
+                    },
+                    body: JSON.stringify(likedPlace)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        } else {
+            alert('connect to like')
+        }
+
+    })
 }
 
 function renderParkData(park) {
+    console.log(park)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -551,10 +594,50 @@ function renderParkData(park) {
             popup.style.display = 'none';
         }, 500);
     });
+
+    const like = document.getElementById('like')
+    like.addEventListener('click', e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        if (localStorage.getItem('token')) {
+            let token
+            let base64Url = localStorage.getItem('token').split('.')[1];
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            token = JSON.parse(jsonPayload);
+            let likedPlace = {
+                likeId: park.attributes.OBJECTID,
+                userId: token.id,
+                name: park.attributes.NAAMLABEL,
+                adress: park.attributes.STRAATNAAMLABEL,
+                type: "Park",
+                lat: data[1].lat,
+                long: data[1].lng,
+            }
+            fetch("https://jef-api.onrender.com/like", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+
+                    },
+                    body: JSON.stringify(likedPlace)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        } else {
+            alert('connect to like')
+        }
+
+    })
 }
 
 
 function renderBusData(bus) {
+    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -665,9 +748,49 @@ function renderBusData(bus) {
 
 
     });
+
+
+    const like = document.getElementById('like')
+    like.addEventListener('click', e => {
+        console.log('click')
+        if (localStorage.getItem('token')) {
+            let token
+            let base64Url = localStorage.getItem('token').split('.')[1];
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            token = JSON.parse(jsonPayload);
+            let likedPlace = {
+                likeId: bus.properties.STOPID,
+                userId: token.id,
+                name: bus.properties.NAAMHALTE,
+                type: "Halte",
+                lat: bus.geometry.coordinates[1],
+                long: bus.geometry.coordinates[0],
+            }
+            fetch("https://jef-api.onrender.com/like", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+
+                    },
+                    body: JSON.stringify(likedPlace)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        } else {
+            alert('connect to like')
+        }
+
+    })
 }
 
 function renderToiletData(findToilet) {
+    console.log(findToilet)
     let uur
     if (findToilet.attributes.OPENINGSUREN_OPM == null) {
         uur = ` <p>Uur: /</p>`
@@ -787,6 +910,46 @@ function renderToiletData(findToilet) {
 
 
     });
+
+
+    const like = document.getElementById('like')
+    like.addEventListener('click', e => {
+        console.log('click')
+        if (localStorage.getItem('token')) {
+            let token
+            let base64Url = localStorage.getItem('token').split('.')[1];
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            token = JSON.parse(jsonPayload);
+            let likedPlace = {
+                likeId: findToilet.attributes.OBJECTID,
+                userId: token.id,
+                adress: findToilet.attributes.STRAAT,
+                name: findToilet.attributes.OMSCHRIJVING,
+                type: "Toilet",
+                lat: findToilet.geometry.y,
+                long: findToilet.geometry.x
+            }
+            fetch("https://jef-api.onrender.com/like", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+
+                    },
+                    body: JSON.stringify(likedPlace)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        } else {
+            alert('connect to like')
+        }
+
+    })
 }
 
 
