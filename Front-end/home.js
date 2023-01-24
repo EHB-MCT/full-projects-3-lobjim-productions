@@ -1,4 +1,3 @@
-
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
 let userPosition
@@ -358,6 +357,10 @@ function renderRestoData(resto) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -404,6 +407,10 @@ function renderRestoData(resto) {
         </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -461,6 +468,10 @@ function renderParkData(park) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -507,6 +518,10 @@ function renderParkData(park) {
         </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -567,6 +582,10 @@ function renderBusData(bus) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -612,6 +631,10 @@ function renderBusData(bus) {
     </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -679,6 +702,10 @@ function renderToiletData(findToilet) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -725,6 +752,10 @@ function renderToiletData(findToilet) {
 </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
