@@ -9,13 +9,13 @@ body {
 }
 
 .image_1 img {
-    width: 380px;
+    width: 100%;
 }
 
 .bottom>img {
     margin-top: 20px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     animation: identifier 1.5s ease infinite;
