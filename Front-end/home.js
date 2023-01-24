@@ -407,6 +407,10 @@ function renderRestoData(resto) {
         </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -514,6 +518,10 @@ function renderParkData(park) {
         </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -623,6 +631,10 @@ function renderBusData(bus) {
     </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
@@ -740,6 +752,10 @@ function renderToiletData(findToilet) {
 </div>`
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
                     popup.style.display = 'none';
