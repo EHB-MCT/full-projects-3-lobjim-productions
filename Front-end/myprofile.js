@@ -90,6 +90,7 @@ function renderLikedPlaces(data) {
                 .then(res => res.json())
                 .then(data => {
                     alert(data.message)
+                    location.reload()
                 })
         })
     })
