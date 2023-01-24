@@ -1,30 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 body {
     margin: 0;
     padding: 0;
 }
 
-.pop-up-darkbox { 
-    background-color: black; 
-    width: 100%;  
-    height: 100%; 
-    z-index: -1;  
-    opacity: 50%;  
-    justify-content: center;  
-    position: fixed;  
-    display: flex;  
-    margin-top: -50px;  
-    bottom: 0px; 
-} 
-    
-.explenation {  
-    z-index: 1000002;  
-    position: relative; 
-} 
-    
-.pop-up-home {  
-    top: 30%;  
-    z-index: 1000003;  
-    position: fixed; 
+.pop-up-darkbox {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 50%;
+    justify-content: center;
+    position: fixed;
+    display: flex;
+    margin-top: -50px;
+    bottom: 0px;
+}
+
+.explenation {
+    z-index: 1000002;
+    position: relative;
+}
+
+.pop-up-home {
+    top: 30%;
+    z-index: 1000003;
+    position: fixed;
 }
 
 #console img {
