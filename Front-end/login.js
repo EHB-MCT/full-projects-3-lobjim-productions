@@ -90,7 +90,7 @@ signin.addEventListener('submit', (e) => {
 
 async function sendData(user) {
 
-    let res = await fetch("http://localhost:2000/register", {
+    let res = await fetch("https://jef-api.onrender.com/register", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ async function sendData(user) {
 
 
 async function connection(credentials) {
-    let res = await fetch("http://localhost:2000/login", {
+    let res = await fetch("https://jef-api.onrender.com/login", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
