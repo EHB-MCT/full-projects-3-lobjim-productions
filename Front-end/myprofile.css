@@ -48,45 +48,31 @@ html {
     margin-right: auto;
 }
 
+.likelist button {
+    padding: 10px 10px;
+    color: white;
+    background-color: #F04E37;
+    border: 0;
+}
 
-.like_1 {
+
+.like {
     border-radius: 10px;
     display: flex;
     padding: 10px 20px;
     background-color: whitesmoke;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
 }
 
-.like_2 {
-    border-radius: 10px;
-    display: flex;
-    padding: 10px 20px;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    margin-bottom: 15px;
+.type img {
+    margin-top: 2px;
+    width: 15px;
+    height: 25px;
 }
 
-.like_3 {
-    border-radius: 10px;
-    display: flex;
-    padding: 10px 20px;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    margin-bottom: 15px;
-}
-
-.like_4 {
-    border-radius: 10px;
-    display: flex;
-    padding: 10px 20px;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    margin-bottom: 15px;
-}
-
-
-.likelist img {
+.delete img {
     margin-top: 2px;
     width: 15px;
     height: 15px;
@@ -106,7 +92,8 @@ html {
 }
 
 .logout button {
-    margin-top: 173px;
+    position: fixed;
+    bottom: 40px;
     padding: 10px 20px;
     color: white;
     background-color: #F04E37;
