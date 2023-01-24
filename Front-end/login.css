@@ -23,6 +23,7 @@ body {
 .container .forms {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 440px;
     width: 200%;
     transition: height 0.2s ease;
