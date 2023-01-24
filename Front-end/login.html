@@ -1,0 +1,121 @@
+<!-- === Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="login.css">
+
+    <!-- ===== JS ===== -->
+    <script src="login.js" type="module" defer></script>
+
+    <!--<title>Login & Registration Form</title>-->
+</head>
+
+<body>
+    <div class="header">
+        <div class="titel">
+            <a href="home.html">
+                <img src="./img/logo_JEFF_2023.png" alt="logo">
+            </a>
+        </div>
+        <main>
+            <div class="outer-menu">
+                <input class="checkbox-toggle" type="checkbox" />
+                <div class="hamburger">
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <div>
+                        <div>
+                            <ul>
+                                <li><a href="home.html">Kaart</a></li>
+                                <li><a href="info.html">Over JEF</a></li>
+                                <li><a href="jefbox.html">JEFBOX</a></li>
+                                <li><a href="myprofile.html">Mijn profiel</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form id="signin">
+                    <div class="input-field">
+                        <input id="cred_email" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="cred_pass" type="password" class="password" placeholder="Enter your password"
+                            required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="#" class="text signup-link">Signup Now</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form id="registration">
+                    <div class="input-field">
+                        <input id="name" type="text" placeholder="Enter your username" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="email" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" type="password" class="password" placeholder="Create a password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="password2" type="password" class="password" placeholder="Repeat your password"
+                            required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <div class="input-field button">
+                        <input type="submit" value="Signup">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a href="#" class="text login-link">Login Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<script src="script.js"></script>-->
+</body>
+
+</html>
