@@ -36,13 +36,15 @@ body {
     position: relative;
 }
 
-#doorgaanConsole{
+#doorgaanConsole {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: #ff0000;
-    border-color: #ff0000;
+    border: none;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 20px !important;
+    margin: auto;
     color: #fff;
     z-index: 100200;
 
@@ -51,7 +53,6 @@ body {
 /* Tekstballon style */
 .speech-bubble {
     position: relative;
-    text-align: center;
     line-height: 20px;
     width: 70%;
     background: #fff;
@@ -59,8 +60,8 @@ body {
     padding: 20px;
     color: #000;
     left: 25%;
-    bottom: 700px;
-    z-index: 1000004; 
+    bottom: 760px;
+    z-index: 1000004;
 }
 
 
@@ -71,11 +72,11 @@ body {
     height: 0px;
     position: absolute;
     border: 31px solid transparent;
-	border-top-color: #ffffff;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -15.5px;
-	margin-bottom: -31px;
+    border-top-color: #ffffff;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -15.5px;
+    margin-bottom: -31px;
     left: 50%;
     bottom: 0px;
 }
@@ -237,6 +238,12 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+#profile {
+    text-decoration: none !important;
+    color: #F04E37 !important;
+    font-weight: 800 !important;
 }
 
 .active {
