@@ -226,7 +226,7 @@ app.delete("/deleteLike", verifyToken, async (req, res) => {
         const colli = client.db('jef').collection('likes')
 
         const likes = await colli.findOneAndDelete({
-            likeId: req.query.collectionId,
+            likeId: req.query.likeId,
             userId: req.query.userId
         })
 
