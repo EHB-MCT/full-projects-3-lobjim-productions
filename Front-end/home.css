@@ -1,51 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 body {
     margin: 0;
     padding: 0;
 }
 
-.pop-up-darkbox { 
-    background-color: black; 
-    width: 100%;  
-    height: 100%; 
-    z-index: -1;  
-    opacity: 50%;  
-    justify-content: center;  
-    position: fixed;  
-    display: flex;  
-    margin-top: -50px;  
-    bottom: 0px; 
-} 
-    
-.explenation {  
-    z-index: 1000002;  
-    position: relative; 
-} 
-    
-.pop-up-home {  
-    top: 30%;  
-    z-index: 1000003;  
-    position: fixed; 
+.pop-up-darkbox {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 50%;
+    justify-content: center;
+    position: fixed;
+    display: flex;
+    margin-top: -50px;
+    bottom: 0px;
+}
+
+.explenation {
+    z-index: 10002;
+    position: relative;
+}
+
+.pop-up-home {
+    top: 30%;
+    z-index: 10003;
+    position: fixed;
 }
 
 #console img {
     margin-top: 200px;
     width: 100%;
-    z-index: 1000000010
+    z-index: 10010;
+    position: relative;
+}
+
+#doorgaanConsole{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #ff0000;
+    border-color: #ff0000;
+    padding: 10px;
+    margin-top: 10px;
+    color: #fff;
+    z-index: 100200;
+
 }
 
 /* Tekstballon style */
 .speech-bubble {
     position: relative;
-    line-height: 30px;
-    width: 50%;
+    text-align: center;
+    line-height: 20px;
+    width: 70%;
     background: #fff;
     border-radius: 40px;
-    padding: 5px;
-    text-align: center;
+    padding: 20px;
     color: #000;
-    bottom: 500px;
-    left: 35%;
+    left: 25%;
+    bottom: 700px;
+    z-index: 1000004; 
 }
+
 
 
 .speech-bubble:before {
@@ -53,14 +70,14 @@ body {
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 5px solid #fff;
-    border-right: 30px solid transparent;
-    border-top: 12px solid #fff;
-    border-bottom: 5px solid transparent;
-    left: -30px;
-    top: 30%;
+    border: 31px solid transparent;
+	border-top-color: #ffffff;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -15.5px;
+	margin-bottom: -31px;
+    left: 50%;
     bottom: 0px;
-    transform: rotate(180deg);
 }
 
 .pop-up-home {

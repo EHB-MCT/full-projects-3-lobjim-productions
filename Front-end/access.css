@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.title h1 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+
+}
+
+.container img {
+    width: 30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    border: 2px solid #F04E37;
+    padding: 10px;
+    justify-content: center;
+    margin: auto auto;
+    display: block;
+    width: 300px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
