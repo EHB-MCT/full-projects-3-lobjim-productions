@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="home.css">
     <script src="popup.js" type="module" defer></script>
     <script src="pop-up.js" type="module" defer></script>
+    <script src="auth.js" type="module" defer></script>
+
     <link rel="stylesheet" href="popup.css">
 
     <script src="https:///ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -31,29 +33,29 @@
 
 <body>
     <div class="pop-up-home">
-        
+
         <div class="pop-up-darkbox"></div>
         <div id="console" class="console">
             <img src="./img/pop-up.gif" alt="console">
         </div>
-       
-       <!-- Tekstballon met console -->
-       <div class="speech-bubble">
+
+        <!-- Tekstballon met console -->
+        <div class="speech-bubble">
             <h5>Hallo! Ik ben Jeffy! <br>
                 En ik zal jou uitleggen wat er hier allemaal te doen is! <br>
-                Deze web-app zal gebruikt kunnen worden door jou om 
-                op zoek te gaan naar kindvriendelijke plaatsen rond 
+                Deze web-app zal gebruikt kunnen worden door jou om
+                op zoek te gaan naar kindvriendelijke plaatsen rond
                 jou en de festivalplaatsen van JEF. <br>
-                Kijk naar de filters en de map om verder 
-                opzoek te gaan. Ook moet je deftig kijken naar 
-                de festivalplaatsen, bij sommigen heb je een leuke 
+                Kijk naar de filters en de map om verder
+                opzoek te gaan. Ook moet je deftig kijken naar
+                de festivalplaatsen, bij sommigen heb je een leuke
                 spel te verwachten :)
             </h5>
             <button id="doorgaanConsole">Doorgaan</button>
-       </div>
-       
+        </div>
+
     </div>
-       
+
     <div class="explenation"></div> <!-- transparent div -->
 
     <div class="header">
@@ -75,7 +77,7 @@
                                 <li><a href="home.html">Kaart</a></li>
                                 <li><a href="info.html">Over JEF</a></li>
                                 <li><a href="jefbox.html">JEFBOX</a></li>
-                                <li><a href="myprofile.html">Mijn profiel</a></li>
+                                <li><a href="myprofile.html" id="profile">Mijn profiel</a></li>
                         </div>
                     </div>
                 </div>
