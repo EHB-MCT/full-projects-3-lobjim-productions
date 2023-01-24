@@ -240,6 +240,12 @@ a {
     color: black;
 }
 
+#profile {
+    text-decoration: none !important;
+    color: #F04E37 !important;
+    font-weight: 800 !important;
+}
+
 .active {
     background-color: #F04E37 !important;
     border: 2px solid #F04E37 !important;
