@@ -1,4 +1,3 @@
-
 const main_popup = document.querySelector('.main-popup');
 const popup = document.querySelector('.popup');
 let userPosition
@@ -358,6 +357,10 @@ function renderRestoData(resto) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -461,6 +464,10 @@ function renderParkData(park) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -567,6 +574,10 @@ function renderBusData(bus) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -679,6 +690,10 @@ function renderToiletData(findToilet) {
             })
             routeWay = []
         }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
