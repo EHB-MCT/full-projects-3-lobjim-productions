@@ -65,14 +65,34 @@ function renderLikedPlaces(data) {
     <div class="name">
         <p>${data.name}</p>
     </div>
-    <div id = ${data.likeId} class="delete">
-        <img src="./img/cross.png" alt="kruis">
+    <div class="delete" name = "delete">
+        <img id = ${data.likeId} src="./img/cross.png" alt="kruis">
     </div>
     <div class="button_gaan">
         <button id = ${data.likeId} type="button">Gaan</button>
     </div>
 </div>`
     container.innerHTML += html
+
+    const removeLike = document.getElementsByName('delete')
+    removeLike.forEach(el => {
+        el.addEventListener('click', e => {
+            const id = e.target.id
+            console.log(JSON.stringify(token.id))
+            console.log(id)
+            fetch(`https://jef-api.onrender.com/deleteLike?likeId=${id}&userId=${token.id}`, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+                    },
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        })
+    })
 }
 
 function renderProfile() {
