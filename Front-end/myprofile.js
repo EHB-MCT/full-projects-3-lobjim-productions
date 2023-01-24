@@ -11,6 +11,7 @@ if (localStorage.getItem('token')) {
         if (data.message == "You are connected !") {
             console.log(token)
             renderProfile()
+            fetch()
         } else {
             alert(data.message)
             window.location.href = "login.html"
