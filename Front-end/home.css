@@ -19,20 +19,20 @@ body {
 }
 
 .explenation {
-    z-index: 1000002;
+    z-index: 10002;
     position: relative;
 }
 
 .pop-up-home {
     top: 30%;
-    z-index: 1000003;
+    z-index: 10003;
     position: fixed;
 }
 
 #console img {
     margin-top: 200px;
     width: 100%;
-    z-index: 100000000010;
+    z-index: 10010;
     position: relative;
 }
 
@@ -40,10 +40,12 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: #ff0000;
-    border-radius: 10px;
     border-color: #ff0000;
     padding: 10px;
     margin-top: 10px;
+    color: #fff;
+    z-index: 100200;
+
 }
 
 /* Tekstballon style */
