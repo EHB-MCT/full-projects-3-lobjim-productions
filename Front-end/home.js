@@ -51,6 +51,7 @@ let busMarkers = []
 let parkMarkers = []
 let restoMarkers = []
 let routeWay = []
+let jefMarkers = []
 
 let toiletIcon = L.icon({
     iconUrl: 'img/toilet.png',
@@ -72,6 +73,11 @@ let busIcon = L.icon({
     iconUrl: 'img/bus.png',
     iconSize: [35, 45], // size of the icon
 });
+let jefIcon = L.icon({
+    iconUrl: 'img/jefIcon.png',
+    iconSize: [40, 55], // size of the icon
+});
+
 const resto = document.getElementById('eten')
 resto.addEventListener('click', e => {
     toiletMarkers.forEach(el => {
@@ -116,6 +122,45 @@ resto.addEventListener('click', e => {
         })
         setTimeout(() => {
             renderRestoMarker()
+        }, 750)
+    })
+})
+
+const jef = document.getElementById('optionDate')
+
+jef.addEventListener('change', e => {
+    console.log(e.target.value)
+    const date = e.target.value
+    jefMarkers.forEach(el => {
+        map.removeLayer(el)
+
+    })
+
+    jefMarkers = []
+
+    getJefData().then(data => {
+        const filterByDate = data.filter(el => el.Datum == date)
+        filterByDate.forEach(el => {
+            console.log(el)
+            let adress = el.adres
+            let lat = null
+            let lon = null
+            adress = adress.replace(/\s/g, '%20')
+            getLatLng(adress).then(async data => {
+                lon = await data.features[0].properties.lon
+                lat = await data.features[0].properties.lat
+
+                let marker = await L.marker([lat, lon], {
+                    customId: el.id,
+                    type: 'jef',
+                    icon: jefIcon
+
+                })
+                await jefMarkers.push(marker)
+            })
+        })
+        setTimeout(() => {
+            renderJefMarker()
         }, 750)
     })
 })
@@ -239,6 +284,29 @@ bus.addEventListener('click', e => {
 
 })
 
+function renderJefMarker() {
+    let markerGroup = new L.FeatureGroup();
+    jefMarkers.forEach(el => {
+        markerGroup.addLayer(el)
+        markerGroup.addTo(map);
+        el.on('click', e => {
+            localStorage.setItem('pos', JSON.stringify([e.target.options, e.latlng]))
+            const id = e.target.options.customId
+            map.flyTo([e.target._latlng.lat, e.target._latlng.lng], 15)
+            getJefData().then(data => {
+                const findJef = data.find(el => el.id == id)
+                renderJefData(findJef)
+            })
+
+            popup.style.display = 'flex';
+            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
+        })
+
+    })
+    map.fitBounds(markerGroup.getBounds());
+}
+
+
 function renderRestoMarker() {
     let markerGroup = new L.FeatureGroup();
     restoMarkers.forEach(el => {
@@ -328,6 +396,166 @@ function renderToiletMarker() {
     })
     map.fitBounds(markerGroup.getBounds());
 
+}
+
+
+function renderJefData(jef) {
+    console.log(jef)
+    main_popup.innerHTML = ""
+    main_popup.innerHTML = ` <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <div class="naam">
+        <h2>${jef.Locatienaam}</h2>
+    </div>
+    <div class="info">
+        <div class="info_leeftijd">
+            <p>Min leeftijd: 12 <br>Max leeftijd: 14</p>
+        </div>
+        <div class="info_uur">
+            <p>Uur: 9u - 12u</p>
+        </div>
+    </div>
+    <div class="installaties">
+        <p>Installatie aanwezig aan in ingang</p>
+    </div>
+    <div class="like-go">
+        <button id="like"><img id="like_img" src="img/like.png"></button>
+        <button id="btn_gaan">Gaan</button>
+    </div>
+</div>`
+
+    // ROUTE SYSTEM
+    const route = document.getElementById('btn_gaan')
+    route.addEventListener('click', e => {
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
+        const data = JSON.parse(localStorage.getItem('pos'))
+        let routeMaker = L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
+            },
+            createMarker: function () {
+                return null;
+            },
+            waypoints: [
+                L.latLng(userPosition[0], userPosition[1]),
+                L.latLng(data[1].lat, data[1].lng)
+            ],
+        }).on('routesfound', function (e) {
+            map.fitBounds([
+                [userPosition[0], userPosition[1]],
+                [data[1].lat, data[1].lng]
+            ]);
+            jefMarkers.forEach(data => {
+                if (data.options.customId !== jef.id) {
+                    map.removeLayer(data)
+                }
+            })
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+            <div class="routeData">
+            <h2> ${jef.Locatienaam}</h2>
+                <p>${jef.adres}</p>
+
+            </div>
+             <div class="info_route">
+             <p>${mToKm} km</p>
+             <p>${sToMin} minuten</p>
+            </div>
+            <div class="stop">
+                <button id="stop">Stop</button>
+            </div>
+        </div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+                main_popup.innerHTML = ""
+                let markerGroup = new L.FeatureGroup();
+                restoMarkers.forEach(el => {
+                    markerGroup.addLayer(el)
+                    markerGroup.addTo(map);
+                })
+                map.fitBounds(markerGroup.getBounds());
+            })
+        }).addTo(map);
+        routeMaker.hide()
+        routeWay.push(routeMaker)
+    })
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', () => {
+        main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+    });
+
+    const like = document.getElementById('like')
+    like.addEventListener('click', e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+
+        console.log('click')
+        if (localStorage.getItem('token')) {
+            let token
+            let base64Url = localStorage.getItem('token').split('.')[1];
+            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            token = JSON.parse(jsonPayload);
+            let likedPlace = {
+                likeId: jef.id,
+                userId: token.id,
+                name: jef.Locatienaam,
+                adress: jef.adres,
+                type: "Jef",
+                lat: data[1].lat,
+                long: data[1].lng,
+            }
+            fetch("https://jef-api.onrender.com/like", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+
+                    },
+                    body: JSON.stringify(likedPlace)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                })
+        } else {
+            alert('connect to like')
+        }
+
+    })
 }
 
 function renderRestoData(resto) {
@@ -956,6 +1184,13 @@ function renderToiletData(findToilet) {
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')
+    return await res.json()
+}
+
+
+async function getJefData() {
+
+    const res = await fetch('./locaties.json')
     return await res.json()
 }
 
