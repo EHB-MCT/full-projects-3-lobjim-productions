@@ -69,7 +69,7 @@ function renderLikedPlaces(data) {
         <img id = ${data.likeId} src="./img/cross.png" alt="kruis">
     </div>
     <div class="button_gaan">
-        <button id = ${data.likeId} type="button">Gaan</button>
+        <button name = "go"id = ${data.likeId} type="button">Gaan</button>
     </div>
 </div>`
     container.innerHTML += html
@@ -91,6 +91,22 @@ function renderLikedPlaces(data) {
                 .then(data => {
                     alert(data.message)
                     location.reload()
+                })
+        })
+    })
+
+    const gaan = document.getElementsByName('go')
+
+    gaan.forEach(el => {
+        console.log(el)
+        el.addEventListener('click', e => {
+            console.log(e.target.id)
+            fetch(`https://jef-api.onrender.com/like/${token.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    const place = data.data.find(el => el.likeId == e.target.id)
+                    localStorage.setItem('likedPlace', JSON.stringify(place))
+                    window.location.href = "home.html"
                 })
         })
     })

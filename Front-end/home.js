@@ -11,6 +11,7 @@ buttons.forEach(button => {
 })
 
 
+
 let points = []
 var map = L.map('map').setView([51.2194475, 4.4024643], 12);
 
@@ -25,14 +26,24 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 function successLocation(position) {
     if (position) {
         userPosition = [position.coords.latitude, position.coords.longitude]
+        console.log(position.coords.latitude)
+        let loc = {
+            lat: position.coords.latitude,
+            long: position.coords.longitude
+        }
+
+        console.log(loc)
+        localStorage.setItem('userPos', JSON.stringify(loc))
         let pos = L.control.locate({
             locateOptions: {
                 enableHighAccuracy: true
             }
         }).addTo(map);
         pos.start();
+
     } else {
         errorLocation()
+
     }
 
 
@@ -1109,7 +1120,7 @@ function renderToiletData(findToilet) {
                 })
                 main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
                 setTimeout(() => {
-                    popup.style.display = 'none';
+                    popup.style.display = 'f;e';
                 }, 500);
 
                 routeWay.forEach(route => {
@@ -1180,7 +1191,82 @@ function renderToiletData(findToilet) {
     })
 }
 
+if (localStorage.getItem('likedPlace')) {
 
+    setTimeout(async () => {
+        const data = await JSON.parse(localStorage.getItem('likedPlace'))
+        const pos = await JSON.parse(localStorage.getItem('userPos'))
+        if (routeWay.length) {
+            routeWay.forEach(route => {
+                map.removeControl(route);
+            })
+            routeWay = []
+        }
+        const btn = document.getElementsByName('btn')
+        btn.forEach(btn => {
+            btn.disabled = true
+        })
+        let routeMaker = await L.Routing.control({
+            draggableWaypoints: false,
+            lineOptions: {
+                addWaypoints: false,
+                styles: [{
+                    color: 'red',
+                    opacity: 1,
+                    weight: 6
+                }]
+            },
+            waypoints: [
+                L.latLng(pos.lat, pos.long),
+                L.latLng(data.lat, data.long)
+            ],
+        }).on('routesfound', async function (e) {
+            await map.fitBounds([
+                [pos.lat, pos.long],
+                [data.lat, data.long]
+            ]);
+            popup.style.display = 'flex';
+            main_popup.style.cssText = 'animation:slide-in .5s ease; animation-fill-mode: forwards;';
+            const mToKm = Math.round(e.routes[0].summary.totalDistance / 100) / 10
+            const sToMin = Math.floor(e.routes[0].summary.totalTime / 60);
+            main_popup.innerHTML = ` <div class="popup-content">
+        <div class="routeData">
+        <h2>${data.name}</h2>
+        </div>
+         <div class="info_route">
+         <p>${mToKm} km</p>
+         <p>${sToMin} minuten</p>
+        </div>
+        <div class="stop">
+            <button id="stop">Stop</button>
+        </div>
+        </div>`
+            const stop = document.getElementById('stop')
+            stop.addEventListener('click', e => {
+                localStorage.removeItem('likedPlace')
+                localStorage.removeItem('userPos')
+                const btn = document.getElementsByName('btn')
+                btn.forEach(btn => {
+                    btn.disabled = false
+                })
+                main_popup.style.cssText = 'animation:slide-out .5s ease; animation-fill-mode: forwards;';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+
+                routeWay.forEach(route => {
+                    map.removeControl(route);
+                })
+                routeWay = []
+                main_popup.innerHTML = ""
+            })
+        }).addTo(map);
+        routeMaker.hide()
+        routeWay.push(routeMaker)
+    }, 500);
+
+
+}
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')

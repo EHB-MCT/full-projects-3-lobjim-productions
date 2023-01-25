@@ -6,5 +6,3 @@ buttons.forEach(button => {
         this.classList.add('active')
     })
 })
-
-document.getElementById('')
