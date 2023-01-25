@@ -1,4 +1,8 @@
 document.getElementById('replay').style.display = "none";
+const animationURL = document.getElementById('gif-cat');
+
+// hide animationurl 
+animationURL.style.display = "none";
 
 // Access DOM element object
 const rotated = document.getElementById('rotated');
@@ -9,20 +13,20 @@ let rotation = 0;
 const angle = 5;
 
 let rotationCounter = 0;
-const animationURL = './images/vomit-cat.gif';
 
 function rotateImage() {
     // Check if the rotation counter is less than 300
-    if (rotationCounter < 300) {
+    if (rotationCounter < 600) {
         rotation = (rotation + angle) % 360;
         rotated.style.transform = `rotate(${rotation}deg)`;
         rotationCounter++;
 
 
     } else {
-        // If the rotation counter is 300 or more, change the image source to the animation URL
+        // If the rotation counter is 600 or more, change the image source to the animation URL
         rotated.style.transform = `rotate(0deg)`;
-        rotated.src = animationURL;
+        rotated.src = animationURL.src;
+        animationURL.style.display = "block";
         // Remove the touchmove event listener to stop the rotation
         document.getElementById("rotate").removeEventListener('touchmove', rotateImage);
         document.getElementById('replay').style.display = "block";
