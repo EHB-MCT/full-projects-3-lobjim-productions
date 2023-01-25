@@ -33,6 +33,10 @@ body {
     font-size: 30px;
 }
 
+#gif {
+    display: none;
+}
+
 .button {
     position: fixed;
     top:  650px;
