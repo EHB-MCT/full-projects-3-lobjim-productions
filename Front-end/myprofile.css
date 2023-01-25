@@ -104,3 +104,19 @@ a {
     text-decoration: none;
     color: black;
 }
+
+.type {
+    width: 10%;
+}
+
+.name {
+    width: 60%;
+}
+
+.delete {
+    width: 10%;
+}
+
+.button_gaan {
+    width: 20%;
+}
