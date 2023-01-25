@@ -445,7 +445,7 @@ function renderJefData(jef) {
     </div>
     <div class="go">
         <button id="btn_gaan">Gaan</button>
-        <button id="redirect">Maps</button>
+        <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button>
     </div>
 `
 
