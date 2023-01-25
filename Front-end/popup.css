@@ -123,6 +123,7 @@ html {
 .popup-content p {
     margin-top: 20px;
     font-size: 12px;
+    text-align: center;
 }
 
 @keyframes slide-in {
@@ -149,8 +150,25 @@ html {
     margin-top: 25px;
     margin-bottom: 25px;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-evenly;
     font-size: 12px;
+}
+
+.info_wall p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info_photobooth p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info img {
+    width: 25px;
 }
 
 .installaties {
@@ -163,6 +181,13 @@ html {
     justify-content: space-between;
     font-size: 12px;
     margin: 0 10px;
+}
+
+.go {
+    margin-left: 40%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
 }
 
 .btn {
