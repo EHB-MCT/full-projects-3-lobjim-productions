@@ -497,7 +497,7 @@ function renderJefData(jef) {
                 routeWay = []
                 main_popup.innerHTML = ""
                 let markerGroup = new L.FeatureGroup();
-                restoMarkers.forEach(el => {
+                jefMarkers.forEach(el => {
                     markerGroup.addLayer(el)
                     markerGroup.addTo(map);
                 })
