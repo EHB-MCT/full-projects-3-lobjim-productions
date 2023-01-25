@@ -6,7 +6,11 @@ body {
     overscroll-behavior: none;
 }
 
-
+.logo img {
+    margin-top: 5px;
+    width: 5%;
+    margin-left: 2%;
+}
 
 .header_text {
     font-family: 'Montserrat', sans-serif;
@@ -24,7 +28,7 @@ body {
     width: 90%;
 }
 
-#replay {
+#return{
     width: 200px;
     height: 80px;
     color: #FFFF;
@@ -33,6 +37,11 @@ body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 30px;
+    margin-top: -105px;
+}
+
+a {
+    text-decoration: none;
 }
 
 #gif {
@@ -49,4 +58,5 @@ body {
 #rotated {
     width: 60%;
     margin-left: 20%;
+    margin-top: -8%;
 }
