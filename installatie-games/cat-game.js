@@ -10,7 +10,7 @@ const rotated = document.getElementById('rotated');
 // Variable to hold the current angle of rotation
 let rotation = 0;
 // How much to rotate the image at a time
-const angle = 5;
+const angle = 8;
 
 let rotationCounter = 0;
 

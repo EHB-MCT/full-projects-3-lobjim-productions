@@ -20,6 +20,8 @@ body {
 
 .container {
     margin-top: -50px;
+    margin-left: 50px;
+    width: 90%;
 }
 
 #replay {
@@ -31,6 +33,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 30px;
+}
+
+#gif {
+    display: none;
 }
 
 .button {
