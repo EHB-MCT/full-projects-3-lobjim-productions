@@ -410,6 +410,20 @@ function renderToiletMarker() {
 
 
 function renderJefData(jef) {
+    let photobooth
+    let wall
+
+    if (jef.photobooth) {
+        photobooth = `<p>Photobooth: <img src="img/true.png"></p>`
+    } else {
+        photobooth = `<p>Photobooth: <img src="img/false.png"></p>`
+    }
+
+    if (jef.wall) {
+        wall = `<p>Interactive Wall: <img src="img/true.png"></p>`
+    } else {
+        wall = `<p>Interactive Wall: <img src="img/false.png"></p>`
+    }
     console.log(jef)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
@@ -423,10 +437,10 @@ function renderJefData(jef) {
 </div>
     <div class="info">
         <div class="info_photobooth">
-            <p>Photobooth: <img src="img/true.png"></p>
+            ${photobooth}
         </div>
         <div class="info_wall">
-            <p>Interactive Wall: <img src="img/false.png"></p>
+        ${wall}
         </div>
     </div>
     <div class="go">
@@ -437,6 +451,21 @@ function renderJefData(jef) {
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
+        toiletMarkers.forEach(el => {
+            map.removeLayer(el)
+        })
+        busMarkers.forEach(el => {
+            map.removeLayer(el)
+
+        })
+        parkMarkers.forEach(el => {
+            map.removeLayer(el)
+
+        })
+        restoMarkers.forEach(el => {
+            map.removeLayer(el)
+
+        })
         if (routeWay.length) {
             routeWay.forEach(route => {
                 map.removeControl(route);
@@ -526,46 +555,6 @@ function renderJefData(jef) {
         }, 500);
     });
 
-    const like = document.getElementById('like')
-    like.addEventListener('click', e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-
-        console.log('click')
-        if (localStorage.getItem('token')) {
-            let token
-            let base64Url = localStorage.getItem('token').split('.')[1];
-            let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            token = JSON.parse(jsonPayload);
-            let likedPlace = {
-                likeId: jef.id,
-                userId: token.id,
-                name: jef.Locatienaam,
-                adress: jef.adres,
-                type: "Jef",
-                lat: data[1].lat,
-                long: data[1].lng,
-            }
-            fetch("https://jef-api.onrender.com/like", {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': "application/json",
-                        token: localStorage.getItem('token')
-
-                    },
-                    body: JSON.stringify(likedPlace)
-                })
-                .then(res => res.json())
-                .then(data => {
-                    alert(data.message)
-                })
-        } else {
-            alert('connect to like')
-        }
-
-    })
 }
 
 function renderRestoData(resto) {
@@ -596,6 +585,9 @@ function renderRestoData(resto) {
             })
             routeWay = []
         }
+        jefMarkers.forEach(el => {
+            map.removeLayer(el)
+        })
         const btn = document.getElementsByName('btn')
         btn.forEach(btn => {
             btn.disabled = true
@@ -664,6 +656,11 @@ function renderRestoData(resto) {
                 restoMarkers.forEach(el => {
                     markerGroup.addLayer(el)
                     markerGroup.addTo(map);
+                })
+                let markerGroup2 = new L.FeatureGroup();
+                jefMarkers.forEach(el => {
+                    markerGroup2.addLayer(el)
+                    markerGroup2.addTo(map);
                 })
                 map.fitBounds(markerGroup.getBounds());
             })
@@ -749,6 +746,9 @@ function renderParkData(park) {
             })
             routeWay = []
         }
+        jefMarkers.forEach(el => {
+            map.removeLayer(el)
+        })
         const btn = document.getElementsByName('btn')
         btn.forEach(btn => {
             btn.disabled = true
@@ -817,6 +817,12 @@ function renderParkData(park) {
                 parkMarkers.forEach(el => {
                     markerGroup.addLayer(el)
                     markerGroup.addTo(map);
+                })
+
+                let markerGroup2 = new L.FeatureGroup();
+                jefMarkers.forEach(el => {
+                    markerGroup2.addLayer(el)
+                    markerGroup2.addTo(map);
                 })
                 map.fitBounds(markerGroup.getBounds());
             })
@@ -907,6 +913,9 @@ function renderBusData(bus) {
         btn.forEach(btn => {
             btn.disabled = true
         })
+        jefMarkers.forEach(el => {
+            map.removeLayer(el)
+        })
         const data = JSON.parse(localStorage.getItem('pos'))
         let routeMaker = L.Routing.control({
             draggableWaypoints: false,
@@ -970,6 +979,12 @@ function renderBusData(bus) {
                 busMarkers.forEach(el => {
                     markerGroup.addLayer(el)
                     markerGroup.addTo(map);
+                })
+
+                let markerGroup2 = new L.FeatureGroup();
+                jefMarkers.forEach(el => {
+                    markerGroup2.addLayer(el)
+                    markerGroup2.addTo(map);
                 })
                 map.fitBounds(markerGroup.getBounds());
             })
@@ -1063,6 +1078,9 @@ function renderToiletData(findToilet) {
             })
             routeWay = []
         }
+        jefMarkers.forEach(el => {
+            map.removeLayer(el)
+        })
         const btn = document.getElementsByName('btn')
         btn.forEach(btn => {
             btn.disabled = true
@@ -1131,6 +1149,12 @@ function renderToiletData(findToilet) {
                 toiletMarkers.forEach(el => {
                     markerGroup.addLayer(el)
                     markerGroup.addTo(map);
+                })
+
+                let markerGroup2 = new L.FeatureGroup();
+                jefMarkers.forEach(el => {
+                    markerGroup2.addLayer(el)
+                    markerGroup2.addTo(map);
                 })
                 map.fitBounds(markerGroup.getBounds());
             })
