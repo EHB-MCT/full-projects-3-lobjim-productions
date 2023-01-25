@@ -101,7 +101,8 @@ html {
     transition: .5s ease all;
 }
 
-#btn_gaan {
+#btn_gaan,
+#redirect {
     padding: 10px 20px;
     margin-bottom: 20px;
     background-color: #F04E37;
@@ -184,9 +185,10 @@ html {
 }
 
 .go {
-    margin-left: 40%;
+    /* margin-left: 40%; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
     font-size: 12px;
 }
 
