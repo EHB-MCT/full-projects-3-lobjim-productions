@@ -160,7 +160,7 @@ jef.addEventListener('change', e => {
         })
         setTimeout(() => {
             renderJefMarker()
-        }, 750)
+        }, 1500)
     })
 })
 
