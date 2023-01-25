@@ -1,4 +1,4 @@
-document.getElementById('replay').style.display = "none";
+document.getElementById('return').style.display = "none";
 const animationURL = document.getElementById('gif-cat');
 
 // hide animationurl 
@@ -29,7 +29,7 @@ function rotateImage() {
         animationURL.style.display = "block";
         // Remove the touchmove event listener to stop the rotation
         document.getElementById("rotate").removeEventListener('touchmove', rotateImage);
-        document.getElementById('replay').style.display = "block";
+        document.getElementById('return').style.display = "block";
     }
 }
 
