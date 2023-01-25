@@ -445,9 +445,15 @@ function renderJefData(jef) {
     </div>
     <div class="go">
         <button id="btn_gaan">Gaan</button>
+        <button id="redirect">Maps</button>
     </div>
 `
 
+    const redirect = document.getElementById('redirect')
+    redirect.addEventListener("click", e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+    })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
@@ -570,11 +576,22 @@ function renderRestoData(resto) {
                             <p>${resto.adres}</p>
                         </div>
                     </div>
-    <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
-        <button id="btn_gaan">Gaan</button>
-    </div>
-</div>`
+                    <div class="like-go">
+                    <button id="btn_gaan">Gaan</button>
+                    <button id="redirect">Maps</button>
+            
+                </div>
+                <div class="hearth">
+                <button id="like"><img id="like_img" src="img/like.png"></button>
+                </div>
+
+            </div>`
+
+    const redirect = document.getElementById('redirect')
+    redirect.addEventListener("click", e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+    })
 
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
@@ -732,11 +749,19 @@ function renderParkData(park) {
                         </div>
                     </div>
     <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
         <button id="btn_gaan">Gaan</button>
+        <button id="redirect">Maps</button>
+    </div>
+    <div class="hearth">
+    <button id="like"><img id="like_img" src="img/like.png"></button>
     </div>
 </div>`
 
+    const redirect = document.getElementById('redirect')
+    redirect.addEventListener("click", e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+    })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {
@@ -894,11 +919,21 @@ function renderBusData(bus) {
         <p>Antwerpen</p>
     </div>
 </div>
-    <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
-        <button id="btn_gaan">Gaan</button>
-    </div>
+<div class="like-go">
+<button id="btn_gaan">Gaan</button>
+<button id="redirect">Maps</button>
+
+</div>
+<div class="hearth">
+<button id="like"><img id="like_img" src="img/like.png"></button>
+</div>
 </div>`
+
+    const redirect = document.getElementById('redirect')
+    redirect.addEventListener("click", e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+    })
     const inv = document.getElementById('invisible')
     inv.style.visibility = 'hidden'
     const route = document.getElementById('btn_gaan')
@@ -1064,11 +1099,21 @@ function renderToiletData(findToilet) {
             <p>${uur}</p>
         </div>
     </div>
-    <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
-        <button id="btn_gaan">Gaan</button>
-    </div>
+    <div class="like-go"></div>
+    <button id="btn_gaan">Gaan</button>
+    <button id="redirect">Maps</button>
+
+</div>
+<div class="hearth">
+<button id="like"><img id="like_img" src="img/like.png"></button>
+</div>
 </div>`
+
+    const redirect = document.getElementById('redirect')
+    redirect.addEventListener("click", e => {
+        const data = JSON.parse(localStorage.getItem('pos'))
+        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+    })
 
     const route = document.getElementById('btn_gaan')
     route.addEventListener('click', e => {

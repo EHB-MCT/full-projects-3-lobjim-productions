@@ -40,6 +40,10 @@ body {
     margin-top: -105px;
 }
 
+a {
+    text-decoration: none;
+}
+
 #gif {
     display: none;
 }
