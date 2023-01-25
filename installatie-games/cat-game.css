@@ -23,6 +23,15 @@ body {
     width: 100%;
 }
 
+#gif {
+    display: none;
+}
+
+
+#gif-cat img {
+    width: 100%;
+}
+
 .logo img {
     margin-top: 5px;
     width: 15%;
@@ -43,8 +52,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -100px;
 }
 
 #rotated {
     width: 100%;
+    margin-bottom: 100px;
+    margin-top: -40px;
 }

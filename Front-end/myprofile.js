@@ -128,7 +128,7 @@ function renderProfile() {
 </div>
 <div class="likedplaces">
 <div class="title">
-    <h1>Gelikete plaatsen</h1>
+    <h1>Favoriete plekjes</h1>
 </div>
 <div id = "liked" class="likelist">
 

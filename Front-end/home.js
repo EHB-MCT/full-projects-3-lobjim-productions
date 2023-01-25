@@ -144,7 +144,6 @@ jef.addEventListener('change', e => {
     const date = e.target.value
     jefMarkers.forEach(el => {
         map.removeLayer(el)
-
     })
 
     jefMarkers = []
@@ -172,7 +171,7 @@ jef.addEventListener('change', e => {
         })
         setTimeout(() => {
             renderJefMarker()
-        }, 750)
+        }, 1500)
     })
 })
 
@@ -418,22 +417,22 @@ function renderJefData(jef) {
     <div class="naam">
         <h2>${jef.Locatienaam}</h2>
     </div>
+
+    <div class="naam">
+    <p>${jef.adres}</p>
+</div>
     <div class="info">
-        <div class="info_leeftijd">
-            <p>Min leeftijd: 12 <br>Max leeftijd: 14</p>
+        <div class="info_photobooth">
+            <p>Photobooth: <img src="img/true.png"></p>
         </div>
-        <div class="info_uur">
-            <p>Uur: 9u - 12u</p>
+        <div class="info_wall">
+            <p>Interactive Wall: <img src="img/false.png"></p>
         </div>
     </div>
-    <div class="installaties">
-        <p>Installatie aanwezig aan in ingang</p>
-    </div>
-    <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
+    <div class="go">
         <button id="btn_gaan">Gaan</button>
     </div>
-</div>`
+`
 
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')

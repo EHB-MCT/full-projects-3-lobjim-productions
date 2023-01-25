@@ -1,0 +1,50 @@
+html,
+body {
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+
+
+.header_text {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.cat {
+    margin-top: 90px;
+}
+
+.container {
+    margin-top: -50px;
+}
+
+#replay {
+    width: 200px;
+    height: 80px;
+    color: #FFFF;
+    background-color: #F04E37;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
+#gif {
+    display: none;
+}
+
+.button {
+    position: fixed;
+    top:  650px;
+    left: 42%;
+}
+
+
+#rotated {
+    width: 60%;
+    margin-left: 20%;
+}
