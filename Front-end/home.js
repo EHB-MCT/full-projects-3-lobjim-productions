@@ -577,11 +577,14 @@ function renderRestoData(resto) {
                         </div>
                     </div>
                     <div class="like-go">
-                    <button id="like"><img id="like_img" src="img/like.png"></button>
                     <button id="btn_gaan">Gaan</button>
                     <button id="redirect">Maps</button>
             
                 </div>
+                <div class="hearth">
+                <button id="like"><img id="like_img" src="img/like.png"></button>
+                </div>
+
             </div>`
 
     const redirect = document.getElementById('redirect')
@@ -746,10 +749,11 @@ function renderParkData(park) {
                         </div>
                     </div>
     <div class="like-go">
-        <button id="like"><img id="like_img" src="img/like.png"></button>
         <button id="btn_gaan">Gaan</button>
         <button id="redirect">Maps</button>
-
+    </div>
+    <div class="hearth">
+    <button id="like"><img id="like_img" src="img/like.png"></button>
     </div>
 </div>`
 
@@ -916,10 +920,12 @@ function renderBusData(bus) {
     </div>
 </div>
 <div class="like-go">
-<button id="like"><img id="like_img" src="img/like.png"></button>
 <button id="btn_gaan">Gaan</button>
 <button id="redirect">Maps</button>
 
+</div>
+<div class="hearth">
+<button id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 </div>`
 
@@ -1093,11 +1099,13 @@ function renderToiletData(findToilet) {
             <p>${uur}</p>
         </div>
     </div>
-    <div class="like-go">
-    <button id="like"><img id="like_img" src="img/like.png"></button>
+    <div class="like-go"></div>
     <button id="btn_gaan">Gaan</button>
     <button id="redirect">Maps</button>
 
+</div>
+<div class="hearth">
+<button id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 </div>`
 
