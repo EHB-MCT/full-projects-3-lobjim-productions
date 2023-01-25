@@ -85,22 +85,43 @@
 .spel5,
 .spel6 {
     width: 45%;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 2px solid lightgray;
     margin-bottom: 20px;
-    padding-top: 15px;
-    padding-bottom: 20px;
 }
 
-.spel2,
-.spel3,
-.spel4,
-.spel5,
+.spel2 {
+    background-image: url('./../installatie-games/images/vrije_yuku.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+
+.spel3 {
+    background-image: url('./../installatie-games/images/op_een_dag.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.spel4 {
+    background-image: url('./../installatie-games/images/happy_ukulele.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.spel5 {
+    background-image: url('./../installatie-games/images/blinkende_bloem.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
 .spel6 {
-    background-color: lightgray;
+    background-image: url('./../installatie-games/images/mieren_muziek.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 

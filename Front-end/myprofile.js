@@ -11,6 +11,14 @@ if (localStorage.getItem('token')) {
         if (data.message == "You are connected !") {
             console.log(token)
             renderProfile()
+            fetch(`https://jef-api.onrender.com/like/${token.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    data.data.forEach(el => {
+                        console.log(el)
+                        renderLikedPlaces(el)
+                    })
+                })
         } else {
             alert(data.message)
             window.location.href = "login.html"
@@ -33,6 +41,61 @@ async function verifyToken() {
     return await res.json()
 }
 
+function renderLikedPlaces(data) {
+    const container = document.getElementById('liked')
+    let html = ""
+    let img
+
+
+    if (data.type == "Park") {
+        img = `<img src="./img/park.png" alt="">`
+    } else if (data.type == "Halte") {
+        img = `<img src="./img/transport.png" alt="">`
+    } else if (data.type == "Resto") {
+        img = `<img src="./img/eten.png" alt="">`
+
+    } else {
+        img = `<img src="./img/wc.png" alt="">`
+
+    }
+    html = ` <div class="like">
+    <div class="type">
+    ${img}
+    </div>
+    <div class="name">
+        <p>${data.name}</p>
+    </div>
+    <div class="delete" name = "delete">
+        <img id = ${data.likeId} src="./img/cross.png" alt="kruis">
+    </div>
+    <div class="button_gaan">
+        <button id = ${data.likeId} type="button">Gaan</button>
+    </div>
+</div>`
+    container.innerHTML += html
+
+    const removeLike = document.getElementsByName('delete')
+    removeLike.forEach(el => {
+        el.addEventListener('click', e => {
+            const id = e.target.id
+            console.log(JSON.stringify(token.id))
+            console.log(id)
+            fetch(`https://jef-api.onrender.com/deleteLike?likeId=${id}&userId=${token.id}`, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': "application/json",
+                        token: localStorage.getItem('token')
+                    },
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message)
+                    location.reload()
+                })
+        })
+    })
+}
+
 function renderProfile() {
     const container = document.getElementById('wrapper')
     container.innerHTML = ""
@@ -52,21 +115,6 @@ function renderProfile() {
     <h1>Gelikete plaatsen</h1>
 </div>
 <div id = "liked" class="likelist">
-    <div class="like">
-        <div class="type">
-            <img src="./img/eten.png" alt="">
-        </div>
-        <div class="name">
-            <p>Mc Dondald's</p>
-        </div>
-        <div class="delete">
-            <img src="./img/cross.png" alt="kruis">
-        </div>
-        <div class="button_gaan">
-            <button type="button">Gaan</button>
-        </div>
-    </div>
-
 
 </div>
 
