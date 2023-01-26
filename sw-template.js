@@ -61,7 +61,7 @@ const limitCacheSize = (name, size) => {
 //  fetch = Cache every http request you'll see in network tab
 self.addEventListener('fetch', (event) => {
 	console.log(event.request);
-	if (event.request.url.indexOf('https://jef-api.onrender.com') === -1 &&
+	if (event.request.url.indexOf('https://jef-api.onrender.com') === -1 && event.request.url.indexOf('https://ehb-mct.github.io') === -1 &&
 		event.request.url.indexOf('http://maps.google.com') === -1) {
 		// https://stackoverflow.com/questions/33262385/service-worker-force-update-of-new-assets
 		if (cacheMode == 'developing') {
