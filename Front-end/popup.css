@@ -137,9 +137,10 @@ html {
 }
 
 .popup-content p {
-    margin-top: 20px;
+    margin-top: 2px;
     font-size: 12px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 @keyframes slide-in {
@@ -203,7 +204,7 @@ html {
 .hearth {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .go {
