@@ -15,7 +15,7 @@ const angle = 8;
 let rotationCounter = 0;
 
 function rotateImage() {
-    // Check if the rotation counter is less than 300
+    // Check if rotation counter is less than 300
     if (rotationCounter < 600) {
         rotation = (rotation + angle) % 360;
         rotated.style.transform = `rotate(${rotation}deg)`;
