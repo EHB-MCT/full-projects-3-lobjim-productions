@@ -578,7 +578,7 @@ function renderRestoData(resto) {
                         
                     </div>
                     <div class="hearth">
-                <button id="like"><img id="like_img" src="img/like.png"></button>
+                <button value = ${resto.id} id="like"><img id="like_img" src="img/like.png"></button>
                 </div>
                     <div class="like-go">
                     <button id="btn_gaan">Route</button>
@@ -734,6 +734,9 @@ function renderRestoData(resto) {
         }
 
     })
+
+    checkLike()
+
 }
 
 function renderParkData(park) {
@@ -750,7 +753,7 @@ function renderParkData(park) {
                         </div>
                     </div>
                     <div class="hearth">
-                    <button id="like"><img id="like_img" src="img/like.png"></button>
+                    <button value = ${park.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
                     </div>
     <div class="like-go">
         <button id="btn_gaan">Route</button>
@@ -866,6 +869,7 @@ function renderParkData(park) {
     });
 
     const like = document.getElementById('like')
+
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
         if (localStorage.getItem('token')) {
@@ -903,6 +907,10 @@ function renderParkData(park) {
         }
 
     })
+
+    checkLike()
+
+
 }
 
 
@@ -922,7 +930,7 @@ function renderBusData(bus) {
     
 </div>
 <div class="hearth">
-<button id="like"><img id="like_img" src="img/like.png"></button>
+<button value = ${bus.properties.STOPID} id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 <div class="like-go">
 <button id="btn_gaan">Route</button>
@@ -1039,7 +1047,6 @@ function renderBusData(bus) {
 
     });
 
-
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
         console.log('click')
@@ -1077,6 +1084,8 @@ function renderBusData(bus) {
         }
 
     })
+    checkLike()
+
 }
 
 function renderToiletData(findToilet) {
@@ -1222,27 +1231,6 @@ function renderToiletData(findToilet) {
 
 
     const like = document.getElementById('like')
-
-    if (localStorage.getItem('token')) {
-        let token
-        let base64Url = localStorage.getItem('token').split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        token = JSON.parse(jsonPayload);
-
-        console.log(token.id)
-
-        fetch(`https://jef-api.onrender.com/like/${token.id}`)
-            .then(res => res.json())
-            .then(data => {
-                data.data.forEach(el => {
-                    console.log(el)
-
-                })
-            })
-    }
     like.addEventListener('click', e => {
         console.log('click')
         if (localStorage.getItem('token')) {
@@ -1280,6 +1268,8 @@ function renderToiletData(findToilet) {
         }
 
     })
+    checkLike()
+
 }
 
 if (localStorage.getItem('likedPlace')) {
@@ -1358,6 +1348,32 @@ if (localStorage.getItem('likedPlace')) {
 
 
 }
+
+function checkLike() {
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+        const like = document.getElementById('like')
+        const container = document.querySelector("div.hearth")
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+
+                    if (like.value == el.likeId) {
+                        container.innerHTML = `    <button id="filled"><img id="like_img" src="img/heart_filled.png"></button>`
+                    }
+
+                })
+            })
+    }
+}
+
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')
