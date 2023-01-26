@@ -578,7 +578,7 @@ function renderRestoData(resto) {
                         
                     </div>
                     <div class="hearth">
-                <button id="like"><img id="like_img" src="img/like.png"></button>
+                <button value = ${resto.id} id="like"><img id="like_img" src="img/like.png"></button>
                 </div>
                     <div class="like-go">
                     <button id="btn_gaan">Route</button>
@@ -695,6 +695,27 @@ function renderRestoData(resto) {
     });
 
     const like = document.getElementById('like')
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+                    if (like.value == el.likeId) {
+                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
+                    } else {
+                        like.innerHTML = `<img id="like_img" src="img/like.png">`
+                    }
+                })
+            })
+    }
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
 
@@ -750,7 +771,7 @@ function renderParkData(park) {
                         </div>
                     </div>
                     <div class="hearth">
-                    <button id="like"><img id="like_img" src="img/like.png"></button>
+                    <button value = ${park.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
                     </div>
     <div class="like-go">
         <button id="btn_gaan">Route</button>
@@ -866,6 +887,27 @@ function renderParkData(park) {
     });
 
     const like = document.getElementById('like')
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+                    if (like.value == el.likeId) {
+                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
+                    } else {
+                        like.innerHTML = `<img id="like_img" src="img/like.png">`
+                    }
+                })
+            })
+    }
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
         if (localStorage.getItem('token')) {
@@ -922,7 +964,7 @@ function renderBusData(bus) {
     
 </div>
 <div class="hearth">
-<button id="like"><img id="like_img" src="img/like.png"></button>
+<button value = ${bus.properties.STOPID} id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 <div class="like-go">
 <button id="btn_gaan">Route</button>
@@ -1039,8 +1081,30 @@ function renderBusData(bus) {
 
     });
 
-
     const like = document.getElementById('like')
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+
+        console.log(token.id)
+
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+                    if (like.value == el.likeId) {
+                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
+                    } else {
+                        like.innerHTML = `<img id="like_img" src="img/like.png">`
+                    }
+                })
+            })
+    }
     like.addEventListener('click', e => {
         console.log('click')
         if (localStorage.getItem('token')) {
@@ -1238,8 +1302,12 @@ function renderToiletData(findToilet) {
             .then(res => res.json())
             .then(data => {
                 data.data.forEach(el => {
-                    console.log(el)
-
+                    console.log(like.innerHTML)
+                    if (like.value == el.likeId) {
+                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
+                    } else {
+                        like.innerHTML = `<img id="like_img" src="img/like.png">`
+                    }
                 })
             })
     }

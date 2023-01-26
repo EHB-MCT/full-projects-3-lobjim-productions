@@ -411,9 +411,13 @@ body {
 
 
 
-
-
 .swal2-container.swal2-top-end>.swal2-popup,
 .swal2-container.swal2-top-right>.swal2-popup {
     margin-top: 40%;
+}
+
+#profile {
+    text-decoration: none !important;
+    color: #F04E37 !important;
+    font-weight: 800 !important;
 }
