@@ -1105,7 +1105,7 @@ function renderToiletData(findToilet) {
 
 </div>
 <div class="hearth">
-<button id="like"><img id="like_img" src="img/like.png"></button>
+<button value = ${findToilet.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 </div>`
 
@@ -1220,6 +1220,27 @@ function renderToiletData(findToilet) {
 
 
     const like = document.getElementById('like')
+
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+
+        console.log(token.id)
+
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+                    console.log(el)
+
+                })
+            })
+    }
     like.addEventListener('click', e => {
         console.log('click')
         if (localStorage.getItem('token')) {
