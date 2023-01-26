@@ -101,13 +101,28 @@ html {
     transition: .5s ease all;
 }
 
-#btn_gaan,
+#btn_gaan {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #F04E37;
+    border: 0px;
+    color: white;
+    width: 25%;
+}
+
 #redirect {
     padding: 10px 20px;
     margin-bottom: 20px;
     background-color: #F04E37;
     border: 0px;
     color: white;
+    width: 25%;
+}
+
+
+
+#redirect img {
+    width: 50%;
 }
 
 .close-btn:hover {
