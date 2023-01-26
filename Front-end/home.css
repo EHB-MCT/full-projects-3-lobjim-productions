@@ -207,8 +207,6 @@ body {
     width: 100%;
     bottom: 20px;
     margin: auto;
-    z-index: 1000000;
-
 }
 
 .buttons button {

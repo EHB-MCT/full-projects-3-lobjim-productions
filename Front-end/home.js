@@ -1106,15 +1106,12 @@ function renderToiletData(findToilet) {
         <div class="info_leeftijd">
             <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
         </div>
-        <div class="info_uur">
-            <p>${uur}</p>
-        </div>
     </div>
     <div class="hearth">
     <button value = ${findToilet.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
     </div>
     <div class="like-go">
-    <button id="btn_gaan">Gaan</button>
+    <button id="btn_gaan">Route</button>
     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
     </div>
 </div>
