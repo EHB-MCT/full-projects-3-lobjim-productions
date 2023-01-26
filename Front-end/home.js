@@ -444,7 +444,7 @@ function renderJefData(jef) {
         </div>
     </div>
     <div class="go">
-        <button id="btn_gaan">Gaan</button>
+        <button id="btn_gaan">Route</button>
         <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button>
     </div>
 `
@@ -577,7 +577,7 @@ function renderRestoData(resto) {
                         </div>
                     </div>
                     <div class="like-go">
-                    <button id="btn_gaan">Gaan</button>
+                    <button id="btn_gaan">Route</button>
                     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
             
                 </div>
@@ -749,7 +749,7 @@ function renderParkData(park) {
                         </div>
                     </div>
     <div class="like-go">
-        <button id="btn_gaan">Gaan</button>
+        <button id="btn_gaan">Route</button>
         <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
     </div>
     <div class="hearth">
@@ -920,7 +920,7 @@ function renderBusData(bus) {
     </div>
 </div>
 <div class="like-go">
-<button id="btn_gaan">Gaan</button>
+<button id="btn_gaan">Route</button>
 <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
 
 </div>
@@ -1100,7 +1100,7 @@ function renderToiletData(findToilet) {
         </div>
     </div>
     <div class="like-go"></div>
-    <button id="btn_gaan">Gaan</button>
+    <button id="btn_gaan">Route</button>
     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
 
 </div>
