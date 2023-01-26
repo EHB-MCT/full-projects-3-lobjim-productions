@@ -408,3 +408,9 @@ body {
 .background img {
     width: 300px;
 }
+
+#profile {
+    text-decoration: none !important;
+    color: #F04E37 !important;
+    font-weight: 800 !important;
+}
