@@ -575,14 +575,15 @@ function renderRestoData(resto) {
                         <div class="info_leeftijd">
                             <p>${resto.adres}</p>
                         </div>
+                        
                     </div>
+                    <div class="hearth">
+                <button id="like"><img id="like_img" src="img/like.png"></button>
+                </div>
                     <div class="like-go">
                     <button id="btn_gaan">Route</button>
                     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
             
-                </div>
-                <div class="hearth">
-                <button id="like"><img id="like_img" src="img/like.png"></button>
                 </div>
 
             </div>`
@@ -748,12 +749,12 @@ function renderParkData(park) {
                             <p>${park.attributes.STRAATNAAMLABEL}, ${park.attributes.POSTCODE} Antwerpen</p>
                         </div>
                     </div>
+                    <div class="hearth">
+                    <button id="like"><img id="like_img" src="img/like.png"></button>
+                    </div>
     <div class="like-go">
         <button id="btn_gaan">Route</button>
         <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
-    </div>
-    <div class="hearth">
-    <button id="like"><img id="like_img" src="img/like.png"></button>
     </div>
 </div>`
 
@@ -918,14 +919,15 @@ function renderBusData(bus) {
     <div class="info_leeftijd">
         <p>Antwerpen</p>
     </div>
+    
+</div>
+<div class="hearth">
+<button id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 <div class="like-go">
 <button id="btn_gaan">Route</button>
 <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
 
-</div>
-<div class="hearth">
-<button id="like"><img id="like_img" src="img/like.png"></button>
 </div>
 </div>`
 
@@ -1099,13 +1101,13 @@ function renderToiletData(findToilet) {
             <p>${uur}</p>
         </div>
     </div>
-    <div class="like-go"></div>
-    <button id="btn_gaan">Route</button>
+    <div class="hearth">
+    <button value = ${findToilet.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
+    </div>
+    <div class="like-go">
+    <button id="btn_gaan">Gaan</button>
     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
-
-</div>
-<div class="hearth">
-<button value = ${findToilet.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
+    </div>
 </div>
 </div>`
 
