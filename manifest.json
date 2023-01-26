@@ -1,7 +1,7 @@
 {
 	"name": "JEF Festival",
 	"short_name": "JEF Festival",
-	"start_url": "./../Front-end/welkom.html",
+	"start_url": "./index.html",
 	"display": "standalone",
 	"orientation": "portrait",
 	"background_color": "#ccc",
