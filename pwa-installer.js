@@ -1,8 +1,8 @@
 // It is not possible to check if the app is removed from the pc (only when it's removed from chrome://apps)
 if ('serviceWorker' in navigator) {
 	//check if serviceWorkers are supported and register it (dev-tools>application>service workers)
-	const register = navigator.serviceWorker.register('./sw-template.js');
-
+	const register = navigator.serviceWorker.register('./../sw-template.js');
+	console.log(register)
 	register
 		.then(() => {
 			console.log('SW registered');
