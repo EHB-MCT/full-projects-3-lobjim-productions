@@ -276,12 +276,14 @@ body {
     width: 15px;
 }
 
-#like {
+#like,
+#filled {
     border: 0;
     background-color: transparent;
 }
 
-#like_img {
+#like_img,
+#liked_img {
     width: 30px;
 }
 
