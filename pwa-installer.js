@@ -2,7 +2,6 @@
 if ('serviceWorker' in navigator) {
 	//check if serviceWorkers are supported and register it (dev-tools>application>service workers)
 	const register = navigator.serviceWorker.register('./../sw-template.js');
-	console.log(register)
 	register
 		.then(() => {
 			console.log('SW registered');
