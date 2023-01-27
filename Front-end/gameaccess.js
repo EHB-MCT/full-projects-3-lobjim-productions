@@ -13,7 +13,5 @@ form.addEventListener("submit", function(event) {
     }
 });
 
-const gameId = localStorage.getItem("gameId");
-if (localStorage.getItem(gameId)) {
-    window.location.href = './../installatie-games/'+gameId+'.html';
-}
+
+
