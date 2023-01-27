@@ -315,7 +315,7 @@ a {
 #bigpopcorn {
     position: fixed;
     width: 160px;
-    bottom: 120px;
+    bottom: 175px;
     right: -50px;
     z-index: -10;
 }
