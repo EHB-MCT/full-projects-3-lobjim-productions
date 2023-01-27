@@ -51,15 +51,33 @@ signup.addEventListener('submit', (e) => {
     if (password == password2) {
         sendData(user).then(async data => {
             if (data.status == 200) {
-                alert(data.message)
+                await Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Account succesvol aangemaakt',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
                 window.location.href = "login.html"
             } else {
-                await alert(data.message)
+                await Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Een fout is opgetreden, probeer opnieuw',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
 
             }
         })
     } else {
-        alert("Password does not match !")
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Controleer je wachtwoord',
+            showConfirmButton: false,
+            timer: 2000
+        })
     }
 
 
@@ -80,10 +98,22 @@ signin.addEventListener('submit', (e) => {
     connection(user).then(async data => {
         if (data.status == 200) {
             localStorage.setItem('token', data.token)
-            alert(data.message)
+            await Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Succesvol ingelogd',
+                showConfirmButton: false,
+                timer: 2000
+            })
             window.location.href = 'home.html'
         } else if (data.status == 400) {
-            alert(data.message)
+            await Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Email of wachtwoord is incorrect',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
     })
 })

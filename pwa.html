@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>JEF FESTIVAL</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./Front-end/img/logoJEF.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./Front-end/img/logoJEF.png" />
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+	<link rel="apple-touch-icon" href="./Front-end/img/logoJEF.png" />
+	<meta name="msapplication-TileColor" content="#2d89ef" />
+	<meta name="apple-mobile-web-app-status-bar" content="#ffffff" />
+	<meta name="theme-color" content="#ffffff" />
+	<script src="./pwa-installer.js" defer></script>
+	<style>
+		* {
+			font-family: sans-serif;
+		}
+
+		@media all and (display-mode: standalone) {
+			body {
+				background-color: #feb77f;
+			}
+		}
+
+		li {
+			line-height: 1.4em;
+		}
+
+		code {
+			background: #f8f9fa;
+			border: 1px solid #dadce0;
+			border-radius: 3px;
+			padding: 0.125em 0.25em;
+			font-family: monospace;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>JEF FESTIVAL 2023</h1>
+	<div>
+		<a href="/about.html">new page (test for offline.html & 404.html)</a> <br />
+		<button class="add-app">Download PWA</button>
+	</div>
+	<p class="uninstall">uninstall the app: <code>chrome://apps</code></p>
+
+	<h2>PWA assets:</h2>
+	<ol>
+		<li><a href="https://www.npmjs.com/package/pwa-asset-generator" target="_blank">PWA assets Generator</a></li>
+		<li><a href="https://www.favicon-generator.org/" target="_blank">Favicon Generator 1</a></li>
+		<li><a href="https://realfavicongenerator.net/" target="_blank">Favicon Generator 2</a></li>
+	</ol>
+
+	<h2>PWA - intressting links</h2>
+	<ol>
+		<li>
+			<a href="https://developer.chrome.com/docs/devtools/remote-debugging/" target="_blank">Mobile debugging
+			</a>(<code>chrome://inspect#devices</code>)
+		</li>
+		<li><a href="https://web.dev/add-manifest/" target="_blank">Manifest file</a></li>
+		<li>
+			<a href="https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle"
+				target="_blank">Service workers life-cycle</a>
+			(install, update, active &amp; fetch)
+		</li>
+		<li>
+			<a href="https://ngrok.com/download" target="_blank">NGROK - http<b>s</b> server</a> (Service workers
+			requires a secure (https) connection for
+			mobile)
+		</li>
+
+		<li>
+			<a href="https://developers.google.com/web/fundamentals/codelabs/push-notifications">Push notifcation
+				introduction</a> (<a href="https://github.com/GoogleChromeLabs/web-push-codelab/tree/master">github
+				code</a>)
+		</li>
+		<li><a href="https://www.clarkio.com/2017/08/04/pwa-web-push-2/">Push notifcation with server</a></li>
+	</ol>
+
+	<h2>Console</h2>
+	<ol>
+		<li>Better console for serivice workers: <code>F12 &gt; Console &gt; ⚙️ (settings icon) &gt; ☑ enable preserve
+				log</code></li>
+		<li>
+			<i>Session Console of service worker: <code>chrome://serviceworker-internals/</code></i>
+		</li>
+	</ol>
+
+	<!-- Code below show you can cache fetch data with a PWA / SW -->
+	<h2>offline test:</h2>
+	<h3>fetchdata online:</h3>
+	<div class="js-container-online"></div>
+	<h3>fetchdata:</h3>
+	<div class="js-container"></div>
+
+	<template id="example">
+		<div class="content">
+			<table>
+				<tr>
+					<td>UserId</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>completed</td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</template>
+</body>
+
+</html>

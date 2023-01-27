@@ -695,27 +695,6 @@ function renderRestoData(resto) {
     });
 
     const like = document.getElementById('like')
-    if (localStorage.getItem('token')) {
-        let token
-        let base64Url = localStorage.getItem('token').split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        token = JSON.parse(jsonPayload);
-
-        fetch(`https://jef-api.onrender.com/like/${token.id}`)
-            .then(res => res.json())
-            .then(data => {
-                data.data.forEach(el => {
-                    if (like.value == el.likeId) {
-                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
-                    } else {
-                        like.innerHTML = `<img id="like_img" src="img/like.png">`
-                    }
-                })
-            })
-    }
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
 
@@ -755,6 +734,9 @@ function renderRestoData(resto) {
         }
 
     })
+
+    checkLike()
+
 }
 
 function renderParkData(park) {
@@ -887,27 +869,7 @@ function renderParkData(park) {
     });
 
     const like = document.getElementById('like')
-    if (localStorage.getItem('token')) {
-        let token
-        let base64Url = localStorage.getItem('token').split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        token = JSON.parse(jsonPayload);
 
-        fetch(`https://jef-api.onrender.com/like/${token.id}`)
-            .then(res => res.json())
-            .then(data => {
-                data.data.forEach(el => {
-                    if (like.value == el.likeId) {
-                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
-                    } else {
-                        like.innerHTML = `<img id="like_img" src="img/like.png">`
-                    }
-                })
-            })
-    }
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
         if (localStorage.getItem('token')) {
@@ -945,6 +907,10 @@ function renderParkData(park) {
         }
 
     })
+
+    checkLike()
+
+
 }
 
 
@@ -1082,29 +1048,6 @@ function renderBusData(bus) {
     });
 
     const like = document.getElementById('like')
-    if (localStorage.getItem('token')) {
-        let token
-        let base64Url = localStorage.getItem('token').split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        token = JSON.parse(jsonPayload);
-
-        console.log(token.id)
-
-        fetch(`https://jef-api.onrender.com/like/${token.id}`)
-            .then(res => res.json())
-            .then(data => {
-                data.data.forEach(el => {
-                    if (like.value == el.likeId) {
-                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
-                    } else {
-                        like.innerHTML = `<img id="like_img" src="img/like.png">`
-                    }
-                })
-            })
-    }
     like.addEventListener('click', e => {
         console.log('click')
         if (localStorage.getItem('token')) {
@@ -1141,6 +1084,8 @@ function renderBusData(bus) {
         }
 
     })
+    checkLike()
+
 }
 
 function renderToiletData(findToilet) {
@@ -1161,15 +1106,12 @@ function renderToiletData(findToilet) {
         <div class="info_leeftijd">
             <p>${findToilet.attributes.STRAAT} ${findToilet.attributes.HUISNUMMER}, ${findToilet.attributes.POSTCODE} Antwerpen</p>
         </div>
-        <div class="info_uur">
-            <p>${uur}</p>
-        </div>
     </div>
     <div class="hearth">
     <button value = ${findToilet.attributes.OBJECTID} id="like"><img id="like_img" src="img/like.png"></button>
     </div>
     <div class="like-go">
-    <button id="btn_gaan">Gaan</button>
+    <button id="btn_gaan">Route</button>
     <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button></button>
     </div>
 </div>
@@ -1286,31 +1228,6 @@ function renderToiletData(findToilet) {
 
 
     const like = document.getElementById('like')
-
-    if (localStorage.getItem('token')) {
-        let token
-        let base64Url = localStorage.getItem('token').split('.')[1];
-        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-        token = JSON.parse(jsonPayload);
-
-        console.log(token.id)
-
-        fetch(`https://jef-api.onrender.com/like/${token.id}`)
-            .then(res => res.json())
-            .then(data => {
-                data.data.forEach(el => {
-                    console.log(like.innerHTML)
-                    if (like.value == el.likeId) {
-                        like.innerHTML = `<img id="like_img" src="img/heart_filled.png">`
-                    } else {
-                        like.innerHTML = `<img id="like_img" src="img/like.png">`
-                    }
-                })
-            })
-    }
     like.addEventListener('click', e => {
         console.log('click')
         if (localStorage.getItem('token')) {
@@ -1348,6 +1265,8 @@ function renderToiletData(findToilet) {
         }
 
     })
+    checkLike()
+
 }
 
 if (localStorage.getItem('likedPlace')) {
@@ -1426,6 +1345,32 @@ if (localStorage.getItem('likedPlace')) {
 
 
 }
+
+function checkLike() {
+    if (localStorage.getItem('token')) {
+        let token
+        let base64Url = localStorage.getItem('token').split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        token = JSON.parse(jsonPayload);
+        const like = document.getElementById('like')
+        const container = document.querySelector("div.hearth")
+        fetch(`https://jef-api.onrender.com/like/${token.id}`)
+            .then(res => res.json())
+            .then(data => {
+                data.data.forEach(el => {
+
+                    if (like.value == el.likeId) {
+                        container.innerHTML = `    <button id="filled"><img id="like_img" src="img/heart_filled.png"></button>`
+                    }
+
+                })
+            })
+    }
+}
+
 async function getToiletData() {
 
     const res = await fetch('https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json')
