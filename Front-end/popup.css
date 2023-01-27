@@ -89,6 +89,8 @@ html {
     transform: translateX(-100%);
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+    bottom: 0px;
+
 }
 
 .close-btn {
@@ -217,4 +219,9 @@ html {
 
 .btn {
     width: 20px;
+}
+
+.swal2-container.swal2-top-end>.swal2-popup,
+.swal2-container.swal2-top-right>.swal2-popup {
+    margin-top: 40%;
 }

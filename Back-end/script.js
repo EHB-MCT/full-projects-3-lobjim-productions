@@ -135,7 +135,7 @@ app.post('/login', async (req, res) => {
                 email: user.email,
                 username: user.username
             }, process.env.ACCES_TOKEN_SECRET, {
-                expiresIn: '30m'
+                expiresIn: '24h'
             }, {
                 algorithm: 'RS256'
             })
@@ -200,7 +200,7 @@ app.post("/like", verifyToken, async (req, res) => {
 
         res.status(201).send({
             status: "Saved",
-            message: "Your like has been successfully saved",
+            message: "Favoriete plaats succesvol opgeslaan !",
         })
 
 
@@ -231,7 +231,7 @@ app.delete("/deleteLike", verifyToken, async (req, res) => {
         if (likes) {
             res.status(200).send({
                 status: "Success",
-                message: "Your like has been deleted !"
+                message: "Favoriete plaats verwijderd !"
 
             })
             return
