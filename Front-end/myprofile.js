@@ -20,7 +20,13 @@ if (localStorage.getItem('token')) {
                     })
                 })
         } else {
-            alert(data.message)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: data.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
             window.location.href = "login.html"
         }
     })
@@ -89,7 +95,13 @@ function renderLikedPlaces(data) {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                     location.reload()
                 })
         })
