@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./access.css">
     <link rel="stylesheet" href="./jefbox.css">
     <script src="auth.js" type="module" defer></script>
+    <script src="jefbox.js" type="module" defer></script>
+
 </head>
 
 <body>
@@ -49,8 +51,13 @@
 
     <div class="container">
         <img src="./../installatie-games/images/vrije_yuku.jpg" alt="">
-        <p>Scan de QR aan de installatie <br>om deze spel te kunnen unlocken</p>
-        <img id="camera" src="./img/camera.png" alt="">
+        <p>Kijk aan de installatie, er is een Jefwoord! <br>Om zo deze spel te kunnen ontgrendelen.</p>
+        <form>
+            <label for="password">Jefwoord:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Spelen">
+        </form>
+        <div id="error-message"></div>
     </div>
 </body>
 
