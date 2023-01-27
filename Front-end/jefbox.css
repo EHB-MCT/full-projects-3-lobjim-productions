@@ -140,3 +140,8 @@
     width: 80px;
     height: 80px;
 }
+
+.swal2-container.swal2-top-end>.swal2-popup,
+.swal2-container.swal2-top-right>.swal2-popup {
+    margin-top: 40%;
+}

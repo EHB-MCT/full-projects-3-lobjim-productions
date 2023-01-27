@@ -54,7 +54,7 @@ signup.addEventListener('submit', (e) => {
                 await Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Account succesvol aangemaakt',
+                    title: 'Account succesvol aangemaakt.',
                     showConfirmButton: false,
                     timer: 2000
                 })
@@ -63,7 +63,7 @@ signup.addEventListener('submit', (e) => {
                 await Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Een fout is opgetreden, probeer opnieuw',
+                    title: 'Een fout is opgetreden, probeer opnieuw.',
                     showConfirmButton: false,
                     timer: 2000
                 })
@@ -74,7 +74,7 @@ signup.addEventListener('submit', (e) => {
         Swal.fire({
             position: 'top-end',
             icon: 'error',
-            title: 'Controleer je wachtwoord',
+            title: 'Controleer je wachtwoord.',
             showConfirmButton: false,
             timer: 2000
         })
@@ -101,7 +101,7 @@ signin.addEventListener('submit', (e) => {
             await Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Succesvol ingelogd',
+                title: 'Succesvol ingelogd.',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -110,7 +110,7 @@ signin.addEventListener('submit', (e) => {
             await Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: 'Email of wachtwoord is incorrect',
+                title: 'Email of wachtwoord is incorrect.',
                 showConfirmButton: false,
                 timer: 2000
             })

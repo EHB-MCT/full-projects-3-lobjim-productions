@@ -12,3 +12,8 @@ form.addEventListener("submit", function(event) {
         document.querySelector('#error-message').innerHTML = 'Incorrect password. Please try again.';
     }
 });
+
+const gameId = localStorage.getItem("gameId");
+if (localStorage.getItem(gameId)) {
+    window.location.href = './../installatie-games/'+gameId+'.html';
+}
