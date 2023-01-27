@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./jefbox.css">
     <script src="auth.js" type="module" defer></script>
     <script src="jefbox.js" type="module" defer></script>
+    <script src="gameaccess.js" type="module" defer></script>
+
 
 </head>
 
@@ -50,15 +52,21 @@
     </div>
 
     <div class="container">
-        <img src="./../Front-end/img/logoJEF.png" alt="">
-        <p>Kijk aan de installatie, er is een Jefwoord! <br>Om zo deze spel te kunnen ontgrendelen. 
+        <img src="./../Front-end/img/logoJEF.png" alt="logo JEF">
+        <p>Kijk naar de installatie, er is een Jefwoord! Om zo dit spel te kunnen ontgrendelen.
             <br>
-            <br> </p>
+            <br> 
+            Vul het Jefwoord in:
+        </p>
         <form>
-            <label for="password">Jefwoord:</label>
-            <input type="password" id="password" name="password" required>
-            <input type="submit" value="Spelen">
+            <!-- <label for="password">Jefwoord:</label> -->
+            <input type="password" id="password" name="password" placeholder="Jefwoord" required>
+
+            <div class="input-field button">
+                <input type="submit" value="Spelen">
+            </div>
         </form>
+
         <div id="error-message"></div>
     </div>
 </body>

@@ -26,7 +26,23 @@ body {
     font-size: 16px;
 }
 
+.uninstall {
+    margin-top: 50%;
+    background-color: #F04E37;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+}
+
 .add {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove {
     width: 100%;
     display: flex;
     align-items: center;
