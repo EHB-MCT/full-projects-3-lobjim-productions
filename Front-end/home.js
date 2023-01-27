@@ -739,7 +739,7 @@ function renderRestoData(resto) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'info',
-                title: 'Log in to like!',
+                title: 'Log in om te liken!',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -924,7 +924,7 @@ function renderParkData(park) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'info',
-                title: 'Log in to like!',
+                title: 'Log in om te liken!',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -1113,7 +1113,7 @@ function renderBusData(bus) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'info',
-                title: 'Log in to like!',
+                title: 'Log in om te liken!',
                 showConfirmButton: false,
                 timer: 2000
             })
@@ -1306,7 +1306,7 @@ function renderToiletData(findToilet) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'info',
-                title: 'Log in to like!',
+                title: 'Log in om te liken!',
                 showConfirmButton: false,
                 timer: 2000
             })
