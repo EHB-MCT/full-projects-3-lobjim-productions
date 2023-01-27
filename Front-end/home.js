@@ -727,10 +727,22 @@ function renderRestoData(resto) {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'info',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 })
         } else {
-            alert('connect to like')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: 'Log in om te liken!',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
 
     })
@@ -900,10 +912,22 @@ function renderParkData(park) {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'info',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 })
         } else {
-            alert('connect to like')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: 'Log in om te liken!',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
 
     })
@@ -1077,10 +1101,22 @@ function renderBusData(bus) {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'info',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 })
         } else {
-            alert('connect to like')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: 'Log in om te liken!',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
 
     })
@@ -1258,10 +1294,22 @@ function renderToiletData(findToilet) {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    alert(data.message)
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'info',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                 })
         } else {
-            alert('connect to like')
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: 'Log in om te liken!',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
 
     })
