@@ -94,15 +94,15 @@ function renderLikedPlaces(data) {
                     },
                 })
                 .then(res => res.json())
-                .then(data => {
-                    Swal.fire({
+                .then(async data => {
+                    await Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
                     })
-                    location.reload()
+                    await location.reload()
                 })
         })
     })
