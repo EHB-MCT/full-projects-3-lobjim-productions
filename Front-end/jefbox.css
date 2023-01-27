@@ -93,6 +93,12 @@
     margin-bottom: 20px;
 }
 
+.spel1 {
+    background-image: url('./../installatie-games/images/duizelige_kat.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
 .spel2 {
     background-image: url('./../installatie-games/images/vrije_yuku.jpg');
     background-position: center;
@@ -129,7 +135,8 @@
 #locked_2,
 #locked_3,
 #locked_4,
-#locked_5 {
+#locked_5,
+#locked_6 {
     width: 80px;
     height: 80px;
 }
