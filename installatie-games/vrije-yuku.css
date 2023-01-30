@@ -9,6 +9,7 @@ body {
 
 
 .container {
+    touch-action: none;
     background-image: url('images/Cave-background.png');
     background-size: cover;
     background-repeat: no-repeat;
