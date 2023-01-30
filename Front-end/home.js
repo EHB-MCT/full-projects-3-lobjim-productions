@@ -729,7 +729,7 @@ function renderRestoData(resto) {
                 .then(data => {
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'info',
+                        icon: 'succes',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
@@ -914,7 +914,7 @@ function renderParkData(park) {
                 .then(data => {
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'info',
+                        icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
@@ -1103,7 +1103,7 @@ function renderBusData(bus) {
                 .then(data => {
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'info',
+                        icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
@@ -1296,7 +1296,7 @@ function renderToiletData(findToilet) {
                 .then(data => {
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'info',
+                        icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
