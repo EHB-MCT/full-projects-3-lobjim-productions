@@ -2,17 +2,15 @@ body {
     margin: 0px 0px;
 }
 
-
 .container {
     touch-action: none;
-    -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
     background-image: url('images/Cave-background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-origin: content;
     height: 100vh;
+    margin: 0px 0px;
 }
 
 #escape-button {
@@ -39,6 +37,7 @@ body {
     top: 200px;
     width: 70%;
     left: 15%;
+    margin-top: 25%;
 }
 
 #mouse {
@@ -47,4 +46,5 @@ body {
     top: 25%;
     width: 70%;
     left: 16%;
+    margin-top: 25%;
 }
