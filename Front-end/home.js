@@ -569,7 +569,7 @@ function renderRestoData(resto) {
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
     <div class="naam">
-        <h2> ${resto.name}s</h2>
+        <h2> ${resto.name}</h2>
     </div>
     <div class="info">
                         <div class="info_leeftijd">
@@ -590,8 +590,9 @@ function renderRestoData(resto) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = resto.name
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}`, '_blank')
     })
 
     // ROUTE SYSTEM
@@ -776,8 +777,9 @@ function renderParkData(park) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = park.attributes.NAAMLABEL
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}+Antwerpen`, '_blank')
     })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
