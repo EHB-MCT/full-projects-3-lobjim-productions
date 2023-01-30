@@ -19,7 +19,7 @@ body {
 }
 
 .cat {
-    margin-top: 90px;
+    margin-top: 225px;
 }
 
 .container {
@@ -28,16 +28,15 @@ body {
     width: 90%;
 }
 
-#return{
-    width: 200px;
-    height: 80px;
+#return {
+    width: 225px;
+    height: 41px;
     color: #FFFF;
     background-color: #F04E37;
     border: none;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    font-size: 30px;
-    margin-top: -105px;
+    font-size: 16px;
 }
 
 a {
@@ -50,13 +49,16 @@ a {
 
 .button {
     position: fixed;
-    top:  650px;
+    top: 96px;
     left: 42%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
 }
 
 
 #rotated {
     width: 60%;
-    margin-left: 20%;
-    margin-top: -8%;
+    margin-left: 122px;
+    margin-top: -30%;
 }
