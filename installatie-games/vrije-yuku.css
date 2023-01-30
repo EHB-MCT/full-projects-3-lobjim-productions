@@ -1,0 +1,29 @@
+#escape-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#back-button{
+    display: none;
+}
+
+#cell {
+    position: absolute;
+    top: 200px;
+    width: 50%;
+    left: 25%;
+}
+
+#mouse {
+    position: absolute;
+    top: 25%;
+    width: 50%;
+    left: 25%;
+    z-index: -1;
+}
+
+body{
+    width: 375px;
+    height: 812px;
+}

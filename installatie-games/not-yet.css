@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.logo {
+    margin-top: 25px;
+    width: 60%;
+    margin-left: 21%;
+}
