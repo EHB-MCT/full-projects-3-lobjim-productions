@@ -175,6 +175,11 @@ body {
 
 .stop {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 0 20px;
+
 }
 
 #stop {

@@ -1372,8 +1372,14 @@ if (localStorage.getItem('likedPlace')) {
         </div>
         <div class="stop">
             <button id="stop">Stop</button>
+            <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button>
         </div>
         </div>`
+            const redirect = document.getElementById('redirect')
+            redirect.addEventListener("click", e => {
+                const data = JSON.parse(localStorage.getItem('likedPlace'))
+                window.open(`http://maps.google.com?q=${data.lat}, ${data.long}`, '_blank')
+            })
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
                 localStorage.removeItem('likedPlace')
