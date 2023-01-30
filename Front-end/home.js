@@ -734,6 +734,7 @@ function renderRestoData(resto) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
                 })
         } else {
             Swal.fire({
@@ -919,6 +920,8 @@ function renderParkData(park) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
@@ -1108,6 +1111,8 @@ function renderBusData(bus) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
@@ -1301,6 +1306,8 @@ function renderToiletData(findToilet) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
