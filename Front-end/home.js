@@ -26,13 +26,11 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 function successLocation(position) {
     if (position) {
         userPosition = [position.coords.latitude, position.coords.longitude]
-        console.log(position.coords.latitude)
         let loc = {
             lat: position.coords.latitude,
             long: position.coords.longitude
         }
 
-        console.log(loc)
         localStorage.setItem('userPos', JSON.stringify(loc))
         let pos = L.control.locate({
             locateOptions: {
@@ -140,7 +138,6 @@ resto.addEventListener('click', e => {
 const jef = document.getElementById('optionDate')
 
 jef.addEventListener('change', e => {
-    console.log(e.target.value)
     const date = e.target.value
     jefMarkers.forEach(el => {
         map.removeLayer(el)
@@ -151,7 +148,6 @@ jef.addEventListener('change', e => {
     getJefData().then(data => {
         const filterByDate = data.filter(el => el.Datum == date)
         filterByDate.forEach(el => {
-            console.log(el)
             let adress = el.adres
             let lat = null
             let lon = null
@@ -424,7 +420,6 @@ function renderJefData(jef) {
     } else {
         wall = `<p>Interactive Wall: <img src="img/false.png"></p>`
     }
-    console.log(jef)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -564,7 +559,6 @@ function renderJefData(jef) {
 }
 
 function renderRestoData(resto) {
-    console.log(resto)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -698,8 +692,6 @@ function renderRestoData(resto) {
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
-
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
@@ -754,7 +746,6 @@ function renderRestoData(resto) {
 }
 
 function renderParkData(park) {
-    console.log(park)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -944,7 +935,6 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
-    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -1078,7 +1068,6 @@ function renderBusData(bus) {
 
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
@@ -1132,13 +1121,6 @@ function renderBusData(bus) {
 }
 
 function renderToiletData(findToilet) {
-    console.log(findToilet)
-    let uur
-    if (findToilet.attributes.OPENINGSUREN_OPM == null) {
-        uur = ` <p>Uur: /</p>`
-    } else {
-        uur = ` <p>Uur: ${findToilet.attributes.OPENINGSUREN_OPM}</p>`
-    }
     main_popup.innerHTML = ""
     main_popup.innerHTML = `<div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -1272,7 +1254,6 @@ function renderToiletData(findToilet) {
 
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
