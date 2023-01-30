@@ -7,14 +7,19 @@
 } */
 
 #escape-button {
-    position: absolute;
-    width: 10%;
-    height: 5%;
+    display: block;
+    background-color: #FF0000;
+    width: 15%;
+    height: 55px;
+    position: relative;
+    line-height: 5%;
     border-radius: 50%;
-    border: 5px solid black;
-    background-color: red;
-    animation: pulse 2s infinite;
+    box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    border: solid 1px transparent;
+    margin-top: 130%;
+    margin-left: 28%;
 }
+
 
 #back-button {
     display: none;
