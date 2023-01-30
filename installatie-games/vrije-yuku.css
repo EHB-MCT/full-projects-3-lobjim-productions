@@ -8,7 +8,7 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
-    background-image: url("./images/Cave-background.png");
+    background-image: url('images/Cave-background.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-origin: content;
