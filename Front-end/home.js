@@ -569,7 +569,7 @@ function renderRestoData(resto) {
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
     <div class="naam">
-        <h2> ${resto.name}s</h2>
+        <h2> ${resto.name}</h2>
     </div>
     <div class="info">
                         <div class="info_leeftijd">
