@@ -6,7 +6,28 @@ APP: Mohamed Mankouchi, Ilias Omari en Juan-Luca Lozano hebben gedurendre 3 weke
 SPELLETJES : Dina en Meylin hebben ervoor gezorgd dat de spelletjes van de WEB APP functioneel zijn 
 COMMUNICATION : Quentin hield zich voornamelijk bezig met administratieve taken zoals presentaties, klantenrelaties enz.
 
+
 ## Algemene informatie app
-We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.js (expressJS). Om deze aan te maken hebben we 1 dag gespendeerd. 
+We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.js (expressJS). Om deze aan te maken hebben we 3 dagen gespendeerd. 
 
 # JEF Festival - web app & instalations
+
+## Welkompagina
+
+## Homepagina
+
+## Myprofile
+
+## Over JEF
+
+## JEFBOX
+
+## Accespagina
+
+## Loginpagina
+
+## Downloadpagina (PWA)
+
+
+
+
