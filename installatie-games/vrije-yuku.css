@@ -1,10 +1,11 @@
-/* body {
-    width: 100%;
-    background-image: url(./images/Cave-background.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-origin: content-box;
-} */
+html,
+body {
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
 
 #escape-button {
     display: block;
@@ -17,7 +18,7 @@
     box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
     border: solid 1px transparent;
     margin-top: 130%;
-    margin-left: 28%;
+    margin-left: 57%;
 }
 
 
@@ -30,7 +31,7 @@
     /* Niet aanraken */
     top: 200px;
     width: 50%;
-    left: 25%;
+    left: 40%;
 }
 
 #mouse {
@@ -38,7 +39,7 @@
     /* Niet aanraken */
     top: 25%;
     width: 50%;
-    left: 25%;
+    left: 40%;
     z-index: -1;
 }
 
