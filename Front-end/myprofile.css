@@ -26,8 +26,8 @@ html {
 }
 
 .myprofile img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-right: 10px;
 }
 
@@ -109,6 +109,11 @@ a {
     width: 10%;
 }
 
+.type img {
+    width: 60%;
+    height: 80%;
+}
+
 .name {
     width: 60%;
 }
@@ -119,6 +124,8 @@ a {
 
 .button_gaan {
     width: 20%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .swal2-container.swal2-top-end>.swal2-popup,
