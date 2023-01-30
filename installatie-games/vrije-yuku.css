@@ -1,25 +1,37 @@
-html,
 body {
+    margin: 0px 0px;
+}
+
+.container {
     touch-action: none;
-    -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
+    background-image: url('images/Cave-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0px 0px;
 }
 
 #escape-button {
     border: 6px solid black;
     display: block;
     background-color: #FF0000;
-    width: 15%;
-    height: 55px;
+    width: 20%;
+    height: 66px;
     position: relative;
     line-height: 5%;
     border-radius: 50%;
-    box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    box-shadow: 0px 0px 0px #aaa, inset 2px 0px 0px #fff;
     margin-top: 150%;
     margin-left: 42%;
 }
 
+.animation {
+    width: 80%;
+    margin-top: 75%;
+    margin-left: 12%;
+}
 
 #back-button {
     display: none;
@@ -31,6 +43,7 @@ body {
     top: 200px;
     width: 70%;
     left: 15%;
+    margin-top: 25%;
 }
 
 #mouse {
@@ -39,5 +52,5 @@ body {
     top: 25%;
     width: 70%;
     left: 16%;
-    z-index: -1;
+    margin-top: 25%;
 }
