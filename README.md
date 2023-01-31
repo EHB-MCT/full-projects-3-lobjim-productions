@@ -34,6 +34,11 @@ Wanneer je op de pagina “Over JEF” terecht komt. Krijg je informatie over wa
 ## Loginpagina
 
 ## Downloadpagina (PWA)
+De pwa.html-pagina is voor gebruikers die de QR-code scannen, die op verschillende plaatsen in het JEF-festival te vinden zal zijn, om onze web-app op hun telefoon te downloaden. 
+
+Als onze gebruikers een Android-telefoon hebben, kunnen zij de applicatie downloaden door op de knop op de pagina te klikken. 
+
+Als onze gebruiker een iPhone heeft, moet hij/zij de link op safari openen. Dan moet hij naar het "delen"-pictogram gaan en de optie "toevoegen aan beginscherm" kiezen. De applicatie staat dan op hun startscherm. 
 
 ## Source links
 
