@@ -29,7 +29,7 @@ const verifyToken = async (req, res, next) => {
 
         } catch (error) {
             res.status(400).send({
-                message: 'Your session has expired',
+                message: 'Uw sessie is verlopen',
                 value: error
             })
         }
@@ -37,7 +37,7 @@ const verifyToken = async (req, res, next) => {
 
     } else {
         res.status(403).send({
-            message: 'Access Forbidden, No token provided'
+            message: 'Toegang verboden, geen token verstrekt'
         })
         return
     }
