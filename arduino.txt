@@ -1,0 +1,46 @@
+Dit is de arduino code voor onze interactief spelletje genaamd "Vrije Yuku"
+Source link: https://arduinogetstarted.com/tutorials/arduino-button-servo-motor
+
+#include <Servo.h>
+
+const int BUTTON_PIN = 6; // Arduino pin connected to button's pin 6
+const int SERVO_PIN  = 9; // Arduino pin connected to servo motor's pin 9 
+
+Servo servo; 
+
+// variables will change:
+int angle = 0;          // the current angle of servo motor
+int lastButtonState;    // the previous state of button
+int currentButtonState; // the current state of button
+
+
+void setup() {
+  Serial.begin(9600);                
+  pinMode(BUTTON_PIN, INPUT_PULLUP); 
+  servo.attach(SERVO_PIN);        
+  servo.write(angle);
+  currentButtonState = digitalRead(BUTTON_PIN);
+}
+
+void loop() {
+  lastButtonState = currentButtonState;     
+  currentButtonState = digitalRead(BUTTON_PIN); 
+
+  if(lastButtonState == HIGH && currentButtonState == LOW) {
+    Serial.println("The button is pressed");
+
+ angle +=15;
+
+    servo.write(angle);
+  }
+
+// Reset to the current state after 10s seconds
+if(angle==180){
+  Serial.println("Done");
+delay(10000);
+
+ angle -=180;
+
+    servo.write(angle);
+}
+}

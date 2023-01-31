@@ -732,11 +732,17 @@ function renderRestoData(resto) {
                 })
         } else {
             Swal.fire({
-                position: 'top-end',
-                icon: 'info',
-                title: 'Log je in om te liken!',
-                showConfirmButton: false,
-                timer: 2000
+                text: "Meld je aan om jouw favoriete plekjes te liken!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F5F5F5',
+                cancelButtonColor: '#F04E37',
+                confirmButtonText: 'Meld je nu aan!',
+                cancelButtonText: 'Later'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.html"
+                }
             })
         }
 
@@ -919,11 +925,17 @@ function renderParkData(park) {
                 })
         } else {
             Swal.fire({
-                position: 'top-end',
-                icon: 'info',
-                title: 'Log je in om te liken!',
-                showConfirmButton: false,
-                timer: 2000
+                text: "Meld je aan om jouw favoriete plekjes te liken!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F5F5F5',
+                cancelButtonColor: '#F04E37',
+                confirmButtonText: 'Meld je nu aan!',
+                cancelButtonText: 'Later'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.html"
+                }
             })
         }
 
@@ -1108,11 +1120,17 @@ function renderBusData(bus) {
                 })
         } else {
             Swal.fire({
-                position: 'top-end',
-                icon: 'info',
-                title: 'Log je in om te liken!',
-                showConfirmButton: false,
-                timer: 2000
+                text: "Meld je aan om jouw favoriete plekjes te liken!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F5F5F5',
+                cancelButtonColor: '#F04E37',
+                confirmButtonText: 'Meld je nu aan!',
+                cancelButtonText: 'Later'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.html"
+                }
             })
         }
 
@@ -1295,16 +1313,16 @@ function renderToiletData(findToilet) {
                 })
         } else {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                text: "Meld je aan om jouw favoriete plekjes te liken!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonColor: '#F5F5F5',
+                cancelButtonColor: '#F04E37',
+                confirmButtonText: 'Meld je nu aan!',
+                cancelButtonText: 'Later'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+                    window.location.href = "login.html"
                 }
             })
         }
