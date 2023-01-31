@@ -29,7 +29,6 @@ We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.
 > JEF festival 2023 vertoningsschema's & communicatie
 - https://datastudio.google.com/reporting/b99f3e6a-aa96-4475-949e-cdf6e5824daa?s=qPgYTFK-Ogg 
 
-//TODO:
 > Npm packages 
 - https://www.npmjs.com/ 
 
