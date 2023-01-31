@@ -2,7 +2,7 @@
 	"name": "JEF Festival",
 	"short_name": "JEF Festival",
 	"start_url": "./index.html",
-	"display": "standalone",
+	"display": "display",
 	"orientation": "portrait",
 	"background_color": "#ccc",
 	"theme_color": "#217346",
