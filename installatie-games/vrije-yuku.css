@@ -30,8 +30,8 @@ body {
 }
 
 .animation {
-    width: 80%;
-    margin-top: 40%;
+    width: 70%;
+    margin-top: 50%;
     margin-left: 12%;
 }
 
@@ -47,7 +47,7 @@ body {
 #cell {
     position: absolute;
     /* Niet aanraken */
-    top: 200px;
+    top: 180px;
     width: 70%;
     left: 15%;
     margin-top: 25%;
