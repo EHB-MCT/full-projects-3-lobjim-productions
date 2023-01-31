@@ -30,23 +30,20 @@ Wij bieden gebruikers ook de mogelijkheid om direct naar onze kaart te gaan met 
 Wanneer je op de pagina “Over JEF” terecht komt. Krijg je informatie over wat JEF festival is en in welke locatie deze zullen doorgaan. Daarnaast vind je de datum van deze festivals. Tenslotte vind je ook een telefoonnummer, een e-mail adres en de link naar de officiële website.
 
 ## JEFBOX
-Wanneer je op deze pagina komt krijg je allemaal spelletjes over de film "Yuku en de Himalayabloem". Alle spelletjes zijn gesloten behalve het spelletje "Duizelige kat". De spelletjes die gesloten zijn moeten worden geopend door een wachtwoord (JEFwoord) dat aan de installaties zullen staan. Ook staat er meer informatie iver de photobooth.<strong> Zelf hebben we de Duizelige kat en Vrije Yuku uitgewerkt in onze webapp en als interactieve installatie. </strong>
+Wanneer je op deze pagina komt krijg je allemaal spelletjes over de film "Yuku en de Himalayabloem". Alle spelletjes zijn gesloten behalve het spelletje "Duizelige kat". De spelletjes die gesloten zijn moeten worden geopend door een wachtwoord (JEFwoord) dat aan de installaties zullen staan. Ook staat er meer informatie iver de photobooth.<strong> Zelf hebben we de Duizelige kat en Bevrijd Yuku uitgewerkt in onze webapp en als interactieve installatie. </strong>
 
 Uitleg van de spelletjes: 
 
 - Duizelige kat:  Deze interactie gaat over het draaien van de kat totdat de kat misselijk wordt en gaat
 beginnen overgeven. Het draaien van de kat gaat door touchscreen gebeuren. 
-<details>
-           <summary>JEFwoord</summary>
-           <p>GEVANGENIS</p>
-</details>
 
-- Vrije Yuku: Yuku is gevangen genomen en de kindjes kunnen haar helpen door meermaals op de
+
+- Bevrijd Yuku: Yuku is gevangen genomen en de kindjes kunnen haar helpen door meermaals op de
 knop te drukken. Door elke keer op de knop te drukken gaat de gevangenis meer om
 meer openen tot als Yuku vrij is.
 <details>
            <summary>JEFwoord</summary>
-           <p></p>
+           <p>GEVANGENIS</p>
 </details>
 
 - Op een dag: In het begin van het verhaal gaan de kinderen een boek moeten openen om met het
