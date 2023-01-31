@@ -86,7 +86,11 @@ heeft getoont.
 Op deze pagina zal je een wachtwoord moeten invoeren om access te krijgen tot bepaalde spelletjes van de web applicatie. Je zal een tekstveldje zien staan, daarin moet je het wachtwoord invoeren dat je fysiek zal zien op het festival zelf.
 
 ## Loginpagina
+Als jij de app op de meest nuttige manier wil gebruiken, log je best in. Als je een eigen account hebt kan je plaatsen van op de Homepagina liken en ze bijhouden in een lijstje van de Myprofile pagina.
 
+Zoals je kan zien moet je een email en wachtwoord ingeven. Je kan op het oogje klikken om je wachtwoord te tonen. 
+
+Met de login knop log je in. Door op sign up te klikken kan je registreren als je nog geen account hebt.
 ## Downloadpagina (PWA)
 
 
