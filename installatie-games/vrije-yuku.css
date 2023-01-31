@@ -2,45 +2,52 @@ body {
     margin: 0px 0px;
 }
 
+.header img {
+    position: relative;
+    right: 100% !important;
+}
+
+
 .container {
     touch-action: none;
-    overflow: hidden;
-    overscroll-behavior: none;
     background-image: url('images/Cave-background.png');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    margin: 0px 0px;
+    margin: -1px 0px;
 }
 
 #escape-button {
     border: 6px solid black;
     display: block;
     background-color: #FF0000;
-    width: 20%;
-    height: 66px;
+    width: 25%;
+    height: 85px;
     position: relative;
-    line-height: 5%;
     border-radius: 50%;
     box-shadow: 0px 0px 0px #aaa, inset 2px 0px 0px #fff;
-    margin-top: 150%;
-    margin-left: 42%;
+    margin-top: 125%;
 }
 
 .animation {
-    width: 80%;
-    margin-top: 75%;
+    width: 70%;
+    margin-top: 50%;
     margin-left: 12%;
 }
 
 #back-button {
     display: none;
+    width: 100px;
+    height: 40px;
+    color: #FFFF;
+    background-color: #F04E37;
+    border: none;
 }
 
 #cell {
     position: absolute;
     /* Niet aanraken */
-    top: 200px;
+    top: 180px;
     width: 70%;
     left: 15%;
     margin-top: 25%;

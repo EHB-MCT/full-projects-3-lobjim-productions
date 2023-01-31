@@ -7,7 +7,7 @@ var clicks = 0;
 
 button.onclick = () => {
     clicks += 5;
-    cell.style.top = (200 - clicks * 2) + "px";
+    cell.style.top = (180 - clicks * 2) + "px";
     if (clicks >= 95) {
         button.style.display = "none";
         mouse.style.display = "none";
