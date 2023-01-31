@@ -548,3 +548,8 @@ a {
 .swal2-container.swal2-top-right>.swal2-popup {
     margin-top: 40%;
 }
+
+
+.swal2-styled.swal2-confirm {
+    color: black !important;
+}
