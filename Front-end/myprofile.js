@@ -9,13 +9,11 @@ if (localStorage.getItem('token')) {
 
     verifyToken().then(data => {
         if (data.message == "You are connected !") {
-            console.log(token)
             renderProfile()
             fetch(`https://jef-api.onrender.com/like/${token.id}`)
                 .then(res => res.json())
                 .then(data => {
                     data.data.forEach(el => {
-                        console.log(el)
                         renderLikedPlaces(el)
                     })
                 })
@@ -84,8 +82,6 @@ function renderLikedPlaces(data) {
     removeLike.forEach(el => {
         el.addEventListener('click', e => {
             const id = e.target.id
-            console.log(JSON.stringify(token.id))
-            console.log(id)
             fetch(`https://jef-api.onrender.com/deleteLike?likeId=${id}&userId=${token.id}`, {
                     method: "DELETE",
                     headers: {
@@ -94,15 +90,15 @@ function renderLikedPlaces(data) {
                     },
                 })
                 .then(res => res.json())
-                .then(data => {
-                    Swal.fire({
+                .then(async data => {
+                    await Swal.fire({
                         position: 'top-end',
                         icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
                     })
-                    location.reload()
+                    await location.reload()
                 })
         })
     })
@@ -110,9 +106,7 @@ function renderLikedPlaces(data) {
     const gaan = document.getElementsByName('go')
 
     gaan.forEach(el => {
-        console.log(el)
         el.addEventListener('click', e => {
-            console.log(e.target.id)
             fetch(`https://jef-api.onrender.com/like/${token.id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -156,7 +150,6 @@ function renderProfile() {
 
     const disconnect = document.getElementById('disconnect')
     disconnect.addEventListener('click', e => {
-        console.log('click')
         localStorage.removeItem('token')
         location.reload()
     })

@@ -26,13 +26,11 @@ let location = navigator.geolocation.getCurrentPosition(successLocation, errorLo
 function successLocation(position) {
     if (position) {
         userPosition = [position.coords.latitude, position.coords.longitude]
-        console.log(position.coords.latitude)
         let loc = {
             lat: position.coords.latitude,
             long: position.coords.longitude
         }
 
-        console.log(loc)
         localStorage.setItem('userPos', JSON.stringify(loc))
         let pos = L.control.locate({
             locateOptions: {
@@ -140,7 +138,6 @@ resto.addEventListener('click', e => {
 const jef = document.getElementById('optionDate')
 
 jef.addEventListener('change', e => {
-    console.log(e.target.value)
     const date = e.target.value
     jefMarkers.forEach(el => {
         map.removeLayer(el)
@@ -151,7 +148,6 @@ jef.addEventListener('change', e => {
     getJefData().then(data => {
         const filterByDate = data.filter(el => el.Datum == date)
         filterByDate.forEach(el => {
-            console.log(el)
             let adress = el.adres
             let lat = null
             let lon = null
@@ -424,7 +420,6 @@ function renderJefData(jef) {
     } else {
         wall = `<p>Interactive Wall: <img src="img/false.png"></p>`
     }
-    console.log(jef)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -451,8 +446,9 @@ function renderJefData(jef) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = jef.Locatienaam
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}+Antwerpen`, '_blank')
     })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
@@ -564,12 +560,11 @@ function renderJefData(jef) {
 }
 
 function renderRestoData(resto) {
-    console.log(resto)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
     <div class="naam">
-        <h2> ${resto.name}s</h2>
+        <h2> ${resto.name}</h2>
     </div>
     <div class="info">
                         <div class="info_leeftijd">
@@ -590,8 +585,9 @@ function renderRestoData(resto) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = resto.name
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}`, '_blank')
     })
 
     // ROUTE SYSTEM
@@ -697,8 +693,6 @@ function renderRestoData(resto) {
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
         const data = JSON.parse(localStorage.getItem('pos'))
-
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
@@ -734,6 +728,7 @@ function renderRestoData(resto) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
                 })
         } else {
             Swal.fire({
@@ -752,7 +747,6 @@ function renderRestoData(resto) {
 }
 
 function renderParkData(park) {
-    console.log(park)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -775,8 +769,9 @@ function renderParkData(park) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = park.attributes.NAAMLABEL
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}+Antwerpen`, '_blank')
     })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
@@ -919,6 +914,8 @@ function renderParkData(park) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
@@ -939,7 +936,6 @@ function renderParkData(park) {
 
 
 function renderBusData(bus) {
-    console.log(bus)
     main_popup.innerHTML = ""
     main_popup.innerHTML = ` <div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -1073,7 +1069,6 @@ function renderBusData(bus) {
 
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
@@ -1108,6 +1103,8 @@ function renderBusData(bus) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
@@ -1125,13 +1122,6 @@ function renderBusData(bus) {
 }
 
 function renderToiletData(findToilet) {
-    console.log(findToilet)
-    let uur
-    if (findToilet.attributes.OPENINGSUREN_OPM == null) {
-        uur = ` <p>Uur: /</p>`
-    } else {
-        uur = ` <p>Uur: ${findToilet.attributes.OPENINGSUREN_OPM}</p>`
-    }
     main_popup.innerHTML = ""
     main_popup.innerHTML = `<div class="popup-content">
     <span class="close-btn">&times;</span>
@@ -1265,7 +1255,6 @@ function renderToiletData(findToilet) {
 
     const like = document.getElementById('like')
     like.addEventListener('click', e => {
-        console.log('click')
         if (localStorage.getItem('token')) {
             let token
             let base64Url = localStorage.getItem('token').split('.')[1];
@@ -1301,6 +1290,8 @@ function renderToiletData(findToilet) {
                         showConfirmButton: false,
                         timer: 2000
                     })
+                    checkLike()
+
                 })
         } else {
             Swal.fire({
@@ -1365,8 +1356,14 @@ if (localStorage.getItem('likedPlace')) {
         </div>
         <div class="stop">
             <button id="stop">Stop</button>
+            <button id="redirect"><img src="img/google_maps_white.png" alt="google maps""></button>
         </div>
         </div>`
+            const redirect = document.getElementById('redirect')
+            redirect.addEventListener("click", e => {
+                const data = JSON.parse(localStorage.getItem('likedPlace'))
+                window.open(`http://maps.google.com?q=${data.lat}, ${data.long}`, '_blank')
+            })
             const stop = document.getElementById('stop')
             stop.addEventListener('click', e => {
                 localStorage.removeItem('likedPlace')

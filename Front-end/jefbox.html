@@ -13,6 +13,7 @@
     <script src="auth.js" type="module" defer></script>
     <script src="jefbox.js" type="module" defer></script>
     <script src="gameaccess.js" type="module" defer></script>
+    <script src="acces-game.js" type="module" defer></script>
 
 </head>
 
@@ -68,35 +69,35 @@
     <div class="yuku-spel">
         <h1>Yuku’s spel</h1>
         <div class="spelletjes">
-            <div class="spel1">
+            <div class="spel1" data-gameId="cat-game">
                 <a href="./access.html"
-                    onclick="localStorage.setItem('code', 'OVERGEVEN'); localStorage.setItem('gameId', 'cat-game');">
+                    onclick="localStorage.setItem('code', 'DRAAIEN');">
                     <img src="img/locked_white.png" id="locked_1" alt="locker"></a>
             </div>
-            <div class="spel2">
+            <div class="spel2" data-gameId="vrije-yuku">
                 <a href="./access.html"
                     onclick="localStorage.setItem('code', 'GEVANGENIS'); localStorage.setItem('gameId', 'vrije-yuku');">
                     <img src="img/locked_white.png" id="locked_2" alt="locker"></a>
             </div>
 
-            <div class="spel3">
+            <div class="spel3" data-gameId="not-yet">
                 <a href="./access.html"
                     onclick="localStorage.setItem('code', 'BOEK'); localStorage.setItem('gameId', 'not-yet');">
                     <img src="img/locked_white.png" id="locked_3" alt="locker"></a>
             </div>
-            <div class="spel4">
+            <div class="spel4" data-gameId="not-yet">
                 <a href="./access.html"
-                    onclick="localStorage.setItem('code', 'ZINGEN'); localStorage.setItem('gameId', 'not-yet');">
+                    onclick="localStorage.setItem('code', 'MIEREN'); localStorage.setItem('gameId', 'not-yet');">
                     <img src="img/locked_white.png" id="locked_4" alt="locker"></a>
             </div>
-            <div class="spel5">
+            <div class="spel5" data-gameId="not-yet">
                 <a href="./access.html"
-                    onclick="localStorage.setItem('code', 'LICHT'); localStorage.setItem('gameId', 'not-yet');">
+                    onclick="localStorage.setItem('code', 'BLOEM'); localStorage.setItem('gameId', 'not-yet');">
                     <img src="img/locked_white.png" id="locked_5" alt="locker"></a>
             </div>
-            <div class="spel6">
+            <div class="spel6" data-gameId="not-yet">
                 <a href="./access.html"
-                    onclick="localStorage.setItem('code', 'MUZIEK'); localStorage.setItem('gameId', 'not-yet');">
+                    onclick="localStorage.setItem('code', 'UKULELE'); localStorage.setItem('gameId', 'not-yet');">
                     <img src="img/locked_white.png" id="locked_6" alt="locker"></a>
             </div>
         </div>

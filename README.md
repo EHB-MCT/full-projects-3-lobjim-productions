@@ -1,37 +1,34 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9756456&assignment_repo_type=AssignmentRepo)
+## Klant 
+Onze klant is JEF!. JEF is een filmfestival gemaakt door jongeren. Elk jaar in februari organiseert het festival tentoonstellingen van films en workshops. Ook zijn er gasten, zoals regisseurs en acteurs, die na afloop van de tentoonstellingen deelnemen aan Q&A's.
+
+## Team LOBJIM Producions
+APP: Mohamed Mankouchi, Ilias Omari en Juan-Luca Lozano hebben gedurendre 3 weken gewerkt aan front-end en back-end van de app. Ze hebben ervoor gezorgd dat de app functioneel en mooi eruit zag. 
+SPELLETJES : Dina Bouazzafen en Mey-Lin Mus hebben ervoor gezorgd dat de spelletjes van de WEB APP functioneel zijn alsook hebben ze de interactieve installaties gecreërd.
+COMMUNICATION : Quentin hield zich voornamelijk bezig met administratieve taken zoals presentaties, klantenrelaties enzovoort.
 
 
-# JEF Festival - web app & instalations
+## Algemene informatie app
+We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.js (expressJS). Om deze aan te maken hebben we 3 dagen gespendeerd. 
+// hier moet deployment docu terecht
 
-## Table of Contents
-* General information
-* Explanation of Jef festival
-* Explanation of Jefbox
-* Technologies
-* Setup
-* Source list
+# JEF Festival - web app & installations
 
-## General information
-This project is ...
+## Welkompagina
 
-## Explanation of Jef festival
+## Homepagina
 
-## Explanation of Jefbox
+## Myprofile
 
-## Technologies
-Project is created with:
-* Visual Studio Code version: 1.71.2
+## Over JEF
+Wanneer je op de pagina “Over JEF” terecht komt. Krijg je informatie over wat JEF festival is en in welke locatie deze zullen doorgaan. Daarnaast vind je de datum van deze festivals. Tenslotte vind je ook een telefoonnummer, een e-mail adres en de link naar de officiële website.
+## JEFBOX
 
-## Setup
-To run this project, install it locally using ...:
-```
-$ cd ../lorem
-$ ... install
-$ ... start
-```
+## Accespagina
 
-## Source list
-### Dizzy kitty
-https://codingbeautydev.com/blog/javascript-rotate-image/#:~:text=To%20rotate%20an%20image%20with%20JavaScript%2C%20access%20the%20image%20element,angle%20of%20rotation%20in%20degrees.
+## Loginpagina
 
-### ...
+## Downloadpagina (PWA)
+
+
+
+
