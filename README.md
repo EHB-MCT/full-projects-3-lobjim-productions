@@ -40,6 +40,7 @@ Als jij de app op de meest nuttige manier wil gebruiken, log je best in. Als je 
 Zoals je kan zien moet je een email en wachtwoord ingeven. Je kan op het oogje klikken om je wachtwoord te tonen. 
 
 Met de login knop log je in. Door op sign up te klikken kan je registreren als je nog geen account hebt.
+
 ## Downloadpagina (PWA)
 
 ## Source links
