@@ -20,7 +20,7 @@ We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.
 ## Myprofile
 
 ## Over JEF
-
+Wanneer je op de pagina “Over JEF” terecht komt. Krijg je informatie over wat JEF festival is en in welke locatie deze zullen doorgaan. Daarnaast vind je de datum van deze festivals. Tenslotte vind je ook een telefoonnummer, een e-mail adres en de link naar de officiële website.
 ## JEFBOX
 
 ## Accespagina
