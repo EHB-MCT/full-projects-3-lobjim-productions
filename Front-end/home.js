@@ -446,8 +446,9 @@ function renderJefData(jef) {
 
     const redirect = document.getElementById('redirect')
     redirect.addEventListener("click", e => {
-        const data = JSON.parse(localStorage.getItem('pos'))
-        window.open(`http://maps.google.com?q=${data[1].lat}, ${data[1].lng}`, '_blank')
+        let adres = jef.Locatienaam
+        adres.replace(/\s/g, '+')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}+Antwerpen`, '_blank')
     })
     // ROUTE SYSTEM
     const route = document.getElementById('btn_gaan')
