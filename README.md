@@ -9,7 +9,126 @@ COMMUNICATION : Quentin hield zich voornamelijk bezig met administratieve taken 
 
 ## Algemene informatie app
 We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.js (expressJS). Om deze aan te maken hebben we 3 dagen gespendeerd. 
-// hier moet deployment docu terecht
+
+### Source links
+> Ardiuno code (Zie file [/arduino.txt]) 
+- https://arduinogetstarted.com/tutorials/arduino-button-servo-motor
+
+> API parken in Antwerpen
+- https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek6/MapServer/758/query?where=1%3D1&outFields=*&outSR=4326&f=json 
+
+> API bushaltes
+- https://geo.api.vlaanderen.be/Haltes/ogc/features/collections/Halte/items?f=application%2Fjson&limit=50 
+
+> API stations
+- https://api.irail.be/stations/?format=json&lang=en 
+
+> API toiletten in Antwerpen
+- https://geodata.antwerpen.be/arcgissql/rest/services/P_Portal/portal_publiek1/MapServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json 
+
+> JEF festival 2023 vertoningsschema's & communicatie
+- https://datastudio.google.com/reporting/b99f3e6a-aa96-4475-949e-cdf6e5824daa?s=qPgYTFK-Ogg 
+
+//TODO:
+> Npm packages 
+- https://www.npmjs.com/ 
+
+
+#### front end
+**leaflet**
+Use the package manager [npm](https://www.npmjs.com/package/leaflet) to install leaflet.
+
+```bash
+npm install leaflet
+```
+#### back end
+**Cors**
+Use the package manager [npm](https://www.npmjs.com/package/cors) to install cors.
+```bash
+npm install cors
+```
+
+**Dotenv**
+Use the package manager [npm](https://www.npmjs.com/package/dotenv) to install dotenv.
+```bash
+npm install dotenv
+```
+
+**Express**
+Use the package manager [npm](https://www.npmjs.com/package/express) to install express.
+```bash
+npm install express
+```
+
+**Mongodb**
+Use the package manager [npm](https://www.npmjs.com/package/mongodb) to install mongodb.
+```bash
+npm install mongodb
+```
+
+**Nodemon**
+Use the package manager [npm](https://www.npmjs.com/package/nodemon) to install nodemon.
+```bash
+npm install nodemon
+```
+**uuid**
+Use the package manager [npm](https://www.npmjs.com/package/webpack) to install uuid.
+
+```bash
+npm install uuid
+```
+**jsonwebtoken**
+Use the package manager [npm](https://www.npmjs.com/package/jsonwebtoken) to install jsonwebtoken.
+
+```bash
+npm install jsonwebtoken
+```
+**bcrypt**
+Use the package manager [npm](https://www.npmjs.com/package/bcrypt) to install bcrypt.
+
+```bash
+npm install bcrypt
+```
+
+> Google maps
+- https://www.google.be/maps  
+
+> Leaflet map
+- https://leafletjs.com/ 
+
+> Alert popup 
+- https://sweetalert2.github.io/ 
+
+> Leaflet Routing Machine
+- https://github.com/perliedman/leaflet-routing-machine 
+
+> Geolocation
+- https://github.com/domoritz/leaflet-locatecontrol 
+
+ 
+
+### Used servers
+
+- Mongodb as a database (NoSQL) 
+
+- Node JS and express JS to create API.  
+
+- Render.com for API hosting  
+
+- SweetAlert 2 for clean alerts on the webapp  
+
+- Google maps for the redirect, alternative to take a look of the route overview. 
+
+### All the detailed versions of the installed software
+
+- Leaflet -> version 1.9 
+
+- Leaflet-Routing-Machine -> version 3.2.12 
+
+- Leaflet-Locatecontrol -> version 0.79.0 
+
+- SweetAlert 2 -> version 11.7.1 
+
 
 # JEF Festival - web app & installations
 
@@ -96,21 +215,8 @@ Als onze gebruikers een Android-telefoon hebben, kunnen zij de applicatie downlo
 Als onze gebruiker een iPhone heeft, moet hij/zij de link op safari openen. Dan moet hij naar het "delen"-pictogram gaan en de optie "toevoegen aan beginscherm" kiezen. De applicatie staat dan op hun startscherm. 
 
 
-## Source links
-> Ardiuno code
-- https://arduinogetstarted.com/tutorials/arduino-button-servo-motor
 
->
-- 
 
->
-- 
-
->
-- 
-
->
--  
 
 
 
