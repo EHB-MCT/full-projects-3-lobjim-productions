@@ -14,6 +14,7 @@ We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.
 # JEF Festival - web app & installations
 
 ## Welkompagina
+Het document home.html bevat de hoofdpagina van de applicatie. Hier navigeren gebruikers door de kaart en vinden ze allerlei informatie. Ten eerste, bevat de pagina een kaart die de locatie van de gebruiker bevraagt, zodat deze live kan worden bekeken. De pagina bevat vervolgens een aantal filters, onder meer voor toiletten, restaurants, parken en bushaltes. Afhankelijk van welke filters u aanklikt, verschijnen er markeringen op de kaart. Gebruikers kunnen dan op de marker klikken om meer informatie te bekijken. Dit zal inzoomen op de kaart en een informatiebox weergeven met de nodige gegevens zoals naam en adres. U kunt dan uw weg vinden door te klikken op de Route-knop of de Google Maps-knop om rechtstreeks naar de kaartentoepassing of website voor de geselecteerde route te gaan. De app bevat ook een datumkiezer die festivallocaties op datum weergeeft. Ten laatste, kunnen gebruikers plaatsen liken en toevoegen aan hun profiel. Als u op de Like-knop klikt, wordt het hart automatisch gevuld en verschijnt er een melding dat de locatie is opgeslagen.
 
 ## Homepagina
 
