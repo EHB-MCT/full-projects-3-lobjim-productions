@@ -35,11 +35,12 @@ We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.
 
 #### front end
 **leaflet**
-Use the package manager [npm](https://www.npmjs.com/package/leaflet) to install leaflet.
-
+Using  a hosed version of leaflet (cdnjs)
 ```bash
-npm install leaflet
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 ```
+
 #### back end
 **Cors**
 Use the package manager [npm](https://www.npmjs.com/package/cors) to install cors.
