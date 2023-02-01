@@ -4,7 +4,6 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
-    background-color: #A97C50;
 }
 
 .logo img {
@@ -19,11 +18,6 @@ body {
     margin-top: 0px;
 }
 
-/* .cat {
-    margin-top: 250px;
-} */
-
-
 #return {
     width: 225px;
     height: 41px;
@@ -33,6 +27,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 16px;
+    margin-bottom: 10%;
 }
 
 a {
