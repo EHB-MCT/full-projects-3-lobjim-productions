@@ -335,6 +335,9 @@ a {
 
 
 #optionDate {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
     background-color: #F04E37;
     border: 0px;
     color: white;
