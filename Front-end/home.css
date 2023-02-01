@@ -155,9 +155,9 @@ body {
 }
 
 #map {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     border-radius: 8px;
     height: 100%;
     width: 100%;
