@@ -1,9 +1,6 @@
 html,
 body {
     touch-action: none;
-    -webkit-overflow-scrolling: none;
-    overflow: hidden;
-    overscroll-behavior: none;
     background-color: #A97C50;
 }
 
@@ -44,7 +41,6 @@ body {
     color: #FFFF;
     background-color: #F04E37;
     border: none;
-    margin-top: 70px;
 }
 
 .button {
