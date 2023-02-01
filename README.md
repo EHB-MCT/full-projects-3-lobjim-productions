@@ -29,7 +29,6 @@ We hebben een API aangemaakt en gepubliceerd aan de hand van Render.com en Node.
 > JEF festival 2023 vertoningsschema's & communicatie
 - https://datastudio.google.com/reporting/b99f3e6a-aa96-4475-949e-cdf6e5824daa?s=qPgYTFK-Ogg 
 
-//TODO:
 > Npm packages 
 - https://www.npmjs.com/ 
 
@@ -207,6 +206,7 @@ Als jij de app op de meest nuttige manier wil gebruiken, log je best in. Als je 
 Zoals je kan zien moet je een email en wachtwoord ingeven. Je kan op het oogje klikken om je wachtwoord te tonen. 
 
 Met de login knop log je in. Door op sign up te klikken kan je registreren als je nog geen account hebt.
+
 ## Downloadpagina (PWA)
 De pwa.html-pagina is voor gebruikers die de QR-code scannen, die op verschillende plaatsen in het JEF-festival te vinden zal zijn, om onze web-app op hun telefoon te downloaden. 
 
