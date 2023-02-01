@@ -1,3 +1,5 @@
+import {updateScoreForPlayedGame} from './../Front-end/track-score.js';
+
 document.getElementById('replay').style.display = "none";
 const animationURL = document.getElementById('gif-cat');
 
@@ -30,6 +32,8 @@ function rotateImage() {
         // Remove the touchmove event listener to stop the rotation
         document.getElementById("rotate").removeEventListener('touchmove', rotateImage);
         document.getElementById('replay').style.display = "block";
+        // Update score
+        updateScoreForPlayedGame();
     }
 }
 
