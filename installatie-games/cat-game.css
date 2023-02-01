@@ -1,12 +1,8 @@
 html,
 body {
     touch-action: none;
-    background-color: #A97C50;
 }
 
-.container {
-    background-color: #A97C50 !important;
-}
 
 .header_text {
     font-family: 'Montserrat', sans-serif;
