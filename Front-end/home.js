@@ -587,7 +587,7 @@ function renderRestoData(resto) {
     redirect.addEventListener("click", e => {
         let adres = resto.name
         adres.replace(/\s/g, '+')
-        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}`, '_blank')
+        window.open(`https://www.google.com/maps/search/?api=1&query=${adres}+Antwerpen`, '_blank')
     })
 
     // ROUTE SYSTEM
