@@ -141,6 +141,7 @@ body {
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     appearance: none !important;
+    -webkit-border-radius: 8px;
     position: relative;
     border-radius: 8px;
     z-index: 1000;
@@ -152,8 +153,6 @@ body {
     margin-top: 52px;
     justify-content: space-evenly;
     display: flex;
-    border: 2px solid white;
-    border-radius: 8px;
 }
 
 .routeData {
@@ -162,8 +161,10 @@ body {
 
 #map {
     border-radius: 8px;
+    overflow: hidden;
     height: 100%;
     width: 100%;
+    margin-top: -20px;
 }
 
 .info_route {
