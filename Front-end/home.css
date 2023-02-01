@@ -138,6 +138,9 @@ body {
 }
 
 .mapContainer {
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     position: relative;
     z-index: 1000;
     width: 320px;
@@ -158,6 +161,8 @@ body {
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
     appearance: none !important;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
     border-radius: 8px;
     height: 100%;
     width: 100%;
