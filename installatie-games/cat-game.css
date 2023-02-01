@@ -1,6 +1,6 @@
 html,
 body {
-    touch-action: pan-y;
+    touch-action: none;
     background-color: #A97C50;
 }
 
