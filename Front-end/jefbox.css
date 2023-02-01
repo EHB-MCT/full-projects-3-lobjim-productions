@@ -9,9 +9,10 @@
 
 }
 
-#score{
+#score {
     margin: 10%;
 }
+
 .info-jefbox p {
     margin-left: 30px;
     margin-bottom: 20px;
@@ -104,7 +105,7 @@
 }
 
 .spel2 {
-    background-image: url('./../installatie-games/images/vrije_yuku.jpg');
+    background-image: url('./../installatie-games/images/bevrijd_yuku.jpg');
     background-position: center;
     background-size: cover;
 }
