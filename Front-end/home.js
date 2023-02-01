@@ -723,7 +723,7 @@ function renderRestoData(resto) {
                 .then(data => {
                     Swal.fire({
                         position: 'top-end',
-                        icon: 'succes',
+                        icon: 'success',
                         title: data.message,
                         showConfirmButton: false,
                         timer: 2000
