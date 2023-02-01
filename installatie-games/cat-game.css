@@ -4,9 +4,12 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
+    background-color: #A97C50;
 }
 
-
+.container {
+    background-color: #A97C50 !important;
+}
 
 .header_text {
     font-family: 'Montserrat', sans-serif;
@@ -14,6 +17,9 @@ body {
     margin-top: 60px;
 }
 
+.header img {
+    margin-right: 200px !important;
+}
 
 .cat {
     margin-top: 100px;
@@ -32,12 +38,6 @@ body {
     width: 100%;
 }
 
-.logo img {
-    margin-top: 5px;
-    width: 15%;
-    margin-left: 2%;
-}
-
 #replay {
     width: 100px;
     height: 40px;
@@ -45,7 +45,6 @@ body {
     background-color: #F04E37;
     border: none;
     margin-top: 70px;
-
 }
 
 .button {
