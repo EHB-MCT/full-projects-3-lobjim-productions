@@ -164,6 +164,7 @@ body {
     -moz-border-radius: 8px !important;
     -webkit-border-radius: 8px !important;
     border-radius: 8px !important;
+    overflow: hidden;
     height: 100%;
     width: 100%;
     margin-top: -20px;
