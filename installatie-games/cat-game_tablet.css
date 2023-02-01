@@ -19,9 +19,9 @@ body {
     margin-top: 0px;
 }
 
-.cat {
+/* .cat {
     margin-top: 250px;
-}
+} */
 
 
 #return {
@@ -41,20 +41,24 @@ a {
 
 #gif {
     display: none;
+
+
+}
+
+#gif-cat {
+    width: 10%;
 }
 
 .button {
     position: fixed;
-    top: 96px;
+    bottom: 60px;
     left: 42%;
     width: 20%;
     display: flex;
     justify-content: center;
 }
 
-
 #rotated {
-    width: 60%;
-    margin-left: 122px;
-    margin-top: -30%;
+    width: 50%;
+    margin-left: 25%;
 }
