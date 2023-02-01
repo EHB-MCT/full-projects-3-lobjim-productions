@@ -4,7 +4,7 @@ parentContainer.addEventListener("click", function(event) {
     const gameId = event.target.getAttribute("data-gameId");
     if (localStorage.getItem(gameId) === "true") {
         event.preventDefault();
-        window.location.href = './../installatie-games/'+gameId+'.html';
+        window.location.href = './../installatie-games/'+gameId+'_info-spel.html';
     }
   }
 });

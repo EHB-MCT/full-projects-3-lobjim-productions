@@ -1,4 +1,4 @@
-const gameIds = ['cat-game', 'vrije-yuku', 'not-yet', 'not-yet', 'not-yet', 'not-yet'];
+const gameIds = ['cat-game', 'bevrijd-yuku', 'not-yet', 'not-yet', 'not-yet', 'not-yet'];
 
 gameIds.forEach((gameId, i) => {
   if (i === 0) {
