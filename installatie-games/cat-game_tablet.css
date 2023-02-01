@@ -4,6 +4,7 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
+    background-color: #A97C50;
 }
 
 .logo img {
@@ -19,14 +20,9 @@ body {
 }
 
 .cat {
-    margin-top: 225px;
+    margin-top: 250px;
 }
 
-.container {
-    margin-top: -50px;
-    margin-left: 50px;
-    width: 90%;
-}
 
 #return {
     width: 225px;
