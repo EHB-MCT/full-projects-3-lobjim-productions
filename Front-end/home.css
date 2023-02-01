@@ -142,6 +142,7 @@ body {
     -webkit-appearance: none !important;
     appearance: none !important;
     position: relative;
+    border-radius: 8px;
     z-index: 1000;
     width: 320px;
     margin-left: auto;
@@ -151,6 +152,8 @@ body {
     margin-top: 52px;
     justify-content: space-evenly;
     display: flex;
+    border: 2px solid white;
+    border-radius: 8px;
 }
 
 .routeData {
@@ -158,16 +161,9 @@ body {
 }
 
 #map {
-    -moz-appearance: none !important;
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    -moz-border-radius: 8px !important;
-    -webkit-border-radius: 8px !important;
-    border-radius: 8px !important;
-    overflow: hidden;
+    border-radius: 8px;
     height: 100%;
     width: 100%;
-    margin-top: -20px;
 }
 
 .info_route {
