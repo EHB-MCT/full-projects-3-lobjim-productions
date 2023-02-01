@@ -6,7 +6,7 @@ form.addEventListener("submit", function(event) {
     const code = localStorage.getItem("code");
     if (password === code) {
         localStorage.setItem(gameId, "true")
-        window.location.href = './../installatie-games/'+gameId+'.html';
+        window.location.href = './../installatie-games/'+gameId+'_info-spel.html';
 
     } else {
         document.querySelector('#error-message').innerHTML = 'Incorrect password. Please try again.';

@@ -4,12 +4,12 @@ let score = parseInt(localStorage.getItem('score'), 10) || 0;
 
 gameIds.forEach((gameId, i) => {
   if (localStorage.getItem(gameId) === 'true') {
-    score += 100;
+    score += 10;
   }
 });
 
 localStorage.setItem('score', score);
 
-document.querySelector('#score').innerHTML = score;
+document.querySelector('#score').innerHTML = ("Score:",score);
 
 
