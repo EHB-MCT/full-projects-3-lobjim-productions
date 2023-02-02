@@ -6,11 +6,29 @@
     margin-top: 25px;
     font-weight: bolder;
     font-size: 25px;
+}
 
+.yuku-title {
+    display: flex;
 }
 
 #score {
+    float: left;
+}
+
+#score {
+    font-weight: bolder;
     margin: 10%;
+    position: relative;
+    bottom: 15px;
+    left: 12%;
+    border-radius: 10px;
+    border: 2px solid #F04E37;
+    padding: 5px 5px;
+}
+
+#score::before {
+    content: 'Score: ';
 }
 
 .info-jefbox p {
