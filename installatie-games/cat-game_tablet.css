@@ -15,7 +15,8 @@ body {
 .header_text {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-top: 0px;
+    position: relative;
+    bottom: 15px;
 }
 
 #return {
@@ -27,7 +28,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 16px;
-    margin-bottom: 40%;
+    margin-bottom: 10%;
 }
 
 a {
@@ -54,5 +55,7 @@ a {
 
 #rotated {
     width: 50%;
-    margin-left: 25%;
+    position: relative;
+    left: 25%;
+    bottom: 35px;
 }
